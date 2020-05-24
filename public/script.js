@@ -48,9 +48,7 @@ document.querySelector('#go').addEventListener('click', () => {
   let location = document.getElementById("location").value;
   let search_word = document.getElementById("autocompletelist").options[0].value;
 
- 
-  alert(location);
-   alert(search_word);
+
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
   xmlhttp.open("POST", '/getRestaurant');
@@ -134,11 +132,11 @@ document.querySelector('#go').addEventListener('click', () => {
               rating5.className="far fa-star"
           
               rating5.textContent=item.review_count + " reviews";
-             rating_div.appendChild(rating1);
-             rating_div.appendChild(rating2);
-             rating_div.appendChild(rating3);
-             rating_div.appendChild(rating4);
-             rating_div.appendChild(rating5);
+              rating_div.appendChild(rating1);
+              rating_div.appendChild(rating2);
+              rating_div.appendChild(rating3);
+              rating_div.appendChild(rating4);
+              rating_div.appendChild(rating5);
              
            } 
            else if(item.rating==4.5) {
@@ -317,7 +315,7 @@ document.querySelector('#go').addEventListener('click', () => {
 
    // document.getElementById("restaurantImg").src="https://s3-media2.fl.yelpcdn.com/bphoto/LTfgfyCJaboZdhHWemxl5A/o.jpg"
    
-  alert(xmlhttp.responseText);
+ // alert(xmlhttp.responseText);
   }
   // all set up!  Send off the HTTP request
   xmlhttp.send(JSON.stringify({ "param1":location , "param2":search_word }));
