@@ -389,7 +389,7 @@ xhr.send(JSON.stringify({ "keyword":search_word }));
   // all set up!  Send off the HTTP request
 //  xmlhttp.send(JSON.stringify(data));
 
-//businessdetails();
+ businessdetails();
   function businessdetails() {
    
   let url = "businessdetails";

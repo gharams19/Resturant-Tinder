@@ -122,7 +122,7 @@ client.reviews('black-bear-diner-davis').then(response => {
 
  app.get('/businessdetails', function(request, response, next){
 
-
+console.log("this is busness detail");
 client.business('black-bear-diner-davis').then(response => {
   console.log(response.jsonBody.name);
   console.log(response.jsonBody.price);
@@ -131,6 +131,11 @@ client.business('black-bear-diner-davis').then(response => {
   console.log(response.jsonBody.image_url);
   console.log(response.jsonBody.url);
  
+   response.jsonBody.businesses.forEach(function(row) {
+  //  var result = row.businesses;
+     const prettyJson = JSON.stringify(row, null, 4);
+     console.log(prettyJson);
+});
   
 }).catch(e => {
   console.log(e);
