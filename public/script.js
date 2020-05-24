@@ -69,8 +69,10 @@ document.querySelector('#go').addEventListener('click', () => {
     let  rating_div = document.createElement('div');
     rating_div.className="rating";
     
+    
+    //clean up
     dataList.textContent="";
-         // Loop over the JSON array.
+    // Loop over the JSON array.
     restaurantList.forEach(function(item) {
            var gallery_div = document.createElement('div');
            gallery_div.className="gallery";
@@ -83,23 +85,50 @@ document.querySelector('#go').addEventListener('click', () => {
            desc_div.className="desc";
            desc_div.textContent=item.name;
             
-       <div class="dot">
-          <div id="dot1" class="selected" onclick="changeColor('dot1','#e6e2cf')"> </div>
-          <div id="dot2" onclick="changeColor('dot2','#dbcaac')"> </div>
-          <div id="dot3" onclick="changeColor('dot3','#c9cbb3')"> </div>
-          <div id="dot4" onclick="changeColor('dot4','#bbc9ca')"> </div>
-          <div id="dot5" onclick="changeColor('dot5','#a6a5b5')"> </div>
-          <div id="dot6" onclick="changeColor('dot6','#b5a6ab')"> </div>
-          <div id="dot7" onclick="changeColor('dot7','#eccfcf')"> </div>
-          <div id="dot8" onclick="changeColor('dot8','#eceeeb')"> </div>
-          <div id="dot9" onclick="changeColor('dot9','#bab9b5')"> </div>
-        </div>  
-           var rating = document.createElement('div');
+      
+          
       
       
-           rating.className="rating-star";
-           rating.textContent=item.name;
-      
+           if(item.rating==5) {
+              var rating = document.createElement('div');
+              rating.className="rating-star";
+             
+              var rating = document.createElement('div');
+              rating.className="rating-star";
+             
+              var rating = document.createElement('div');
+              rating.className="rating-star"
+             
+              var rating = document.createElement('div');
+              rating.className="rating-star"
+             
+           }
+           else if(item.rating==4) {
+           rating.className="rating-star-four";
+           } 
+           else if(item.rating==4.5) {
+           rating.className="rating-star-four-point-five";
+           } 
+           else if(item.rating==3) {
+           rating.className="rating-star-three";
+           }
+           else if(item.rating==3.5) {
+           rating.className="rating-star-three-point-five";
+           }
+           else if(item.rating==2) {
+           rating.className="rating-star-two";
+           }
+           else if(item.rating==2.5) {
+           rating.className="rating-star-two-point-five";
+           }
+           else if(item.rating==1) {
+           rating.className="rating-star-one";
+           }
+           else if(item.rating==1.5) {
+           rating.className="rating-star-one-point-five";
+           }
+           rating_div.appendChild(rating);
+           gallery_div.appendChild(rating_div);
            gallery_div.appendChild(desc_div);
            dataList.appendChild(gallery_div);
        
