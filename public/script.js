@@ -66,30 +66,21 @@ document.querySelector('#go').addEventListener('click', () => {
     let  restaurantList = JSON.parse(responseStr);  // turn it into an object
       
     let dataList = document.getElementById("image_panel");
-        
+    dataList.textContent="";
          // Loop over the JSON array.
     restaurantList.forEach(function(item) {
-        // Create a new <option> element.
- //      document.getElementById("restaurantImg").src=data[0].image_url;
-       //alert('here');
-         var gallery_div = document.createElement('div');
-      gallery_div.className="gallery";
-      //  alert('here');
-         var img = document.createElement('img');
-       // alert('here');
-        // Set the value using the item in the JSON array.
-        img.src = item.image_url;
-      //  alert('here');
-        gallery_div.appendChild(img);
-      //   alert('here');
-        var desc_div = document.createElement('div');
-      desc_div.className="desc";
-      //  alert(item.text);
-        // Add the <option> element to the <datalist>.
-        
-        desc_div.textContent=item.name;
-        gallery_div.appendChild(desc_div);
-        dataList.appendChild(gallery_div);
+           var gallery_div = document.createElement('div');
+           gallery_div.className="gallery";
+           var img = document.createElement('img');
+           img.src = item.image_url;
+     
+           gallery_div.appendChild(img);
+      
+           var desc_div = document.createElement('div');
+           desc_div.className="desc";
+           desc_div.textContent=item.name;
+           gallery_div.appendChild(desc_div);
+           dataList.appendChild(gallery_div);
        
       });
 
