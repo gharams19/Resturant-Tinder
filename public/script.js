@@ -69,7 +69,7 @@ document.querySelector('#go').addEventListener('click', () => {
     
     
     //clean up
-    dataList.textContent="";
+    dataList.textContent='';
     // Loop over the JSON array.
     restaurantList.forEach(function(item) {
            var gallery_div = document.createElement('div');
