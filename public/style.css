@@ -89,6 +89,12 @@ div.desc {
   font-weight:bold;
 }
 
+div.title {
+  padding: 15px;
+  text-align: left;
+ 
+}
+
 .rating {
   display: flex;
   flex-flow: row wrap;

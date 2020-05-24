@@ -85,6 +85,9 @@ document.querySelector('#go').addEventListener('click', () => {
            desc_div.className="desc";
            desc_div.textContent=item.name + " " + item.price ;
             
+           var title_div = document.createElement('div');
+           title_div.className="title";
+           title_div.textContent=item.categories[0].title;
        
            let  rating_div = document.createElement('div');
            rating_div.className="rating";
@@ -306,6 +309,7 @@ document.querySelector('#go').addEventListener('click', () => {
            }
       
            gallery_div.appendChild(desc_div);
+           gallery_div.appendChild( title_div);     
            gallery_div.appendChild(rating_div);          
            dataList.appendChild(gallery_div);
        
