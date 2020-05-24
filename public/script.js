@@ -148,9 +148,7 @@ keyword.addEventListener("change", autoComplete);
         // Create a new <option> element.
         var option = document.createElement('option');
         // Set the value using the item in the JSON array.
-        option.value = item.text;
-      //  alert(item.text);
-        // Add the <option> element to the <datalist>.
+        option.value = item.text;  
         dataList.appendChild(option);
       });
       } 
