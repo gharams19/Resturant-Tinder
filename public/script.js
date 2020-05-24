@@ -114,7 +114,7 @@ document.querySelector('#go').addEventListener('click', () => {
              
            }
            else if(item.rating==4) {
-                var rating1 = document.createElement('i');
+              var rating1 = document.createElement('i');
               rating1.className="fas fa-star";
              
               var rating2 = document.createElement('i');
@@ -126,7 +126,7 @@ document.querySelector('#go').addEventListener('click', () => {
               var rating4 = document.createElement('i');
               rating4.className="fas fa-star"
              
-             var rating5 = document.createElement('i');
+              var rating5 = document.createElement('i');
               rating5.className="far fa-star"
           
              
@@ -153,11 +153,11 @@ document.querySelector('#go').addEventListener('click', () => {
              
               var rating45 = document.createElement('i');
               rating45.className="fas fa-star-half-alt"
-             rating_div.appendChild(rating1);
-             rating_div.appendChild(rating2);
-             rating_div.appendChild(rating3);
-             rating_div.appendChild(rating4);
-             rating_div.appendChild(rating45);
+              rating_div.appendChild(rating1);
+              rating_div.appendChild(rating2);
+              rating_div.appendChild(rating3);
+              rating_div.appendChild(rating4);
+              rating_div.appendChild(rating45);
            } 
            else if(item.rating==3) {
             var rating1 = document.createElement('i');
@@ -175,9 +175,9 @@ document.querySelector('#go').addEventListener('click', () => {
               var rating5 = document.createElement('i');
               rating5.className="far fa-star"
             
-             rating_div.appendChild(rating1);
-             rating_div.appendChild(rating2);
-             rating_div.appendChild(rating3);
+              rating_div.appendChild(rating1);
+              rating_div.appendChild(rating2);
+              rating_div.appendChild(rating3);
               rating_div.appendChild(rating4);
               rating_div.appendChild(rating5);
           
@@ -198,7 +198,7 @@ document.querySelector('#go').addEventListener('click', () => {
                                
               rating35.className="fas fa-star-half-alt"
              
-               var rating4 = document.createElement('i');
+              var rating4 = document.createElement('i');
               rating4.className="far fa-star"
              
              
@@ -215,15 +215,15 @@ document.querySelector('#go').addEventListener('click', () => {
               var rating2 = document.createElement('i');
               rating2.className="fas fa-star";
               
-                var rating3 = document.createElement('i');
+              var rating3 = document.createElement('i');
               rating3.className="far fa-star"
-                var rating4 = document.createElement('i');
+              var rating4 = document.createElement('i');
               rating4.className="far fa-star"
-                var rating5 = document.createElement('i');
+              var rating5 = document.createElement('i');
               rating5.className="far fa-star"
            
-             rating_div.appendChild(rating1);
-             rating_div.appendChild(rating2);
+              rating_div.appendChild(rating1);
+              rating_div.appendChild(rating2);
               rating_div.appendChild(rating3);
               rating_div.appendChild(rating4);
               rating_div.appendChild(rating5);
@@ -239,16 +239,16 @@ document.querySelector('#go').addEventListener('click', () => {
               var rating25 = document.createElement('i');
               rating25.className="fas fa-star-half-alt"
              
-             var rating4 = document.createElement('i');
-               rating4.className="far fa-star"
-                var rating5 = document.createElement('i');
+              var rating4 = document.createElement('i');
+              rating4.className="far fa-star"
+              var rating5 = document.createElement('i');
               rating5.className="far fa-star"
            
              
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);           
               rating_div.appendChild(rating25);
-                 rating_div.appendChild(rating4);
+              rating_div.appendChild(rating4);
               rating_div.appendChild(rating5);
              
            }
@@ -256,16 +256,16 @@ document.querySelector('#go').addEventListener('click', () => {
               var rating1 = document.createElement('i');
               rating1.className="fas fa-star";      
             
-             var rating2 = document.createElement('i');
-               rating2.className="far fa-star"
-                var rating3 = document.createElement('i');
+              var rating2 = document.createElement('i');
+              rating2.className="far fa-star"
+              var rating3 = document.createElement('i');
               rating3.className="far fa-star"
            
              
              
-             var rating4 = document.createElement('i');
-             rating4.className="far fa-star"
-                var rating5 = document.createElement('i');
+              var rating4 = document.createElement('i');
+              rating4.className="far fa-star"
+              var rating5 = document.createElement('i');
               rating5.className="far fa-star"
            
              
@@ -299,9 +299,9 @@ document.querySelector('#go').addEventListener('click', () => {
              rating_div.appendChild(rating4);
              rating_div.appendChild(rating5);
            }
-           
-           gallery_div.appendChild(rating_div);
+      
            gallery_div.appendChild(desc_div);
+           gallery_div.appendChild(rating_div);          
            dataList.appendChild(gallery_div);
        
       });

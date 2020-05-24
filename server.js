@@ -59,9 +59,9 @@ app.post('/getRestaurant', function(req, res){
   console.log(location);
   console.log(keywords);
   const searchRequest = {
- // term:'Four Barrel Coffee',
+  //term:'Black bear diner',
   term: keywords,
-  categories:'food',
+ // categories:'food',
   location: location
   //location: 'Davis,ca'
 };
