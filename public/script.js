@@ -319,7 +319,7 @@ document.querySelector('#go').addEventListener('click', () => {
   xmlhttp.send(JSON.stringify({ "param1":location , "param2":search_word }));
 });
 
-//reviews();
+reviews();
 function reviews() {
   let url = "reviews";
   
@@ -389,7 +389,7 @@ xhr.send(JSON.stringify({ "keyword":search_word }));
   // all set up!  Send off the HTTP request
 //  xmlhttp.send(JSON.stringify(data));
 
- businessdetails();
+ //businessdetails();
   function businessdetails() {
    
   let url = "businessdetails";
