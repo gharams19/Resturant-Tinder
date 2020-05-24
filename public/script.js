@@ -171,7 +171,7 @@ document.querySelector('#go').addEventListener('click', () => {
           
            }
            else if(item.rating==3.5) {
-          var rating1 = document.createElement('div');
+              var rating1 = document.createElement('div');
               rating1.className="fas fa-star";
              
               var rating2 = document.createElement('div');
@@ -183,10 +183,10 @@ document.querySelector('#go').addEventListener('click', () => {
             
               var rating35 = document.createElement('div');
               rating35.className="fas fa-star-half-alt"
-             rating_div.appendChild(rating1);
-             rating_div.appendChild(rating2);
-             rating_div.appendChild(rating3);
-             rating_div.appendChild(rating35);
+              rating_div.appendChild(rating1);
+              rating_div.appendChild(rating2);
+              rating_div.appendChild(rating3);
+              rating_div.appendChild(rating35);
            }
            else if(item.rating==2) {
               var rating1 = document.createElement('div');
@@ -194,16 +194,14 @@ document.querySelector('#go').addEventListener('click', () => {
              
               var rating2 = document.createElement('div');
               rating2.className="fas fa-star";
-             
-            
-             
+              
            
              rating_div.appendChild(rating1);
              rating_div.appendChild(rating2);
             
            }
            else if(item.rating==2.5) {
-          var rating1 = document.createElement('div');
+              var rating1 = document.createElement('div');
               rating1.className="fas fa-star";
              
               var rating2 = document.createElement('div');
@@ -211,10 +209,9 @@ document.querySelector('#go').addEventListener('click', () => {
              
               var rating25 = document.createElement('div');
               rating25.className="fas fa-star-half-alt"
-             rating_div.appendChild(rating1);
-             rating_div.appendChild(rating2);
-           
-             rating_div.appendChild(rating25);
+              rating_div.appendChild(rating1);
+              rating_div.appendChild(rating2);           
+              rating_div.appendChild(rating25);
            }
            else if(item.rating==1) {
               var rating1 = document.createElement('div');
@@ -224,11 +221,11 @@ document.querySelector('#go').addEventListener('click', () => {
            
            }
            else if(item.rating==1.5) {
-              var rating1 = document.createElement('div');
-              rating1.className="fas fa-star";
+             var rating1 = document.createElement('div');
+             rating1.className="fas fa-star";
              
-              var rating15 = document.createElement('div');
-              rating15.className="fas fa-star-half-alt"
+             var rating15 = document.createElement('div');
+             rating15.className="fas fa-star-half-alt"
              rating_div.appendChild(rating1);
              rating_div.appendChild(rating15);
            }
