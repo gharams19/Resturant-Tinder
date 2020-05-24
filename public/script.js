@@ -65,19 +65,28 @@ document.querySelector('#go').addEventListener('click', () => {
   //  alert(responseStr);
     let wordList = JSON.parse(responseStr);  // turn it into an object
       
-    let dataList = document.getElementById("autocompletelist");
+    let dataList = document.getElementById("image_panel");
         
          // Loop over the JSON array.
     wordList.forEach(function(item) {
         // Create a new <option> element.
-        var option = document.createElement('option');
+ //      document.getElementById("restaurantImg").src=data[0].image_url;
+      
+         var gallery_div = document.createElement(' <div class="gallery">');
+         var img = document.createElement(' <img alt="Cinque Terre" width="600" height="400">');
         // Set the value using the item in the JSON array.
-        option.value = item.text;
+        img.src = item.image_url;
+        gallery_div.appendChild(img);
+        
+        var desc_div = document.createElement(' <div class="desc"></div>');
       //  alert(item.text);
         // Add the <option> element to the <datalist>.
-        dataList.appendChild(option);
+        
+        desc_div.textContent=item.name;
+        gallery_div.appendChild(desc_div);
+      dataList.appendChild(gallery_div);
       });
- document.getElementById("restaurantImg").src=data[0].image_url;
+
    // document.getElementById("restaurantImg").src="https://s3-media2.fl.yelpcdn.com/bphoto/LTfgfyCJaboZdhHWemxl5A/o.jpg"
    
   alert(xmlhttp.responseText);
