@@ -125,12 +125,16 @@ document.querySelector('#go').addEventListener('click', () => {
              
               var rating4 = document.createElement('i');
               rating4.className="fas fa-star"
+             
+             var rating5 = document.createElement('i');
+              rating5.className="far fa-star"
           
              
              rating_div.appendChild(rating1);
              rating_div.appendChild(rating2);
              rating_div.appendChild(rating3);
              rating_div.appendChild(rating4);
+             rating_div.appendChild(rating5);
              
            } 
            else if(item.rating==4.5) {
@@ -165,10 +169,17 @@ document.querySelector('#go').addEventListener('click', () => {
               var rating3 = document.createElement('i');
               rating3.className="fas fa-star"
           
+               var rating4 = document.createElement('i');
+              rating4.className="far fa-star"
+             
+              var rating5 = document.createElement('i');
+              rating5.className="far fa-star"
             
              rating_div.appendChild(rating1);
              rating_div.appendChild(rating2);
              rating_div.appendChild(rating3);
+              rating_div.appendChild(rating4);
+              rating_div.appendChild(rating5);
           
            }
            else if(item.rating==3.5) {
@@ -182,12 +193,20 @@ document.querySelector('#go').addEventListener('click', () => {
               rating3.className="fas fa-star"
              
             
+             
               var rating35 = document.createElement('i');
+                               
               rating35.className="fas fa-star-half-alt"
+             
+               var rating4 = document.createElement('i');
+              rating4.className="far fa-star"
+             
+             
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
               rating_div.appendChild(rating3);
               rating_div.appendChild(rating35);
+              rating_div.appendChild(rating4);
            }
            else if(item.rating==2) {
               var rating1 = document.createElement('i');
@@ -196,9 +215,18 @@ document.querySelector('#go').addEventListener('click', () => {
               var rating2 = document.createElement('i');
               rating2.className="fas fa-star";
               
+                var rating3 = document.createElement('i');
+              rating3.className="far fa-star"
+                var rating4 = document.createElement('i');
+              rating4.className="far fa-star"
+                var rating5 = document.createElement('i');
+              rating5.className="far fa-star"
            
              rating_div.appendChild(rating1);
              rating_div.appendChild(rating2);
+              rating_div.appendChild(rating3);
+              rating_div.appendChild(rating4);
+              rating_div.appendChild(rating5);
             
            }
            else if(item.rating==2.5) {
@@ -210,15 +238,42 @@ document.querySelector('#go').addEventListener('click', () => {
              
               var rating25 = document.createElement('i');
               rating25.className="fas fa-star-half-alt"
+             
+             var rating4 = document.createElement('i');
+               rating4.className="far fa-star"
+                var rating5 = document.createElement('i');
+              rating5.className="far fa-star"
+           
+             
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);           
               rating_div.appendChild(rating25);
+                 rating_div.appendChild(rating4);
+              rating_div.appendChild(rating5);
+             
            }
            else if(item.rating==1) {
               var rating1 = document.createElement('i');
               rating1.className="fas fa-star";      
             
-             rating_div.appendChild(rating1);
+             var rating2 = document.createElement('i');
+               rating2.className="far fa-star"
+                var rating3 = document.createElement('i');
+              rating3.className="far fa-star"
+           
+             
+             
+             var rating4 = document.createElement('i');
+             rating4.className="far fa-star"
+                var rating5 = document.createElement('i');
+              rating5.className="far fa-star"
+           
+             
+              rating_div.appendChild(rating1);
+              rating_div.appendChild(rating2);
+              rating_div.appendChild(rating3);
+              rating_div.appendChild(rating4);
+              rating_div.appendChild(rating5);
            
            }
            else if(item.rating==1.5) {
@@ -227,8 +282,22 @@ document.querySelector('#go').addEventListener('click', () => {
              
              var rating15 = document.createElement('i');
              rating15.className="fas fa-star-half-alt"
+             
+             var rating3 = document.createElement('i');
+             rating3.className="far fa-star"
+           
+             
+             
+             var rating4 = document.createElement('i');
+             rating4.className="far fa-star"
+             var rating5 = document.createElement('i');
+             rating5.className="far fa-star"
+             
              rating_div.appendChild(rating1);
              rating_div.appendChild(rating15);
+             rating_div.appendChild(rating3);
+             rating_div.appendChild(rating4);
+             rating_div.appendChild(rating5);
            }
            
            gallery_div.appendChild(rating_div);
