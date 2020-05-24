@@ -87,3 +87,13 @@ div.desc {
   padding: 15px;
   text-align: center;
 }
+
+.rating {
+  display: flex;
+  flex-flow: row wrap;
+}
+.rating-star {
+  width: 2em;
+  height: 2em;
+  margin: 0.25em;
+}

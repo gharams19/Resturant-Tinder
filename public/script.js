@@ -66,6 +66,9 @@ document.querySelector('#go').addEventListener('click', () => {
     let  restaurantList = JSON.parse(responseStr);  // turn it into an object
       
     let dataList = document.getElementById("image_panel");
+    let  rating_div = document.createElement('div');
+    rating_div.className="rating";
+    
     dataList.textContent="";
          // Loop over the JSON array.
     restaurantList.forEach(function(item) {
@@ -79,6 +82,24 @@ document.querySelector('#go').addEventListener('click', () => {
            var desc_div = document.createElement('div');
            desc_div.className="desc";
            desc_div.textContent=item.name;
+            
+       <div class="dot">
+          <div id="dot1" class="selected" onclick="changeColor('dot1','#e6e2cf')"> </div>
+          <div id="dot2" onclick="changeColor('dot2','#dbcaac')"> </div>
+          <div id="dot3" onclick="changeColor('dot3','#c9cbb3')"> </div>
+          <div id="dot4" onclick="changeColor('dot4','#bbc9ca')"> </div>
+          <div id="dot5" onclick="changeColor('dot5','#a6a5b5')"> </div>
+          <div id="dot6" onclick="changeColor('dot6','#b5a6ab')"> </div>
+          <div id="dot7" onclick="changeColor('dot7','#eccfcf')"> </div>
+          <div id="dot8" onclick="changeColor('dot8','#eceeeb')"> </div>
+          <div id="dot9" onclick="changeColor('dot9','#bab9b5')"> </div>
+        </div>  
+           var rating = document.createElement('div');
+      
+      
+           rating.className="rating-star";
+           rating.textContent=item.name;
+      
            gallery_div.appendChild(desc_div);
            dataList.appendChild(gallery_div);
        
