@@ -83,8 +83,9 @@ document.querySelector('#go').addEventListener('click', () => {
       
            var desc_div = document.createElement('div');
            desc_div.className="desc";
-           desc_div.textContent=item.name;
+           desc_div.textContent=item.name + " " + item.price ;
             
+       
            let  rating_div = document.createElement('div');
            rating_div.className="rating";
           
