@@ -60,8 +60,23 @@ document.querySelector('#go').addEventListener('click', () => {
    
   xmlhttp.onloadend = function(e) {
   console.log(xmlhttp.responseText);
-  let data = JSON.parse(xmlhttp.responseText);
     
+   let responseStr = xmlhttp.responseText;  // get the JSON string 
+  //  alert(responseStr);
+    let wordList = JSON.parse(responseStr);  // turn it into an object
+      
+    let dataList = document.getElementById("autocompletelist");
+        
+         // Loop over the JSON array.
+    wordList.forEach(function(item) {
+        // Create a new <option> element.
+        var option = document.createElement('option');
+        // Set the value using the item in the JSON array.
+        option.value = item.text;
+      //  alert(item.text);
+        // Add the <option> element to the <datalist>.
+        dataList.appendChild(option);
+      });
  document.getElementById("restaurantImg").src=data[0].image_url;
    // document.getElementById("restaurantImg").src="https://s3-media2.fl.yelpcdn.com/bphoto/LTfgfyCJaboZdhHWemxl5A/o.jpg"
    
