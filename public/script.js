@@ -85,7 +85,7 @@ document.querySelector('#go').addEventListener('click', () => {
             
            var title_div = document.createElement('div');
            title_div.className="title";
-           title_div.textContent=item.categories[0].title;
+           title_div.textContent=item.location.display_address;
        
            let  rating_div = document.createElement('div');
            rating_div.className="rating";
