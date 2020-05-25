@@ -146,6 +146,27 @@ client.business('black-bear-diner-davis').then(response => {
 
 const restaurantDB = new sql.Database("restaurants.db");
 
+
+app.get("/retrieveRestaurants", function(request, response, next){
+    // let r = "em7giyht5zdo9dbs52at0c";
+  let r = request.query.id;
+   //  console.log(r);
+  let cmd = " SELECT * FROM restaurantsTable WHERE queryStringId=?";
+  restaurantDB.get(cmd,r,function (err, rows) {
+  console.log(err, rows);
+  if (rows == undefined) {
+      console.log("No database file - creating one");
+
+   } else {
+     console.log("Database file found");
+     response.json(rows);
+     console.log("rows",rows);
+   }
+  
+ })
+});
+
+
 app.post("/saveRestaurants", function(request, response, next){
    
   let r = request.query.id;
@@ -158,7 +179,7 @@ app.post("/saveRestaurants", function(request, response, next){
   let rating = "";
   let num_reviews ="";
   let address = "";
-  let cmd = "INSERT INTO restaurantsTable ( queryStringId,image_url,price,rating, num_reviews, adderss) VALUES (?,?,?,?,?,?) ";
+  let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, num_reviews, adderss) VALUES (?,?,?,?,?,?) ";
   restaurantDB.run(cmd,rownumid,image_url, price, rating, num_reviews, address, function(err) {
   if (err) {
              console.log("DB insert error",err.message);
@@ -201,7 +222,7 @@ function createDB() {
   // explicitly declaring the rowIdNum protects rowids from changing if the 
   // table is compacted; not an issue here, but good practice
   //const cmd = 'CREATE TABLE PostcardTable ( rowIdNum INTEGER PRIMARY KEY, listItem TEXT, listAmount TEXT)';
-  const cmd = 'CREATE TABLE restaurantsTable ( queryStringId TEXT PRIMARY KEY, image_url TEXT, price TEXT,rating TEXT, num_reviews TEXT, address TEXT)';
+  const cmd = 'CREATE TABLE restaurantsTable ( queryStringId TEXT PRIMARY KEY, name TEXT, image_url TEXT, price TEXT,rating TEXT, num_reviews TEXT, address TEXT)';
   restaurantDB.run(cmd, function(err, val) {
     if (err) {
       console.log("Database creation failure",err.message);
