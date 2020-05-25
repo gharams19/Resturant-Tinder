@@ -146,23 +146,28 @@ client.business('black-bear-diner-davis').then(response => {
 
 const restaurantDB = new sql.Database("restaurants.db");
 
-app.get("/saveRestaurants", function(request, response, next){
+app.post("/saveRestaurants", function(request, response, next){
    
   let r = request.query.id;
    //  console.log(r);
 //  let cmd = " SELECT * FROM restaurantsTable WHERE queryStringId=?";
   
-  
-  let cmd = "INSERT INTO restaurantsTable ( queryStringId,message,image,font,color) VALUES (?,?,?,?,?) ";
-  postcardsDB.run(cmd,rownumid,message,body,font,color, function(err) {
+  let rownumid = randomString();
+  let image_url = "";
+  let price = "";
+  let rating = "";
+  let num_reviews ="";
+  let address = "";
+  let cmd = "INSERT INTO restaurantsTable ( queryStringId,image_url,price,rating, num_reviews, adderss) VALUES (?,?,?,?,?,?) ";
+  restaurantDB.run(cmd,rownumid,image_url, price, rating, num_reviews, address, function(err) {
   if (err) {
-                  console.log("DB insert error",err.message);
-                } else {
+             console.log("DB insert error",err.message);
+  } else {
                   //    send back query string to browser for display.html
-                  console.log(rownumid);
-                  serverResponse.send(rownumid);
-                }
-            });
+             console.log(rownumid);
+             response.send(rownumid);
+          }
+   });
   restaurantDB.get(cmd,r,function (err, rows) {
   console.log(err, rows);
   if (rows == undefined) {
@@ -177,9 +182,10 @@ app.get("/saveRestaurants", function(request, response, next){
  })
 });
 
+
 // Actual table creation; only runs if "shoppingList.db" is not found or empty
 // Does the database table exist?
-let cmd = " SELECT name FROM sqlite_master WHERE type='table' AND name='PostcardTable' ";
+let cmd = " SELECT name FROM sqlite_master WHERE type='table' AND name='restaurantsTable' ";
 restaurantDB.get(cmd, function (err, val) {
     console.log(err, val);
     if (val == undefined) {
@@ -189,11 +195,13 @@ restaurantDB.get(cmd, function (err, val) {
         console.log("Database file found");
     }
 });
+
+
 function createDB() {
   // explicitly declaring the rowIdNum protects rowids from changing if the 
   // table is compacted; not an issue here, but good practice
   //const cmd = 'CREATE TABLE PostcardTable ( rowIdNum INTEGER PRIMARY KEY, listItem TEXT, listAmount TEXT)';
-  const cmd = 'CREATE TABLE PostcardTable ( queryStringId TEXT PRIMARY KEY, message TEXT, image TEXT,font TEXT, color TEXT)';
+  const cmd = 'CREATE TABLE restaurantsTable ( queryStringId TEXT PRIMARY KEY, image_url TEXT, price TEXT,rating TEXT, num_reviews TEXT, address TEXT)';
   restaurantDB.run(cmd, function(err, val) {
     if (err) {
       console.log("Database creation failure",err.message);
