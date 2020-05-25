@@ -49,7 +49,7 @@ const apiKey = process.env.YELP_API_KEY;
 const client = yelp.client(apiKey);
 
 
-
+const sql = require("sqlite3").verbose();
 app.post('/getRestaurant', function(req, res){
  
 
@@ -141,3 +141,70 @@ client.business('black-bear-diner-davis').then(response => {
 });
 
 });
+
+
+
+const restaurantDB = new sql.Database("restaurants.db");
+
+app.get("/saveRestaurants", function(request, response, next){
+   
+  let r = request.query.id;
+   //  console.log(r);
+//  let cmd = " SELECT * FROM restaurantsTable WHERE queryStringId=?";
+  
+  
+  let cmd = "INSERT INTO restaurantsTable ( queryStringId,message,image,font,color) VALUES (?,?,?,?,?) ";
+  postcardsDB.run(cmd,rownumid,message,body,font,color, function(err) {
+  if (err) {
+                  console.log("DB insert error",err.message);
+                } else {
+                  //    send back query string to browser for display.html
+                  console.log(rownumid);
+                  serverResponse.send(rownumid);
+                }
+            });
+  restaurantDB.get(cmd,r,function (err, rows) {
+  console.log(err, rows);
+  if (rows == undefined) {
+      console.log("No database file - creating one");
+
+   } else {
+     console.log("Database file found");
+     response.json(rows);
+     console.log("rows",rows);
+   }
+  
+ })
+});
+
+// Actual table creation; only runs if "shoppingList.db" is not found or empty
+// Does the database table exist?
+let cmd = " SELECT name FROM sqlite_master WHERE type='table' AND name='PostcardTable' ";
+restaurantDB.get(cmd, function (err, val) {
+    console.log(err, val);
+    if (val == undefined) {
+        console.log("No database file - creating one");
+       createDB();
+    } else {
+        console.log("Database file found");
+    }
+});
+function createDB() {
+  // explicitly declaring the rowIdNum protects rowids from changing if the 
+  // table is compacted; not an issue here, but good practice
+  //const cmd = 'CREATE TABLE PostcardTable ( rowIdNum INTEGER PRIMARY KEY, listItem TEXT, listAmount TEXT)';
+  const cmd = 'CREATE TABLE PostcardTable ( queryStringId TEXT PRIMARY KEY, message TEXT, image TEXT,font TEXT, color TEXT)';
+  restaurantDB.run(cmd, function(err, val) {
+    if (err) {
+      console.log("Database creation failure",err.message);
+    } else {
+      console.log("Created database");
+    }
+ });
+}
+
+function randomString() {
+return (Math.random().toString(36).substr(2, ) +Math.random().toString(36).substr(2, ));
+
+}
+
