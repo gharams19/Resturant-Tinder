@@ -313,9 +313,7 @@ document.querySelector('#go').addEventListener('click', () => {
        
       });
 
-   // document.getElementById("restaurantImg").src="https://s3-media2.fl.yelpcdn.com/bphoto/LTfgfyCJaboZdhHWemxl5A/o.jpg"
-   
- // alert(xmlhttp.responseText);
+ 
   }
   // all set up!  Send off the HTTP request
   xmlhttp.send(JSON.stringify({ "param1":location , "param2":search_word }));
