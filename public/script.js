@@ -319,7 +319,7 @@ document.querySelector('#go').addEventListener('click', () => {
   xmlhttp.send(JSON.stringify({ "param1":location , "param2":search_word }));
 });
 
-reviews();
+//reviews();
 function reviews() {
   let url = "reviews";
   
