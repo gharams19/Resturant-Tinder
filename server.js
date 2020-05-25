@@ -82,6 +82,8 @@ client.search(searchRequest).then(response => {
   console.log(prettyJson2);
   */
 //  const firstResult = response.jsonBody.businesses[0];
+  
+  saveRestaurants(response.jsonBody.businesses);
   res.json(response.jsonBody.businesses);
 }).catch(e => {
   console.log(e);
@@ -167,9 +169,14 @@ app.get("/retrieveRestaurants", function(request, response, next){
 });
 
 
-app.post("/saveRestaurants", function(request, response, next){
+function saveRestaurants(jsonObj) {
    
-  let r = request.query.id;
+   let  restaurantList = JSON.parse(jsonObj);
+  restaurantList
+  restaurantList.jsonBody.businesses.forEach(function(row) {
+  //  var result = row.businesses;
+     const prettyJson = JSON.stringify(row, null, 4);
+     console.log(prettyJson);
    //  console.log(r);
 //  let cmd = " SELECT * FROM restaurantsTable WHERE queryStringId=?";
   
@@ -179,8 +186,9 @@ app.post("/saveRestaurants", function(request, response, next){
   let rating = "";
   let num_reviews ="";
   let address = "";
-  let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, num_reviews, adderss) VALUES (?,?,?,?,?,?) ";
-  restaurantDB.run(cmd,rownumid,image_url, price, rating, num_reviews, address, function(err) {
+  let vote="";
+  let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, num_reviews, adderss, vote) VALUES (?,?,?,?,?,?) ";
+  restaurantDB.run(cmd,rownumid,image_url, price, rating, num_reviews, address, vote, function(err) {
   if (err) {
              console.log("DB insert error",err.message);
   } else {
@@ -201,7 +209,7 @@ app.post("/saveRestaurants", function(request, response, next){
    }
   
  })
-});
+}
 
 
 // Actual table creation; only runs if "shoppingList.db" is not found or empty
@@ -222,7 +230,7 @@ function createDB() {
   // explicitly declaring the rowIdNum protects rowids from changing if the 
   // table is compacted; not an issue here, but good practice
   //const cmd = 'CREATE TABLE PostcardTable ( rowIdNum INTEGER PRIMARY KEY, listItem TEXT, listAmount TEXT)';
-  const cmd = 'CREATE TABLE restaurantsTable ( queryStringId TEXT PRIMARY KEY, name TEXT, image_url TEXT, price TEXT,rating TEXT, num_reviews TEXT, address TEXT)';
+  const cmd = 'CREATE TABLE restaurantsTable ( queryStringId TEXT PRIMARY KEY, name TEXT, image_url TEXT, price TEXT,rating TEXT, num_reviews TEXT, address TEXT, vote TEXT)';
   restaurantDB.run(cmd, function(err, val) {
     if (err) {
       console.log("Database creation failure",err.message);
