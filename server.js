@@ -37,6 +37,45 @@ function broadcast(data) {
   });
 }
 
+
+function saveRestaurants(response) {
+  let rownumid = "";
+  let image_url = "";
+  let price = "";
+  let rating = "";
+  let review_count = "";
+  let address = "";
+  let vote= 0;
+  
+  console.log("here");
+   let  restaurantList = JSON.parse(response.jsonBody);
+   restaurantList.forEach(function(item) {
+  //  var result = row.businesses;
+     const prettyJson = JSON.stringify(item, null, 4);
+     console.log(prettyJson);
+   //  console.log(r);
+//  let cmd = " SELECT * FROM restaurantsTable WHERE queryStringId=?";
+  
+   rownumid = randomString();
+   image_url = item.image_url;
+   price = item.price;
+   rating = item.rating;
+   review_count = item.review_count;
+   address = item.location.display_address;
+   vote= 0;
+   });
+  let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, num_reviews, adderss, vote) VALUES (?,?,?,?,?,?) ";
+  restaurantDB.run(cmd,rownumid,image_url, price, rating, review_count, address, vote, function(err) {
+  if (err) {
+             console.log("DB insert error",err.message);
+  } else {
+                  //    send back query string to browser for display.html
+             console.log(rownumid);
+            // response.send(rownumid);
+          }
+   });
+
+}
 //start our server
 server.listen(process.env.PORT, () => {
     console.log(`Server started on port ${server.address().port} :)`);
@@ -83,7 +122,7 @@ client.search(searchRequest).then(response => {
   */
 //  const firstResult = response.jsonBody.businesses[0];
   
-  saveRestaurants(response.jsonBody.businesses);
+  saveRestaurants(response.jsonBody);
   res.json(response.jsonBody.businesses);
 }).catch(e => {
   console.log(e);
@@ -169,43 +208,7 @@ app.get("/retrieveRestaurants", function(request, response, next){
 });
 
 
-function saveRestaurants(response) {
-  let rownumid = "";
-  let image_url = "";
-  let price = "";
-  let rating = "";
-  let review_count = "";
-  let address = "";
-  let vote= 0;
-  
-   let  restaurantList = JSON.parse(response.jsonBody.businesses);
-   restaurantList.forEach(function(item) {
-  //  var result = row.businesses;
-     const prettyJson = JSON.stringify(item, null, 4);
-     console.log(prettyJson);
-   //  console.log(r);
-//  let cmd = " SELECT * FROM restaurantsTable WHERE queryStringId=?";
-  
-   rownumid = randomString();
-   image_url = item.image_url;
-   price = item.price;
-   rating = item.rating;
-   review_count = item.review_count;
-   address = item.location.display_address;
-   vote= 0;
-   });
-  let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, num_reviews, adderss, vote) VALUES (?,?,?,?,?,?) ";
-  restaurantDB.run(cmd,rownumid,image_url, price, rating, review_count, address, vote, function(err) {
-  if (err) {
-             console.log("DB insert error",err.message);
-  } else {
-                  //    send back query string to browser for display.html
-             console.log(rownumid);
-            // response.send(rownumid);
-          }
-   });
 
-}
 
 
 // Actual table creation; only runs if "shoppingList.db" is not found or empty
