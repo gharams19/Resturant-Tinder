@@ -348,6 +348,7 @@ keyword.addEventListener("input", autoComplete);
 //autoComplete();
   function autoComplete() {
 
+    
   
   let url = "/autoComplete";
   let search_word = document.getElementById("keyword").value;
