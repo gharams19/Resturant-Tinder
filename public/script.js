@@ -347,8 +347,7 @@ keyword.addEventListener("input", autoComplete);
  // let selected_image = document.querySelector('#selected_image');
 //autoComplete();
   function autoComplete() {
-      event.stopPropagation();
-    event.preventDefault();
+
   alert('call le');
   let url = "/autoComplete";
   let search_word = document.getElementById("keyword").value;
@@ -410,5 +409,9 @@ xhr.send(JSON.stringify({ "keyword":search_word }));
   });
   // Actually send request to server
   xhr.send();
+    
+    
+    event.stopPropagation();
+
 }
   
