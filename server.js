@@ -83,7 +83,7 @@ client.search(searchRequest).then(response => {
   */
 //  const firstResult = response.jsonBody.businesses[0];
   
- // saveRestaurants(response.jsonBody.businesses);
+  saveRestaurants(response.jsonBody.businesses);
   res.json(response.jsonBody.businesses);
 }).catch(e => {
   console.log(e);
@@ -169,7 +169,7 @@ app.get("/retrieveRestaurants", function(request, response, next){
 });
 
 
-function saveRestaurants(jsonObj) {
+function saveRestaurants(response) {
   let rownumid = "";
   let image_url = "";
   let price = "";
@@ -178,7 +178,7 @@ function saveRestaurants(jsonObj) {
   let address = "";
   let vote= 0;
   
-   let  restaurantList = JSON.parse(jsonObj);
+   let  restaurantList = JSON.parse(response.jsonBody.businesses);
    restaurantList.forEach(function(item) {
   //  var result = row.businesses;
      const prettyJson = JSON.stringify(item, null, 4);
@@ -186,7 +186,7 @@ function saveRestaurants(jsonObj) {
    //  console.log(r);
 //  let cmd = " SELECT * FROM restaurantsTable WHERE queryStringId=?";
   
-  rownumid = randomString();
+   rownumid = randomString();
    image_url = item.image_url;
    price = item.price;
    rating = item.rating;
