@@ -47,15 +47,8 @@ function saveRestaurants(response) {
   let address = "";
   let vote= 0;
   
-  let listofObj = JSON.parse(response);
+  let item = JSON.parse(response);
  
-//   let  restaurantList = JSON.parse(response.jsonBody);
-   listofObj.forEach(function(item) {
-  //  var result = row.businesses;
-     const prettyJson = JSON.stringify(item, null, 4);
-     console.log(prettyJson);
-   //  console.log(r);
-//  let cmd = " SELECT * FROM restaurantsTable WHERE queryStringId=?";
   
    rownumid = randomString();
    image_url = item.image_url;
@@ -65,7 +58,7 @@ function saveRestaurants(response) {
    address = item.location.display_address;
    name = item.name;
    vote= 0;
-   });
+ 
   
   
   console.log(rownumid );
@@ -125,6 +118,7 @@ client.search(searchRequest).then(response => {
   //  var result = row.businesses;
      const prettyJson = JSON.stringify(row, null, 4);
      console.log(prettyJson);
+     saveRestaurants(prettyJson);
 });
 /*  const firstResult = response.jsonBody.businesses[0];
   const prettyJson = JSON.stringify(firstResult, null, 4);
@@ -136,7 +130,7 @@ client.search(searchRequest).then(response => {
   */
 //  const firstResult = response.jsonBody.businesses[0];
   
-  saveRestaurants(response.jsonBody.businesses);
+ 
   res.json(response.jsonBody.businesses);
 }).catch(e => {
   console.log(e);
