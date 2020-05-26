@@ -65,6 +65,18 @@ function saveRestaurants(response) {
    name = item.name;
    vote= 0;
    });
+  
+  
+  console.log(rownumid );
+  console.log(image_url);
+  console.log(price);
+  console.log)ra rating = item.rating;
+   review_count = item.review_count;
+   address = item.location.display_address;
+   name = item.name;
+   vote= 0;
+   });
+  
   let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, review_count, address, vote) VALUES (?,?,?,?,?,?,?,?) ";
   restaurantDB.run(cmd,rownumid,name, image_url, price, rating, review_count, address, vote, function(err) {
   if (err) {
