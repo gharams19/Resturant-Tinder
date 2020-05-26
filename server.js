@@ -62,9 +62,10 @@ function saveRestaurants(response) {
    rating = item.rating;
    review_count = item.review_count;
    address = item.location.display_address;
+   name = item.name;
    vote= 0;
    });
-  let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, num_reviews, adderss, vote) VALUES (?,?,?,?,?,?) ";
+  let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, review_count, address, vote) VALUES (?,?,?,?,?,?) ";
   restaurantDB.run(cmd,rownumid,image_url, price, rating, review_count, address, vote, function(err) {
   if (err) {
              console.log("DB insert error",err.message);
