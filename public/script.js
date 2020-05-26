@@ -340,14 +340,16 @@ function reviews() {
 }
 
 let keyword = document.getElementById("keyword");
-keyword.addEventListener("change", autoComplete);
+keyword.addEventListener("input", autoComplete);
 
   //let msg = document.querySelector('#message');
  // let img = document.querySelector('#cardImg');
  // let selected_image = document.querySelector('#selected_image');
 //autoComplete();
   function autoComplete() {
-  
+      event.stopPropagation();
+    event.preventDefault();
+  alert('call le');
   let url = "/autoComplete";
   let search_word = document.getElementById("keyword").value;
   let data = {
