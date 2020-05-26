@@ -348,7 +348,7 @@ keyword.addEventListener("input", autoComplete);
 //autoComplete();
   function autoComplete() {
 
-  alert('call le');
+  
   let url = "/autoComplete";
   let search_word = document.getElementById("keyword").value;
   let data = {
@@ -386,6 +386,7 @@ keyword.addEventListener("input", autoComplete);
  
   // Actually send request to server
 xhr.send(JSON.stringify({ "keyword":search_word }));
+      event.stopPropagation();
 }
   // all set up!  Send off the HTTP request
 //  xmlhttp.send(JSON.stringify(data));
@@ -411,7 +412,7 @@ xhr.send(JSON.stringify({ "keyword":search_word }));
   xhr.send();
     
     
-    event.stopPropagation();
+  
 
 }
   
