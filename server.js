@@ -47,7 +47,7 @@ function saveRestaurants(response) {
   let address = "";
   let vote= 0;
   
-  console.log("here");
+ 
 //   let  restaurantList = JSON.parse(response.jsonBody);
    response.forEach(function(item) {
   //  var result = row.businesses;
@@ -65,8 +65,8 @@ function saveRestaurants(response) {
    name = item.name;
    vote= 0;
    });
-  let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, review_count, address, vote) VALUES (?,?,?,?,?,?) ";
-  restaurantDB.run(cmd,rownumid,image_url, price, rating, review_count, address, vote, function(err) {
+  let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, review_count, address, vote) VALUES (?,?,?,?,?,?,?,?) ";
+  restaurantDB.run(cmd,rownumid,name, image_url, price, rating, review_count, address, vote, function(err) {
   if (err) {
              console.log("DB insert error",err.message);
   } else {
