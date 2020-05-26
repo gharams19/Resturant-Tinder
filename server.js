@@ -48,8 +48,8 @@ function saveRestaurants(response) {
   let vote= 0;
   
   console.log("here");
-   let  restaurantList = JSON.parse(response.jsonBody);
-   restaurantList.forEach(function(item) {
+//   let  restaurantList = JSON.parse(response.jsonBody);
+   response.forEach(function(item) {
   //  var result = row.businesses;
      const prettyJson = JSON.stringify(item, null, 4);
      console.log(prettyJson);
@@ -122,7 +122,7 @@ client.search(searchRequest).then(response => {
   */
 //  const firstResult = response.jsonBody.businesses[0];
   
-  saveRestaurants(response.jsonBody);
+  saveRestaurants(response.jsonBody.businesses);
   res.json(response.jsonBody.businesses);
 }).catch(e => {
   console.log(e);
