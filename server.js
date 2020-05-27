@@ -149,7 +149,7 @@ restaurantDB.get(cmd, function (err, val) {
         console.log("No database file - creating one");
        createDB();
     } else {
-        console.log("Database file found");
+        console.log("Database table found:restaurantsTable");
     }
 });
 
@@ -165,7 +165,7 @@ restaurantDB.get(cmd1, function (err, val) {
         console.log("No database file - creating one");
        createDB1();
     } else {
-        console.log("Database file found");
+        console.log("Database table found:votingTable");
     }
 });
 function createDB() {
@@ -308,32 +308,6 @@ client.business('black-bear-diner-davis').then(response => {
 
 
 
-app.post("/getARestaurant", function(request, response, next){
- 
-
-   
-   let r = request.body.queryID;
- // let r = request.query.id;
-   console.log(r);
-  
-
-  //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
-  let cmd = "SELECT * FROM restaurantsTable WHERE queryStringId = ?";
-  restaurantDB.get(cmd,r,function (err, rows) {
-  console.log(err, rows);
-  if (rows == undefined) {
-      console.log("No database file - creating one");
-
-   } else {
-     console.log("Database file found");
-      console.log("rows",rows);
-     response.json(rows);
-    
-   }
-  
- })
-});
-
 
 
 
@@ -356,7 +330,7 @@ app.get("/getRestaurantIDs", function(request, response, next){
       console.log("No database file - creating one");
 
    } else {
-     console.log("Database file found");
+     console.log("Database file found:distinct queryStringId");
       console.log("rows",rows);
      response.json(rows);
     
@@ -386,4 +360,30 @@ function saveVoteResult(restaurantID, voteCount) {
 
 
 
+
+app.post("/getARestaurant", function(request, response, next){
+ 
+
+   
+   let r = request.body.queryID;
+ // let r = request.query.id;
+   console.log(r);
+  
+
+  //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
+  let cmd = "SELECT * FROM restaurantsTable WHERE queryStringId = ? ";
+  restaurantDB.get(cmd,r,function (err, rows) {
+  console.log(err, rows);
+  if (rows == undefined) {
+      console.log("No database file - creating one");
+
+   } else {
+     console.log("Database file found:getARestaurant");
+      console.log("rows",rows);
+     response.json(rows);
+    
+   }
+  
+ });
+});
 
