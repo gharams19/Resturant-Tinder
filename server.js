@@ -36,8 +36,6 @@ wss.on('connection', (ws) => {
   clientCount +=1;
   currentRestaurant = 0;
   console.log("a new user connected --", clientCount, " users connected")
-  console.log(restaurantList[0]);
-broadcast(JSON.stringify({'type':'start', 'info':"gwkvtz084moqbnrn8jobgs"}));
 
 
   
@@ -198,6 +196,8 @@ client.search(searchRequest).then(response => {
    //  console.log(prettyJson);
      saveRestaurants(prettyJson);
     
+    
+    
 });
 /*  const firstResult = response.jsonBody.businesses[0];
   const prettyJson = JSON.stringify(firstResult, null, 4);
@@ -213,6 +213,8 @@ client.search(searchRequest).then(response => {
   
   
   //restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
+  console.log(restaurantList[0]);
+broadcast(JSON.stringify({'type':'command', 'info':'gwkvtz084moqbnrn8jobgs'}));
 
    
 }).catch(e => {
