@@ -100,15 +100,16 @@ function getRestaurant(queryStringID){
     
    let responseStr = xmlhttp.responseText;  // get the JSON string 
    alert(responseStr);
-    let  restaurantList = JSON.parse(responseStr);  // turn it into an object      
+    let  item = JSON.parse(responseStr);  // turn it into an object      
     let dataList = document.getElementById("restaurant");
   
-    
+     alert(item.name);
+     alert(item.image_url);
     
     //clean up
     dataList.textContent='';
     // Loop over the JSON array.
-    restaurantList.forEach(function(item) {
+//    restaurantList.forEach(function(item) {
            var gallery_div = document.createElement('div');
            gallery_div.className="gallery";
            var img = document.createElement('img');
@@ -348,7 +349,7 @@ function getRestaurant(queryStringID){
            gallery_div.appendChild(rating_div);          
            dataList.appendChild(gallery_div);
        
-      });
+   //   });
 
  
   
