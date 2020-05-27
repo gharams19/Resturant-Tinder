@@ -40,6 +40,7 @@ wss.on('connection', (ws) => {
        voteYes += msgObj.selection;
        voteCount +=1;
        if ( voteCount == clientCount) {
+          console.log("totoal vote is ", voteYes, " ", restaurantList[currentRestaurant] );
           voteCount = 0;
           currentRestaurant +=1;
          //save voting result for the restaurant 
