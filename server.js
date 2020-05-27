@@ -101,6 +101,10 @@ const client = yelp.client(apiKey);
 
 const sql = require("sqlite3").verbose();
 
+/*
+  To use Yelp API to retrieve list of restaurants based on user inputs: keywords and location
+
+*/
 app.post('/retrieveRestaurants', function(req, res){
  
 
@@ -239,6 +243,11 @@ restaurantDB.get(cmd, function (err, val) {
     }
 });
 
+/*
+votingTable to log game progress
+ex: how many votes for each restaurant
+
+*/
 let cmd1 = " SELECT name FROM sqlite_master WHERE type='table' AND name='votingTable' ";
 restaurantDB.get(cmd1, function (err, val) {
     console.log(err, val);
