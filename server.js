@@ -23,6 +23,7 @@ const wss = new WebSocket.Server({server});
 
 let clientCount=0;
 let voteCount=0;
+let restaurantList = [];
 
 wss.on('connection', (ws) => {
   ws.on('message', (message) => {
@@ -83,6 +84,7 @@ function saveRestaurants(response) {
                   //    send back query string to browser for display.html
              console.log(rownumid);
             // response.send(rownumid);
+            restaurantList.push(rownumid);
           }
    });
 
@@ -128,6 +130,7 @@ client.search(searchRequest).then(response => {
      const prettyJson = JSON.stringify(row, null, 4);
      console.log(prettyJson);
      saveRestaurants(prettyJson);
+    
 });
 /*  const firstResult = response.jsonBody.businesses[0];
   const prettyJson = JSON.stringify(firstResult, null, 4);

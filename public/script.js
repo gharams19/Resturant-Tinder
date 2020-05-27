@@ -61,10 +61,8 @@ document.querySelector('#go').addEventListener('click', () => {
     
    let responseStr = xmlhttp.responseText;  // get the JSON string 
   //  alert(responseStr);
-    let  restaurantList = JSON.parse(responseStr);  // turn it into an object
-      
+    let  restaurantList = JSON.parse(responseStr);  // turn it into an object      
     let dataList = document.getElementById("image_panel");
-  
   
     
     
