@@ -66,8 +66,9 @@ connection.onmessage = event => {
   else if (msgObj.type == 'command') {
  //   button1.textContent = msgObj.info[0];
  //   button2.textContent = msgObj.info[1];
-     aRestaurant.textContent = msgObj.info;
-     let restaurant = msgObj.info.trim();
+    aRestaurant.textContent=msgObj.info;
+     let restaurant = msgObj.info;
+    
     //send AJAX request to server to get a restaurant
  // alert(restaurant);
  // console.log(restaurant);
@@ -81,26 +82,39 @@ connection.onmessage = event => {
 };
 
 
+
+
 function getRestaurant(queryStringID){
 
   alert('calling...');
 
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
+  let url = "/getARestaurant";
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  let url = '/getARestaurant';
-  xmlhttp.open("POST", url);
+  
+  xmlhttp.open("POST", '/getARestaurant');
   // important to set this for body-parser
 
   // setup callback function
-   
+    var xmlhttp = new XMLHttpRequest();   
+  xmlhttp.open("POST", '/savePostCard');
+  // important to set this for body-parser
+  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  // setup callback function
+  xmlhttp.onloadend = function(e) {
+  console.log(xmlhttp.responseText);
+    
+  show_popup(xmlhttp.responseText);
+
+  }
   xmlhttp.onloadend = function(e) {
     //console.log("call back now...");
     
 //  alert(xmlhttp.responseText);
-  console.log(xmlhttp.responseText);
-     console.log("call back now...");
-   let responseStr = xmlhttp.responseText;  // get the JSON string 
+ // console.log(xmlhttp.responseText);
+ //    console.log("call back now...");
+ //  let responseStr = xmlhttp.responseText;  // get the JSON string 
   //  alert(responseStr);
 /*    let  restaurantList = JSON.parse(responseStr);  // turn it into an object      
     let dataList = document.getElementById("restaurant");    
@@ -356,10 +370,7 @@ function getRestaurant(queryStringID){
   // all set up!  Send off the HTTP request
  //    var data = JSON.stringify({ "name": name.value, "email": email.value }); 
   
-  xmlhttp.send(JSON.stringify(  let data = {    
-    "queryID": queryStringID
-  }
-));
+  xmlhttp.send(JSON.stringify({ "querayID": queryStringID }));
 }
 
 //reviews();

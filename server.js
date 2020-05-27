@@ -363,8 +363,7 @@ function saveVoteResult(restaurantID, voteCount) {
 
 app.post("/getARestaurant", function(request, response){
  
-
-   
+  
    let r = request.body.queryID;
  // let r = request.query.id;
    console.log(r);
