@@ -17,7 +17,7 @@ let aRestaurant = document.getElementById("restaurant");
 button1.addEventListener("click", () => {
    let cmdObj= {
      "type": "command",
-     "selection":0
+     "selection":1
    }
    connection.send(JSON.stringify(cmdObj));
 });
@@ -25,8 +25,9 @@ button1.addEventListener("click", () => {
 button2.addEventListener("click", () => {
    let cmdObj= {
      "type": "command",
-     "selection":1
+     "selection":0
    }
+  
    connection.send(JSON.stringify(cmdObj));
 });
 function sendNewMsg() {

@@ -25,6 +25,7 @@ let clientCount=0;
 let voteCount=0;
 let restaurantList = ['AAA', 'BBB','CCC','DDD','EEE','FFF'];
 let currentRestaurant = 0;
+let voteYes=0;
 
 wss.on('connection', (ws) => {
   clientCount +=1;
@@ -35,7 +36,8 @@ wss.on('connection', (ws) => {
     //ws.send("server echo:" + message);
     let msgObj = JSON.parse(message);
     if (msgObj.type == "command") {
-       console.log("one user selected restaurant", restaurantList[currentRestaurant]);
+       console.log("one user selected restaurant", restaurantList[currentRestaurant], msgObj.selection);
+       voteYes += msgObj.selection;
        voteCount +=1;
        if ( voteCount == clientCount) {
           voteCount = 0;
