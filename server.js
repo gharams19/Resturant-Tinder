@@ -23,7 +23,7 @@ const wss = new WebSocket.Server({server});
 
 let clientCount=0;
 let voteCount=0;
-let restaurantList = [];
+let restaurantList = ['AAA', 'BBB','CCC','DDD','EEE','FFF'];
 let currentRestaurant = 0;
 
 wss.on('connection', (ws) => {

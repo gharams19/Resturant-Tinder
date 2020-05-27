@@ -62,7 +62,7 @@ connection.onmessage = event => {
   } 
   else if (msgObj.type == 'command') {
     button1.textContent = msgObj.info[0];
-    
+    button2.textContent = msgObj.info[1];
   }
   else {
     addMessage(msgObj.type);
