@@ -70,8 +70,10 @@ connection.onmessage = event => {
      let restaurant = msgObj.info;
     //send AJAX request to server to get a restaurant
   
-     console.log("this is:",restaurant);
-     getRestaurant(restaurant);
+  console.log(msgObj.info);
+    // getRestaurant(restaurant);
+    getRestaurant("aw7auufgjigtuvt8a5k1dd");
+    
   }
   else {
     addMessage(msgObj.type);
