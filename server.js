@@ -137,7 +137,72 @@ const client = yelp.client(apiKey);
 
 
 const sql = require("sqlite3").verbose();
+const restaurantDB = new sql.Database("restaurants.db");
 
+
+// Actual table creation; only runs if "shoppingList.db" is not found or empty
+// Does the database table exist?
+let cmd = " SELECT name FROM sqlite_master WHERE type='table' AND name='restaurantsTable' ";
+restaurantDB.get(cmd, function (err, val) {
+    console.log(err, val);
+    if (val == undefined) {
+        console.log("No database file - creating one");
+       createDB();
+    } else {
+        console.log("Database file found");
+    }
+});
+
+/*
+votingTable to log game progress
+ex: how many votes for each restaurant
+
+*/
+let cmd1 = " SELECT name FROM sqlite_master WHERE type='table' AND name='votingTable' ";
+restaurantDB.get(cmd1, function (err, val) {
+    console.log(err, val);
+    if (val == undefined) {
+        console.log("No database file - creating one");
+       createDB1();
+    } else {
+        console.log("Database file found");
+    }
+});
+function createDB() {
+  // explicitly declaring the rowIdNum protects rowids from changing if the 
+  // table is compacted; not an issue here, but good practice
+  //const cmd = 'CREATE TABLE PostcardTable ( rowIdNum INTEGER PRIMARY KEY, listItem TEXT, listAmount TEXT)';
+  const cmd = 'CREATE TABLE restaurantsTable ( queryStringId TEXT PRIMARY KEY, name TEXT, image_url TEXT, price TEXT,rating TEXT, review_count TEXT, address TEXT, vote TEXT)';
+  
+  restaurantDB.run(cmd, function(err, val) {
+    if (err) {
+      console.log("Database creation failure",err.message);
+    } else {
+      console.log("Created database");
+    }
+ });
+}
+function createDB1() {
+  // explicitly declaring the rowIdNum protects rowids from changing if the 
+  // table is compacted; not an issue here, but good practice
+  //const cmd = 'CREATE TABLE PostcardTable ( rowIdNum INTEGER PRIMARY KEY, listItem TEXT, listAmount TEXT)';
+ // const cmd = 'CREATE TABLE restaurantsTable ( queryStringId TEXT PRIMARY KEY, name TEXT, image_url TEXT, price TEXT,rating TEXT, review_count TEXT, address TEXT, vote TEXT)';
+  const cmd = 'CREATE TABLE votingTable ( queryStringId TEXT PRIMARY KEY, name TEXT, vote_count INTEGER)';
+ 
+  
+  restaurantDB.run(cmd, function(err, val) {
+    if (err) {
+      console.log("Database creation failure",err.message);
+    } else {
+      console.log("Created database");
+    }
+ });
+}
+
+function randomString() {
+return (Math.random().toString(36).substr(2, ) +Math.random().toString(36).substr(2, ));
+
+}
 /*
   To use Yelp API to retrieve list of restaurants based on user inputs: keywords and location
 
@@ -240,7 +305,7 @@ client.business('black-bear-diner-davis').then(response => {
 
 
 
-const restaurantDB = new sql.Database("restaurants.db");
+
 
 
 app.post("/getARestaurant", function(request, response, next){
@@ -249,7 +314,7 @@ app.post("/getARestaurant", function(request, response, next){
    
    let r = request.body.queryID;
  // let r = request.query.id;
-   //  console.log(r);
+   console.log(r);
   
 
   //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
@@ -273,69 +338,6 @@ app.post("/getARestaurant", function(request, response, next){
 
 
 
-// Actual table creation; only runs if "shoppingList.db" is not found or empty
-// Does the database table exist?
-let cmd = " SELECT name FROM sqlite_master WHERE type='table' AND name='restaurantsTable' ";
-restaurantDB.get(cmd, function (err, val) {
-    console.log(err, val);
-    if (val == undefined) {
-        console.log("No database file - creating one");
-       createDB();
-    } else {
-        console.log("Database file found");
-    }
-});
-
-/*
-votingTable to log game progress
-ex: how many votes for each restaurant
-
-*/
-let cmd1 = " SELECT name FROM sqlite_master WHERE type='table' AND name='votingTable' ";
-restaurantDB.get(cmd1, function (err, val) {
-    console.log(err, val);
-    if (val == undefined) {
-        console.log("No database file - creating one");
-       createDB1();
-    } else {
-        console.log("Database file found");
-    }
-});
-function createDB() {
-  // explicitly declaring the rowIdNum protects rowids from changing if the 
-  // table is compacted; not an issue here, but good practice
-  //const cmd = 'CREATE TABLE PostcardTable ( rowIdNum INTEGER PRIMARY KEY, listItem TEXT, listAmount TEXT)';
-  const cmd = 'CREATE TABLE restaurantsTable ( queryStringId TEXT PRIMARY KEY, name TEXT, image_url TEXT, price TEXT,rating TEXT, review_count TEXT, address TEXT, vote TEXT)';
-  
-  restaurantDB.run(cmd, function(err, val) {
-    if (err) {
-      console.log("Database creation failure",err.message);
-    } else {
-      console.log("Created database");
-    }
- });
-}
-function createDB1() {
-  // explicitly declaring the rowIdNum protects rowids from changing if the 
-  // table is compacted; not an issue here, but good practice
-  //const cmd = 'CREATE TABLE PostcardTable ( rowIdNum INTEGER PRIMARY KEY, listItem TEXT, listAmount TEXT)';
- // const cmd = 'CREATE TABLE restaurantsTable ( queryStringId TEXT PRIMARY KEY, name TEXT, image_url TEXT, price TEXT,rating TEXT, review_count TEXT, address TEXT, vote TEXT)';
-  const cmd = 'CREATE TABLE votingTable ( queryStringId TEXT PRIMARY KEY, name TEXT, vote_count INTEGER)';
- 
-  
-  restaurantDB.run(cmd, function(err, val) {
-    if (err) {
-      console.log("Database creation failure",err.message);
-    } else {
-      console.log("Created database");
-    }
- });
-}
-
-function randomString() {
-return (Math.random().toString(36).substr(2, ) +Math.random().toString(36).substr(2, ));
-
-}
 
 /*
  To retrieve list of ID of restaurants
