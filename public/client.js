@@ -86,7 +86,7 @@ connection.onmessage = event => {
 
 function getRestaurant(queryStringID){
 
-  alert('calling...'+queryStringID);
+ // alert('calling...'+queryStringID);
 
 
   var xmlhttp = new XMLHttpRequest();   
@@ -99,12 +99,12 @@ function getRestaurant(queryStringID){
      console.log("in call back now", xmlhttp.responseText);
     
    let responseStr = xmlhttp.responseText;  // get the JSON string 
-   alert(responseStr);
+//   alert(responseStr);
     let  item = JSON.parse(responseStr);  // turn it into an object      
     let dataList = document.getElementById("restaurant");
   
-     alert(item.name);
-     alert(item.image_url);
+  //   alert(item.name);
+  //   alert(item.image_url);
     
     //clean up
     dataList.textContent='';
