@@ -42,6 +42,7 @@ wss.on('connection', (ws) => {
        if ( voteCount == clientCount) {
           console.log("totoal vote is ", voteYes, " ", restaurantList[currentRestaurant] );
           voteCount = 0;
+          voteYes =0;
           currentRestaurant +=1;
          //save voting result for the restaurant 
          // saveVoteResult(currentRestaurant, voteCount);
@@ -57,7 +58,7 @@ wss.on('connection', (ws) => {
       
     }
     
-    broadcast(message)
+   // broadcast(message)
   })
   
   ws.on('close', ()=> {
