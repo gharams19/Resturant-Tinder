@@ -36,12 +36,14 @@ wss.on('connection', (ws) => {
        if ( voteCount == clientCount) {
           voteCount = 0;
           currentRestaurant +=1;
-          let nextRestaurant = 'No more restaurant';
+         //save voting result for the restaurant 
+          saveVoteResult(currentRestaurant, voteCount);
+          let restaurantInfo = 'No more restaurant';
           if (currentRestaurant < restaurantList.length) {
-             nextRestaurant = restaurantList[currentRestaurant];
+             restaurantInfo = restaurantList[currentRestaurant];
           }
-          console.log(nextRestaurant);
-          broadcast(JSON.stringify({'type':'command', 'info':nextRestaurant}));
+          console.log(restaurantInfo);
+          broadcast(JSON.stringify({'type':'command', 'info':restaurantInfo}));
        }
       
       
@@ -340,3 +342,26 @@ app.get("/getRestaurantIDs", function(request, response, next){
   
  })
 });
+
+
+ 
+function saveVoteResult(restaurantID, voteCount) {
+  
+  let cmd = "INSERT INTO votingTable ( queryStringId,vote_count) VALUES (?,?) ";
+  restaurantDB.run(cmd,restaurantID,voteCount, function(err) {
+  if (err) {
+             console.log("DB insert error",err.message);
+  } else {
+                  //    send back query string to browser for display.html
+             console.log(restaurantID);
+          
+          }
+   });
+
+}
+
+
+
+
+
+
