@@ -58,12 +58,23 @@ connection.onerror = error => {
 
 
 connection.onmessage = event => {
-  console.log(event.data);
+  console.log("from client", event.data);
   let msgObj = JSON.parse(event.data);
   if (msgObj.type == "message") {
     addMessage(msgObj.from+": "+msgObj.msg);
   } 
   else if (msgObj.type == 'command') {
+ //   button1.textContent = msgObj.info[0];
+ //   button2.textContent = msgObj.info[1];
+  //  aRestaurant.textContent=msgObj.info;
+     alert('got it');
+     let restaurant = msgObj.info;
+    
+    //send AJAX request to server to get a restaurant
+     getRestaurant(restaurant);
+    
+  }
+  else if (msgObj.type == 'start') {
  //   button1.textContent = msgObj.info[0];
  //   button2.textContent = msgObj.info[1];
   //  aRestaurant.textContent=msgObj.info;

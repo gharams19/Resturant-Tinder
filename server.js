@@ -31,11 +31,14 @@ let voteYes=0;
 //broadcase first restaurant
 
 
+
 wss.on('connection', (ws) => {
   clientCount +=1;
   currentRestaurant = 0;
   console.log("a new user connected --", clientCount, " users connected")
- 
+  console.log(restaurantList[0]);
+broadcast(JSON.stringify({'type':'start', 'info':"gwkvtz084moqbnrn8jobgs"}));
+
 
   
   ws.on('message', (message) => {
@@ -206,13 +209,11 @@ client.search(searchRequest).then(response => {
   */
 //  const firstResult = response.jsonBody.businesses[0];
   
- 
    res.json(response.jsonBody.businesses);
   
   
-  restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
-console.log(restaurantList[0]);
-broadcast(JSON.stringify({'type':'command', 'info':restaurantList[0]}));
+  //restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
+
    
 }).catch(e => {
   console.log(e);
