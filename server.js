@@ -262,7 +262,7 @@ app.post("/getARestaurant", function(request, response, next){
    } else {
      console.log("Database file found");
      response.json(rows);
-   //  console.log("rows",rows);
+     console.log("rows",rows);
    }
   
  })
