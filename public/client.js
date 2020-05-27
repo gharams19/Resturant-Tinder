@@ -118,6 +118,8 @@ function getRestaurant(queryStringID){
            img.src = item.image_url;
      
            gallery_div.appendChild(img);
+    
+   
       
            var desc_div = document.createElement("div");
            desc_div.className="desc";
@@ -125,12 +127,12 @@ function getRestaurant(queryStringID){
             
            var title_div = document.createElement("div");
            title_div.className="title";
-           title_div.textContent=item.location.display_address;
+           title_div.textContent=item.address;
        
            var  rating_div = document.createElement("div");
            rating_div.className="rating";
           
-        alert(item.rating);
+       
     
           
           
