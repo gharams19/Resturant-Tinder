@@ -36,9 +36,7 @@ wss.on('connection', (ws) => {
   currentRestaurant = 0;
   console.log("a new user connected --", clientCount, " users connected")
  
-   restaurantList[0]="gwkvtz084moqbnrn8jobgs";
-   broadcast(JSON.stringify({'type':'command', 'info':restaurantList[0]}));
- 
+
   
   ws.on('message', (message) => {
     //console.log(message)
@@ -175,13 +173,14 @@ app.post('/retrieveRestaurants', function(req, res){
 
   var location = req.body.param1;
   var keywords = req.body.param2;
+  let cata ="restaurant";
 //  console.log(location);
  // console.log(keywords);
   const searchRequest = {
   //term:'Black bear diner',
   term: keywords,
   limit: '16',
-   categories: 'restaurant',
+   categories: cata,
   location: location,
   sort_by: 'rating'
   //location: 'Davis,ca'
@@ -207,8 +206,14 @@ client.search(searchRequest).then(response => {
   */
 //  const firstResult = response.jsonBody.businesses[0];
   
-  
+ 
    res.json(response.jsonBody.businesses);
+  
+  
+  restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
+console.log(restaurantList[0]);
+broadcast(JSON.stringify({'type':'command', 'info':restaurantList[0]}));
+   
 }).catch(e => {
   console.log(e);
 });
