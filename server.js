@@ -100,6 +100,7 @@ const client = yelp.client(apiKey);
 
 
 const sql = require("sqlite3").verbose();
+
 app.post('/retrieveRestaurants', function(req, res){
  
 
@@ -284,3 +285,27 @@ return (Math.random().toString(36).substr(2, ) +Math.random().toString(36).subst
 
 }
 
+/*
+ To retrieve list of ID of restaurants
+ and load to array so server can  pick one at time to send client
+*/
+app.get("/getRestaurantIDs", function(request, response, next){
+    // let r = "em7giyht5zdo9dbs52at0c";
+ // let r = request.query.id;
+   //  console.log(r);
+  
+
+  let cmd = "  SELECT distinct queryStringId FROM restaurantsTable ";
+  restaurantDB.get(cmd,function (err, rows) {
+  console.log(err, rows);
+  if (rows == undefined) {
+      console.log("No database file - creating one");
+
+   } else {
+     console.log("Database file found");
+     response.json(rows);
+     console.log("rows",rows);
+   }
+  
+ })
+});
