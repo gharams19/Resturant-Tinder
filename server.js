@@ -361,7 +361,7 @@ function saveVoteResult(restaurantID, voteCount) {
 
 
 
-app.post("/getARestaurant", function(request, response, next){
+app.post("/getARestaurant", function(request, response){
  
 
    
@@ -379,11 +379,11 @@ app.post("/getARestaurant", function(request, response, next){
 
    } else {
      console.log("Database file found:getARestaurant");
-      console.log("rows",rows);
+
      response.json(rows);
-    
+      console.log("rows",rows);
    }
   
- });
+ })
 });
 

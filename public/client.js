@@ -69,9 +69,9 @@ connection.onmessage = event => {
      aRestaurant.textContent = msgObj.info;
      let restaurant = msgObj.info.trim();
     //send AJAX request to server to get a restaurant
-  alert(restaurant);
-  console.log(restaurant);
-    // getRestaurant(restaurant);
+ // alert(restaurant);
+ // console.log(restaurant);
+     getRestaurant(restaurant);
 //    getRestaurant("aw7auufgjigtuvt8a5k1dd");
     
   }
@@ -83,9 +83,7 @@ connection.onmessage = event => {
 
 function getRestaurant(queryStringID){
 
-  let data = {    
-    "queryID": queryStringID
-  }
+  alert('calling...');
 
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
@@ -358,7 +356,10 @@ function getRestaurant(queryStringID){
   // all set up!  Send off the HTTP request
  //    var data = JSON.stringify({ "name": name.value, "email": email.value }); 
   
-  xmlhttp.send(JSON.stringify(data));
+  xmlhttp.send(JSON.stringify(  let data = {    
+    "queryID": queryStringID
+  }
+));
 }
 
 //reviews();
