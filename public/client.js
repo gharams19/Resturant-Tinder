@@ -10,7 +10,23 @@ e.addEventListener("change", sendNewMsg);
 
 let button1 = document.getElementById("btn1");
 let button2 = document.getElementById("btn2");
+let progressBar = document.getElementById("progress");
 
+button1.addEventListener("click", () => {
+   let cmdObj= {
+     "type": "command",
+     "selection":0
+   }
+   connection.send(JSON.stringify(cmdObj));
+});
+
+button2.addEventListener("click", () => {
+   let cmdObj= {
+     "type": "command",
+     "selection":1
+   }
+   connection.send(JSON.stringify(cmdObj));
+});
 function sendNewMsg() {
   let e = document.getElementById("newMsg");
   let msgObj = {
