@@ -51,7 +51,7 @@ wss.on('connection', (ws) => {
           if (currentRestaurant < restaurantList.length) {
              restaurantInfo = restaurantList[currentRestaurant];
           }
-          console.log(restaurantInfo);
+     //     console.log(restaurantInfo);
           broadcast(JSON.stringify({'type':'command', 'info':restaurantInfo}));
        }
       
