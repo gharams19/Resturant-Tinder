@@ -251,7 +251,7 @@ app.post("/getARestaurant", function(request, response, next){
  // let r = request.query.id;
    //  console.log(r);
   
-  console.log("Calling - get a restaurant", r);
+
   //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
   let cmd = "SELECT * FROM restaurantsTable where queryStringId = ?";
   restaurantDB.get(cmd,r,function (err, rows) {
