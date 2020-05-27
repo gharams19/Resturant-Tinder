@@ -172,9 +172,10 @@ app.post('/retrieveRestaurants', function(req, res){
   const searchRequest = {
   //term:'Black bear diner',
   term: keywords,
-  limit:16,
-  categories:'food, US',
-  location: location
+  limit: '16',
+ // categories:'food, US',
+  location: location,
+  sort_by: 'rating'
   //location: 'Davis,ca'
 };
 
