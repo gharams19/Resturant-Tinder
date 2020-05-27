@@ -110,25 +110,29 @@ function getRestaurant(queryStringID){
     dataList.textContent='';
     // Loop over the JSON array.
 //    restaurantList.forEach(function(item) {
-           var gallery_div = document.createElement('div');
+    
+    
+           var gallery_div = document.createElement("div");
            gallery_div.className="gallery";
-           var img = document.createElement('img');
+           var img = document.createElement("img");
            img.src = item.image_url;
      
            gallery_div.appendChild(img);
       
-           var desc_div = document.createElement('div');
+           var desc_div = document.createElement("div");
            desc_div.className="desc";
            desc_div.textContent=item.name + " " + item.price ;
             
-           var title_div = document.createElement('div');
+           var title_div = document.createElement("div");
            title_div.className="title";
            title_div.textContent=item.location.display_address;
        
-           let  rating_div = document.createElement('div');
+           var  rating_div = document.createElement("div");
            rating_div.className="rating";
           
-      
+        alert(item.rating);
+    
+          
           
            if(item.rating==5) {
               var rating1 = document.createElement('i');
