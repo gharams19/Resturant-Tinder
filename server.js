@@ -36,7 +36,10 @@ wss.on('connection', (ws) => {
   currentRestaurant = 0;
   console.log("a new user connected --", clientCount, " users connected")
  
+   restaurantList[0]="gwkvtz084moqbnrn8jobgs";
    broadcast(JSON.stringify({'type':'command', 'info':restaurantList[0]}));
+ 
+  
   ws.on('message', (message) => {
     //console.log(message)
     //ws.send("server echo:" + message);
