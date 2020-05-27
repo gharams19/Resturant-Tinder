@@ -92,13 +92,13 @@ function getRestaurant(queryStringID){
   // setup callback function
    
   xmlhttp.onloadend = function(e) {
-  alert(xmlhttp.responseText);
-  console.log(xmlhttp.responseText);
+//  alert(xmlhttp.responseText);
+//  console.log(xmlhttp.responseText);
     
    let responseStr = xmlhttp.responseText;  // get the JSON string 
   //  alert(responseStr);
     let  restaurantList = JSON.parse(responseStr);  // turn it into an object      
-    let dataList = document.getElementById("image_panel");    
+    let dataList = document.getElementById("restaurant");    
     
     //clean up
     dataList.textContent='';
@@ -348,7 +348,9 @@ function getRestaurant(queryStringID){
  
   }
   // all set up!  Send off the HTTP request
-  xmlhttp.send(data);
+ //    var data = JSON.stringify({ "name": name.value, "email": email.value }); 
+  
+  xmlhttp.send(JSON.stringify(data));
 }
 
 //reviews();
