@@ -243,14 +243,17 @@ client.business('black-bear-diner-davis').then(response => {
 const restaurantDB = new sql.Database("restaurants.db");
 
 
-app.get("/getARestaurant", function(request, response, next){
-    // let r = "em7giyht5zdo9dbs52at0c";
+app.post("/getARestaurant", function(request, response, next){
+   let data = JSON.parse(request.body);
+  
+   let r = data.queryID;
  // let r = request.query.id;
    //  console.log(r);
   
 
-  let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
-  restaurantDB.get(cmd,function (err, rows) {
+  //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
+  let cmd = "SELECT * FROM restaurantsTable where queryStringId = ?";
+  restaurantDB.get(cmd,r,function (err, rows) {
   console.log(err, rows);
   if (rows == undefined) {
       console.log("No database file - creating one");
