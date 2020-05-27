@@ -69,6 +69,7 @@ connection.onmessage = event => {
      aRestaurant.textContent = msgObj.info;
      let restaurant = msgObj.info;
     //send AJAX request to server to get a restaurant
+  
      getRestaurant(restaurant);
   }
   else {
@@ -78,7 +79,12 @@ connection.onmessage = event => {
 
 
 function getRestaurant(queryStringID){
- 
+
+  let data = {
+    
+    "queryID": queryStringID
+  }
+
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
   xmlhttp.open("POST", '/getARestaurant');
@@ -343,7 +349,7 @@ function getRestaurant(queryStringID){
  
   }
   // all set up!  Send off the HTTP request
-  xmlhttp.send(JSON.stringify({ "queryID":queryStringID }));
+  xmlhttp.send(data);
 }
 
 //reviews();
