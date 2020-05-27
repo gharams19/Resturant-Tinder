@@ -24,11 +24,30 @@ const wss = new WebSocket.Server({server});
 let clientCount=0;
 let voteCount=0;
 let restaurantList = [];
+let currentRestaurant = 0;
 
 wss.on('connection', (ws) => {
   ws.on('message', (message) => {
-    // console.log(message)
+    console.log(message)
     //ws.send("server echo:" + message);
+    let msgObj = JSON.parse(message);
+    if (msgObj.type == "command") {
+       voteCount +=1;
+       if ( voteCount == clientCount) {
+          voteCount = 0;
+          currentRestaurant +=1;
+          let nextRestaurant = 'No more restaurant';
+          if (currentRestaurant < restaurantList.length) {
+             nextRestaurant = restaurantList[currentRestaurant];
+          }
+          console.log(nextRestaurant);
+          broadcast(JSON.stringify({'type':'command', 'info':nextRestaurant}));
+       }
+      
+      
+      
+    }
+    
     broadcast(message)
   })
   ws.send('connected!')
