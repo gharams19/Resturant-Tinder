@@ -287,7 +287,7 @@ return (Math.random().toString(36).substr(2, ) +Math.random().toString(36).subst
 
 /*
  To retrieve list of ID of restaurants
- and load to array so server can  pick one at time to send client
+ and load to array so server can  pick one at time to send to client
 */
 app.get("/getRestaurantIDs", function(request, response, next){
     // let r = "em7giyht5zdo9dbs52at0c";
