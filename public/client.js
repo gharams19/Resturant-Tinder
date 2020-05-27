@@ -80,8 +80,7 @@ connection.onmessage = event => {
 
 function getRestaurant(queryStringID){
 
-  let data = {
-    
+  let data = {    
     "queryID": queryStringID
   }
 

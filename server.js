@@ -244,9 +244,10 @@ const restaurantDB = new sql.Database("restaurants.db");
 
 
 app.post("/getARestaurant", function(request, response, next){
-   let data = JSON.parse(request.body);
+ 
+  console.log(request.body);
   
-   let r = data.queryID;
+   let r = request.body.queryID;
  // let r = request.query.id;
    //  console.log(r);
   
