@@ -27,6 +27,8 @@ let restaurantList = [];
 let currentRestaurant = 0;
 
 wss.on('connection', (ws) => {
+  clientCount +=1;
+  console.log("a new user connected --", clientCount, " users connected")
   ws.on('message', (message) => {
     console.log(message)
     //ws.send("server echo:" + message);
@@ -51,6 +53,11 @@ wss.on('connection', (ws) => {
     }
     
     broadcast(message)
+  })
+  
+  ws.on('close', ()=> {
+    clientCount -= 1;
+    console.log("a user disconeected --", clientCount, " users connected")
   })
   ws.send('connected!')
 })

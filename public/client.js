@@ -7,6 +7,10 @@ const connection = new WebSocket(url);
 let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
+
+let button1 = document.getElementById("btn1");
+let button2 = document.getElementById("btn2");
+
 function sendNewMsg() {
   let e = document.getElementById("newMsg");
   let msgObj = {
