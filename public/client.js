@@ -95,7 +95,7 @@ function getRestaurant(queryStringID){
      console.log("call back now...");
     /*
 //  alert(xmlhttp.responseText);
-//  console.log(xmlhttp.responseText);
+  console.log(xmlhttp.responseText);
      console.log("call back now...");
    let responseStr = xmlhttp.responseText;  // get the JSON string 
   //  alert(responseStr);
