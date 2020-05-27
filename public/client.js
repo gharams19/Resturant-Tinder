@@ -92,9 +92,11 @@ function getRestaurant(queryStringID){
   // setup callback function
    
   xmlhttp.onloadend = function(e) {
+     console.log("call back now...");
+    /*
 //  alert(xmlhttp.responseText);
 //  console.log(xmlhttp.responseText);
-    
+     console.log("call back now...");
    let responseStr = xmlhttp.responseText;  // get the JSON string 
   //  alert(responseStr);
     let  restaurantList = JSON.parse(responseStr);  // turn it into an object      
@@ -104,6 +106,7 @@ function getRestaurant(queryStringID){
     dataList.textContent='';
     // Loop over the JSON array.
     restaurantList.forEach(function(item) {
+           console.log("iterating...");
            var gallery_div = document.createElement('div');
            gallery_div.className="gallery";
            var img = document.createElement('img');
@@ -342,10 +345,10 @@ function getRestaurant(queryStringID){
            gallery_div.appendChild( title_div);     
            gallery_div.appendChild(rating_div);          
            dataList.appendChild(gallery_div);
-       
+     
       });
 
- 
+  */ 
   }
   // all set up!  Send off the HTTP request
  //    var data = JSON.stringify({ "name": name.value, "email": email.value }); 
