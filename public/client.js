@@ -69,7 +69,6 @@ connection.onmessage = event => {
      aRestaurant.textContent = msgObj.info;
      let restaurant = msgObj.info;
     //send AJAX request to server to get a restaurant
-    alert(restaurant);
      getRestaurant(restaurant);
   }
   else {
@@ -93,7 +92,7 @@ function getRestaurant(queryStringID){
    let responseStr = xmlhttp.responseText;  // get the JSON string 
   //  alert(responseStr);
     let  restaurantList = JSON.parse(responseStr);  // turn it into an object      
-    let dataList = document.getElementById("image_panel");   
+    let dataList = document.getElementById("image_panel");    
     
     //clean up
     dataList.textContent='';
