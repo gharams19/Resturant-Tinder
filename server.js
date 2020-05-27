@@ -170,8 +170,8 @@ app.post('/retrieveRestaurants', function(req, res){
 
   var location = req.body.param1;
   var keywords = req.body.param2;
-  console.log(location);
-  console.log(keywords);
+//  console.log(location);
+ // console.log(keywords);
   const searchRequest = {
   //term:'Black bear diner',
   term: keywords,
@@ -188,7 +188,7 @@ client.search(searchRequest).then(response => {
   response.jsonBody.businesses.forEach(function(row) {
   //  var result = row.businesses;
      const prettyJson = JSON.stringify(row, null, 4);
-     console.log(prettyJson);
+   //  console.log(prettyJson);
      saveRestaurants(prettyJson);
     
 });
@@ -202,8 +202,8 @@ client.search(searchRequest).then(response => {
   */
 //  const firstResult = response.jsonBody.businesses[0];
   
-   console.log(restaurantList[0]);
- broadcast(JSON.stringify({'type':'command', 'info':restaurantList[0]}));
+   console.log("first restaurant", restaurantList[0]);
+   broadcast(JSON.stringify({'type':'command', 'info':restaurantList[0]}));
   res.json(response.jsonBody.businesses);
 }).catch(e => {
   console.log(e);
@@ -369,7 +369,7 @@ function saveRestaurants(response) {
    vote= 0;
  
   
-  
+  /*
   console.log(rownumid );
   console.log(image_url);
   console.log(price);
@@ -378,7 +378,7 @@ function saveRestaurants(response) {
   console.log(address);
   console.log(name);
   console.log(vote);
- 
+ */
   
   let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, review_count, address, vote) VALUES (?,?,?,?,?,?,?,?) ";
   restaurantDB.run(cmd,rownumid,name, image_url, price, rating, review_count, address, vote, function(err) {

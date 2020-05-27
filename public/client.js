@@ -67,6 +67,7 @@ connection.onmessage = event => {
  //   button1.textContent = msgObj.info[0];
  //   button2.textContent = msgObj.info[1];
   //  aRestaurant.textContent=msgObj.info;
+     alert('got it');
      let restaurant = msgObj.info;
     
     //send AJAX request to server to get a restaurant
