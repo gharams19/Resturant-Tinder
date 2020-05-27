@@ -35,6 +35,8 @@ wss.on('connection', (ws) => {
   clientCount +=1;
   currentRestaurant = 0;
   console.log("a new user connected --", clientCount, " users connected")
+ 
+   broadcast(JSON.stringify({'type':'command', 'info':restaurantList[0]}));
   ws.on('message', (message) => {
     //console.log(message)
     //ws.send("server echo:" + message);
@@ -202,9 +204,8 @@ client.search(searchRequest).then(response => {
   */
 //  const firstResult = response.jsonBody.businesses[0];
   
-   console.log("first restaurant", restaurantList[0]);
-   broadcast(JSON.stringify({'type':'command', 'info':restaurantList[0]}));
-  res.json(response.jsonBody.businesses);
+  
+   res.json(response.jsonBody.businesses);
 }).catch(e => {
   console.log(e);
 });
