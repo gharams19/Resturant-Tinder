@@ -106,7 +106,11 @@ function getRestaurant(queryStringID){
             // Loop over the JSON array.
         //    restaurantList.forEach(function(item) {
     
-    
+           var yes_btn = document.createElement("BUTTON");
+           var no_btn = document.createElement("BUTTON");
+            
+          dataList.appendChild(yes_btn);
+            
            var gallery_div = document.createElement("div");
            gallery_div.className="gallery";
            var img = document.createElement("img");
@@ -349,6 +353,8 @@ function getRestaurant(queryStringID){
            gallery_div.appendChild( title_div);     
            gallery_div.appendChild(rating_div);          
            dataList.appendChild(gallery_div);
+            
+           dataList.appendChild(no_btn);
        
    //   });
 

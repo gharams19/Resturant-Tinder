@@ -28,6 +28,9 @@ let restaurantList = [];
 let currentRestaurant = 0;
 let voteYes=0;
 
+//broadcase first restaurant
+
+
 wss.on('connection', (ws) => {
   clientCount +=1;
   currentRestaurant = 0;
@@ -385,6 +388,7 @@ function saveRestaurants(response) {
              console.log(rownumid);
             // response.send(rownumid);
             restaurantList.push(rownumid);
+            broadcast(JSON.stringify({'type':'command', 'info':restaurantInfo}));
           }
    });
 
