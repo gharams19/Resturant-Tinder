@@ -28,12 +28,14 @@ let currentRestaurant = 0;
 
 wss.on('connection', (ws) => {
   clientCount +=1;
+  currentRestaurant = 0;
   console.log("a new user connected --", clientCount, " users connected")
   ws.on('message', (message) => {
     console.log(message)
     //ws.send("server echo:" + message);
     let msgObj = JSON.parse(message);
     if (msgObj.type == "command") {
+       console.log("one user selected restaurant", restaurantList[currentRestaurant]);
        voteCount +=1;
        if ( voteCount == clientCount) {
           voteCount = 0;

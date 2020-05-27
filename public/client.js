@@ -59,7 +59,12 @@ connection.onmessage = event => {
   let msgObj = JSON.parse(event.data);
   if (msgObj.type == "message") {
     addMessage(msgObj.from+": "+msgObj.msg);
-  } else {
+  } 
+  else if (msgObj.type == 'command') {
+    button1.textContent = msgObj.info[0];
+    
+  }
+  else {
     addMessage(msgObj.type);
   }
 };
