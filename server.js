@@ -78,52 +78,7 @@ function broadcast(data) {
 }
 
 
-function saveRestaurants(response) {
-  let rownumid = "";
-  let image_url = "";
-  let price = "";
-  let rating = "";
-  let review_count = "";
-  let address = "";
-  let vote= 0;
-  
-  let item = JSON.parse(response);
- 
-  
-   rownumid = randomString();
-   image_url = item.image_url;
-   price = item.price;
-   rating = item.rating;
-   review_count = item.review_count;
-   address = item.location.display_address;
-   name = item.name;
-   vote= 0;
- 
-  
-  
-  console.log(rownumid );
-  console.log(image_url);
-  console.log(price);
-  console.log(rating);
-  console.log(review_count);
-  console.log(address);
-  console.log(name);
-  console.log(vote);
- 
-  
-  let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, review_count, address, vote) VALUES (?,?,?,?,?,?,?,?) ";
-  restaurantDB.run(cmd,rownumid,name, image_url, price, rating, review_count, address, vote, function(err) {
-  if (err) {
-             console.log("DB insert error",err.message);
-  } else {
-                  //    send back query string to browser for display.html
-             console.log(rownumid);
-            // response.send(rownumid);
-            restaurantList.push(rownumid);
-          }
-   });
 
-}
 //start our server
 server.listen(process.env.PORT, () => {
     console.log(`Server started on port ${server.address().port} :)`);
@@ -386,3 +341,49 @@ app.post("/getARestaurant", function(request, response){
  })
 });
 
+function saveRestaurants(response) {
+  let rownumid = "";
+  let image_url = "";
+  let price = "";
+  let rating = "";
+  let review_count = "";
+  let address = "";
+  let vote= 0;
+  
+  let item = JSON.parse(response);
+ 
+  
+   rownumid = randomString();
+   image_url = item.image_url;
+   price = item.price;
+   rating = item.rating;
+   review_count = item.review_count;
+   address = item.location.display_address;
+   name = item.name;
+   vote= 0;
+ 
+  
+  
+  console.log(rownumid );
+  console.log(image_url);
+  console.log(price);
+  console.log(rating);
+  console.log(review_count);
+  console.log(address);
+  console.log(name);
+  console.log(vote);
+ 
+  
+  let cmd = "INSERT INTO restaurantsTable ( queryStringId,name,image_url,price,rating, review_count, address, vote) VALUES (?,?,?,?,?,?,?,?) ";
+  restaurantDB.run(cmd,rownumid,name, image_url, price, rating, review_count, address, vote, function(err) {
+  if (err) {
+             console.log("DB insert error",err.message);
+  } else {
+                  //    send back query string to browser for display.html
+             console.log(rownumid);
+            // response.send(rownumid);
+            restaurantList.push(rownumid);
+          }
+   });
+
+}
