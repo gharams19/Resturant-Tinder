@@ -1,7 +1,7 @@
 // client-side js, loaded by index.html
 // run by the browser each time the page is loaded
 
-const url = "wss://glitch-websocket-chat.glitch.me";
+const url = "wss://solar-rectangular-fan.glitch.me";
 const connection = new WebSocket(url);
 
 let e = document.getElementById("newMsg");
@@ -51,7 +51,7 @@ document.querySelector('#go').addEventListener('click', () => {
 
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
-  xmlhttp.open("POST", '/getRestaurant');
+  xmlhttp.open("POST", '/retrieveRestaurants');
   // important to set this for body-parser
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   // setup callback function
