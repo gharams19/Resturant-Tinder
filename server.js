@@ -31,7 +31,7 @@ wss.on('connection', (ws) => {
   currentRestaurant = 0;
   console.log("a new user connected --", clientCount, " users connected")
   ws.on('message', (message) => {
-    console.log(message)
+    //console.log(message)
     //ws.send("server echo:" + message);
     let msgObj = JSON.parse(message);
     if (msgObj.type == "command") {
@@ -41,7 +41,7 @@ wss.on('connection', (ws) => {
           voteCount = 0;
           currentRestaurant +=1;
          //save voting result for the restaurant 
-          saveVoteResult(currentRestaurant, voteCount);
+         // saveVoteResult(currentRestaurant, voteCount);
           let restaurantInfo = 'No more restaurant';
           if (currentRestaurant < restaurantList.length) {
              restaurantInfo = restaurantList[currentRestaurant];

@@ -11,6 +11,8 @@ e.addEventListener("change", sendNewMsg);
 let button1 = document.getElementById("btn1");
 let button2 = document.getElementById("btn2");
 let progressBar = document.getElementById("progress");
+let aRestaurant = document.getElementById("restaurant");
+
 
 button1.addEventListener("click", () => {
    let cmdObj= {
@@ -61,8 +63,9 @@ connection.onmessage = event => {
     addMessage(msgObj.from+": "+msgObj.msg);
   } 
   else if (msgObj.type == 'command') {
-    button1.textContent = msgObj.info[0];
-    button2.textContent = msgObj.info[1];
+ //   button1.textContent = msgObj.info[0];
+ //   button2.textContent = msgObj.info[1];
+     aRestaurant.textContent = msgObj.info;
   }
   else {
     addMessage(msgObj.type);
