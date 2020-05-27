@@ -253,7 +253,7 @@ app.post("/getARestaurant", function(request, response, next){
   
 
   //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
-  let cmd = "SELECT * FROM restaurantsTable where queryStringId = ?";
+  let cmd = "SELECT * FROM restaurantsTable WHERE queryStringId = ?";
   restaurantDB.get(cmd,r,function (err, rows) {
   console.log(err, rows);
   if (rows == undefined) {
@@ -261,8 +261,9 @@ app.post("/getARestaurant", function(request, response, next){
 
    } else {
      console.log("Database file found");
+      console.log("rows",rows);
      response.json(rows);
-     console.log("rows",rows);
+    
    }
   
  })
@@ -354,8 +355,9 @@ app.get("/getRestaurantIDs", function(request, response, next){
 
    } else {
      console.log("Database file found");
+      console.log("rows",rows);
      response.json(rows);
-     console.log("rows",rows);
+    
    }
   
  })

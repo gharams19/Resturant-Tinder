@@ -67,12 +67,12 @@ connection.onmessage = event => {
  //   button1.textContent = msgObj.info[0];
  //   button2.textContent = msgObj.info[1];
      aRestaurant.textContent = msgObj.info;
-     let restaurant = msgObj.info;
+     let restaurant = msgObj.info.trim();
     //send AJAX request to server to get a restaurant
-  
-  console.log(msgObj.info);
+  alert(restaurant);
+  console.log(restaurant);
     // getRestaurant(restaurant);
-    getRestaurant("aw7auufgjigtuvt8a5k1dd");
+//    getRestaurant("aw7auufgjigtuvt8a5k1dd");
     
   }
   else {
