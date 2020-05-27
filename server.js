@@ -202,7 +202,8 @@ client.search(searchRequest).then(response => {
   */
 //  const firstResult = response.jsonBody.businesses[0];
   
- 
+   console.log(restaurantList[0]);
+ broadcast(JSON.stringify({'type':'command', 'info':restaurantList[0]}));
   res.json(response.jsonBody.businesses);
 }).catch(e => {
   console.log(e);
@@ -385,10 +386,11 @@ function saveRestaurants(response) {
              console.log("DB insert error",err.message);
   } else {
                   //    send back query string to browser for display.html
-             console.log(rownumid);
+          //   console.log(rownumid);
             // response.send(rownumid);
             restaurantList.push(rownumid);
-            broadcast(JSON.stringify({'type':'command', 'info':restaurantInfo}));
+           
+            
           }
    });
 
