@@ -335,7 +335,7 @@ app.post("/getARestaurant", function(request, response){
      console.log("Database file found:getARestaurant");
 
      response.json(rows);
-      console.log("rows",rows);
+     console.log("rows",rows);
    }
   
  })
@@ -358,7 +358,7 @@ function saveRestaurants(response) {
    price = item.price;
    rating = item.rating;
    review_count = item.review_count;
-   address = item.location.display_address;
+   address = item.location.display_address.toString();
    name = item.name;
    vote= 0;
  

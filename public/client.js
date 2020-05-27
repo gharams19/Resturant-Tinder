@@ -70,10 +70,7 @@ connection.onmessage = event => {
      let restaurant = msgObj.info;
     
     //send AJAX request to server to get a restaurant
- // alert(restaurant);
- // console.log(restaurant);
      getRestaurant(restaurant);
-//    getRestaurant("aw7auufgjigtuvt8a5k1dd");
     
   }
   else {
@@ -86,30 +83,28 @@ connection.onmessage = event => {
 
 function getRestaurant(queryStringID){
 
- // alert('calling...'+queryStringID);
 
+          var xmlhttp = new XMLHttpRequest();   
+          xmlhttp.open("POST", '/getARestaurant');
+          // important to set this for body-parser
+          xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+          // setup callback function
+          xmlhttp.onloadend = function(e) {
+         // console.log(xmlhttp.responseText);
+             console.log("in call back now", xmlhttp.responseText);
 
-  var xmlhttp = new XMLHttpRequest();   
-  xmlhttp.open("POST", '/getARestaurant');
-  // important to set this for body-parser
-  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  // setup callback function
-  xmlhttp.onloadend = function(e) {
- // console.log(xmlhttp.responseText);
-     console.log("in call back now", xmlhttp.responseText);
-    
-   let responseStr = xmlhttp.responseText;  // get the JSON string 
-//   alert(responseStr);
-    let  item = JSON.parse(responseStr);  // turn it into an object      
-    let dataList = document.getElementById("restaurant");
-  
-  //   alert(item.name);
-  //   alert(item.image_url);
-    
-    //clean up
-    dataList.textContent='';
-    // Loop over the JSON array.
-//    restaurantList.forEach(function(item) {
+           let responseStr = xmlhttp.responseText;  // get the JSON string 
+
+           let  item = JSON.parse(responseStr);  // turn it into an object      
+           let dataList = document.getElementById("restaurant");
+
+          //   alert(item.name);
+          //   alert(item.image_url);
+
+            //clean up
+            dataList.textContent='';
+            // Loop over the JSON array.
+        //    restaurantList.forEach(function(item) {
     
     
            var gallery_div = document.createElement("div");
