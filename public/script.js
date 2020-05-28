@@ -8,6 +8,7 @@ let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
 function sendNewMsg() {
+  alert('send message');
   let e = document.getElementById("newMsg");
   let msgObj = {
     "type": "message",

@@ -58,6 +58,7 @@ connection.onerror = error => {
 
 
 connection.onmessage = event => {
+  alert('got message');
   console.log("from client", event.data);
   let msgObj = JSON.parse(event.data);
   if (msgObj.type == "message") {
@@ -76,6 +77,7 @@ connection.onmessage = event => {
   }
  
   else {
+    alert('got it message');
     addMessage(msgObj.type);
   }
 };
