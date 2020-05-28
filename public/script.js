@@ -41,7 +41,29 @@ connection.onmessage = event => {
   }
 };
 
+document.querySelector('#start').addEventListener('click', () => {
+ 
+  let location = document.getElementById("location").value;
+  let search_word = document.getElementById("autocompletelist").options[0].value;
 
+
+  // new HttpRequest instance 
+  var xmlhttp = new XMLHttpRequest();   
+  xmlhttp.open("GET", '/kickoffgame');
+  // important to set this for body-parser
+//  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  // setup callback function
+   
+  xmlhttp.onloadend = function(e) {
+  console.log(xmlhttp.responseText);
+    
+ 
+
+ 
+  }
+  // all set up!  Send off the HTTP request
+  xmlhttp.send();
+});
 
 document.querySelector('#go').addEventListener('click', () => {
  

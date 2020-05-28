@@ -212,11 +212,7 @@ client.search(searchRequest).then(response => {
    res.json(response.jsonBody.businesses);
   
   
-  //restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
-  console.log(restaurantList[0]);
-broadcast(JSON.stringify({'type':'command', 'info':'gwkvtz084moqbnrn8jobgs'}));
 
-   
 }).catch(e => {
   console.log(e);
 });
@@ -280,7 +276,15 @@ client.business('black-bear-diner-davis').then(response => {
 
 
 
+app.get('/kickoffgame', function(req, res, next){
+   console.log("start game");
+    //restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
+  console.log(restaurantList[0]);
+broadcast(JSON.stringify({'type':'command', 'info':'gwkvtz084moqbnrn8jobgs'}));
 
+   
+
+});
 
 
 

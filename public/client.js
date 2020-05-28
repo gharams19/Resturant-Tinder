@@ -74,17 +74,7 @@ connection.onmessage = event => {
      getRestaurant(restaurant);
     
   }
-  else if (msgObj.type == 'start') {
- //   button1.textContent = msgObj.info[0];
- //   button2.textContent = msgObj.info[1];
-  //  aRestaurant.textContent=msgObj.info;
-     alert('got it');
-     let restaurant = msgObj.info;
-    
-    //send AJAX request to server to get a restaurant
-     getRestaurant(restaurant);
-    
-  }
+ 
   else {
     addMessage(msgObj.type);
   }
