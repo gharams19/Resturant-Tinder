@@ -1,5 +1,6 @@
 
 
+
 * {
   box-sizing: border-box;
 }
@@ -49,29 +50,27 @@ input {
   display: none;
 }
 
-.restaurant {
-  border-radius: 12px;
-  border: 2px solid #297293;
-  padding: 20px;
-  width: 300px;
-  height: 300px;
+.restaurant_panel {
+ 
+  padding: 10px;
+  width: 800px;
+  height: 500px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  
 }
 
 
 
-#restaurant>span {
-  margin: 0;
-}
 
 div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
   float: left;
   width: 300px;
+  background:white;
 }
 
 div.gallery:hover {
@@ -87,21 +86,119 @@ div.desc {
   padding: 15px;
   text-align: left;
   font-weight:bold;
+  background:white;
 }
 
 div.title {
   padding: 15px;
   text-align: left;
- 
+  background:white;
 }
 
 .rating {
   display: flex;
   flex-flow: row wrap;
+  background:white;
 }
 .rating-star {
   width: 2em;
   height: 2em;
   margin: 0.25em;
+  background:white;
+}
+
+
+.voteButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
  
+}
+
+.image-button{
+  width: 3em;
+  height: 3em;
+ 
+}
+
+.messages_window{
+border: 2px solid #ccc;
+  border-radius: 15px;
+  overflow-y:auto;
+  		height:100px;
+		width: 100%;
+		/* background-color:#CCC; */		
+        overflow-y:auto;
+		float:left;
+		position:relative;
+		
+}
+
+.search_container{
+ 
+  margin_top:20px;
+ border: 2px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+ 
+}
+.search_container{
+ 
+  margin_top:20px;
+ border: 2px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+ 
+}
+
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+
+
+.button {
+ 
+  border: none;
+  
+ // width: 180px;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button.game_button{
+  align:center;
+}
+.keyword_box{
+  width:100%;
 }

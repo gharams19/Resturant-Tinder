@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Websockets example</title>
+    <title>Restaurant Tinder App</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A cool thing made with Glitch">
@@ -12,10 +12,7 @@
 
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
-  
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-
+   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!-- import the webpage's client-side javascript file -->
     <script src="/script.js" defer></script>
   </head>
@@ -27,34 +24,33 @@
     <main>
       <p>
         To join this chat, go to 
-        <span id="fakeLink">https://solar-rectangular-fan.glitch.me/client.html</span>,
+        <!--span id="fakeLink">https://glitch-websocket-chat.glitch.me/client.html</span-->,
+         <span id="fakeLink">https://solar-rectangular-fan.glitch.me/client.html</span>,
+        
         in a new incognito window, or maybe on your phone or another computer.
       </p>
       <p>
         Say something: <input type="text" id="newMsg">
       </p>
-      <div id="messages"></div>
+       
       
+      <div id="messages" class="messages_window"></div>
       
-     
+         
       
-  <div>    
-    <label for="keyword">Enter keywords:</label>
-    
-        
-    
-    <input list="autocompletelist" name="keyword" id="keyword">
+      <div class="search_container">
+    <label for="keyword">Enter keywords:</label>   
+    <input list="autocompletelist" name="keyword" id="keyword" class="keyword_box">
     
     
     <datalist id="autocompletelist" name="autocompletelist"></datalist>   
-    <p>Enter location: <input type="text" id="location" name="location"></p>      
-    <button id="go" name="go">Get restaurants!</button>
-  </div>
-  
-  <button id="start" name="start">Start Game!</button>
+    <p>Enter location: <input type="text" id="location" name="location" class="keyword_box"></p>      
+    <button id="go" name="go" class="button">Get restaurants!</button>
+    </div>
+ 
+  <button id="start" name="start" class="game_button">Start Game!</button>
   <div id="image_panel"></div>
-      
- </main>
+    </main>
 
     <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
 

@@ -8,7 +8,6 @@ let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 
 function sendNewMsg() {
-  alert('send message');
   let e = document.getElementById("newMsg");
   let msgObj = {
     "type": "message",
@@ -42,12 +41,79 @@ connection.onmessage = event => {
   }
 };
 
+/* 
+setInterval(() => {
+  let msg = "hearbeat";
+  addMessage("host:" + msg)
+  connection.send(msg);
+}, 4000);
+*/
+
+let keyword = document.getElementById("keyword");
+keyword.addEventListener("input", autoComplete);
+
+  //let msg = document.querySelector('#message');
+ // let img = document.querySelector('#cardImg');
+ // let selected_image = document.querySelector('#selected_image');
+//autoComplete();
+  function autoComplete() {
+
+  
+  let url = "/autoComplete";
+  let search_word = document.getElementById("keyword").value;
+  let data = {
+    "keyword": search_word
+  }
+  //alert(data.keyword);
+  console.log(data.keyword);
+  let xhr = new XMLHttpRequest;
+ 
+  xhr.open("POST",url);
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+  // setup callback function
+  xhr.onloadend = function(e) {
+    //console.log(e);
+    console.log(xhr.responseText);         
+   // show_popup( xhr.responseText);
+    let responseStr = xhr.responseText;  // get the JSON string 
+  //  alert(responseStr);
+    let wordList = JSON.parse(responseStr);  // turn it into an object
+      
+    let dataList = document.getElementById("autocompletelist");
+        
+         // Loop over the JSON array.
+    wordList.forEach(function(item) {
+        // Create a new <option> element.
+        var option = document.createElement('option');
+        // Set the value using the item in the JSON array.
+        option.value = item.text;  
+        dataList.appendChild(option);
+      });
+      } 
+ 
+      
+  
+ 
+  // Actually send request to server
+//xhr.send(JSON.stringify({ "keyword":search_word }));
+   // xhr.send(data);
+    
+    xhr.send(JSON.stringify({ "keyword":search_word }));
+     // event.stopPropagation();
+}
+
 document.querySelector('#start').addEventListener('click', () => {
  
-  let location = document.getElementById("location").value;
-  let search_word = document.getElementById("autocompletelist").options[0].value;
-
-
+ // let location = document.getElementById("location").value;
+ // let search_word = document.getElementById("autocompletelist").options[0].value;
+let msgObj = {
+    "type": "message",
+    "from": "host",
+    "msg": "lets start"
+  }
+  connection.send(JSON.stringify(msgObj))
+// connection.send(JSON.stringify(msgObj));
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
   xmlhttp.open("GET", '/kickoffgame');
@@ -58,14 +124,15 @@ document.querySelector('#start').addEventListener('click', () => {
   xmlhttp.onloadend = function(e) {
   console.log(xmlhttp.responseText);
     
- 
-
- 
-  }
+   
+  
+ }
   // all set up!  Send off the HTTP request
-  xmlhttp.send();
+ xmlhttp.send();
+ //  alert('redirecting...');
+ 
+// window.location.href = "https://brainy-ionian-find.glitch.me/client.html";
 });
-
 document.querySelector('#go').addEventListener('click', () => {
  
   let location = document.getElementById("location").value;
@@ -90,7 +157,7 @@ document.querySelector('#go').addEventListener('click', () => {
     
     
     //clean up
-    dataList.textContent='';
+    dataList.textContent="";
     // Loop over the JSON array.
     restaurantList.forEach(function(item) {
            var gallery_div = document.createElement('div');
@@ -340,6 +407,7 @@ document.querySelector('#go').addEventListener('click', () => {
   xmlhttp.send(JSON.stringify({ "param1":location , "param2":search_word }));
 });
 
+/*
 //reviews();
 function reviews() {
   let url = "reviews";
@@ -360,56 +428,8 @@ function reviews() {
   xhr.send();
 }
 
-let keyword = document.getElementById("keyword");
-keyword.addEventListener("input", autoComplete);
+*/
 
-  //let msg = document.querySelector('#message');
- // let img = document.querySelector('#cardImg');
- // let selected_image = document.querySelector('#selected_image');
-//autoComplete();
-  function autoComplete() {
-
-    
-  
-  let url = "/autoComplete";
-  let search_word = document.getElementById("keyword").value;
-  let data = {
-    "keyword": search_word
-  }
-  //alert(data.keyword);
-  console.log(data.keyword);
-  let xhr = new XMLHttpRequest;
-  xhr.open("POST",url);
-    
-  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  // setup callback function
-  xhr.onloadend = function(e) {
-    //console.log(e);
-    console.log(xhr.responseText);         
-   // show_popup( xhr.responseText);
-    let responseStr = xhr.responseText;  // get the JSON string 
-  //  alert(responseStr);
-    let wordList = JSON.parse(responseStr);  // turn it into an object
-      
-    let dataList = document.getElementById("autocompletelist");
-        
-         // Loop over the JSON array.
-    wordList.forEach(function(item) {
-        // Create a new <option> element.
-        var option = document.createElement('option');
-        // Set the value using the item in the JSON array.
-        option.value = item.text;  
-        dataList.appendChild(option);
-      });
-      } 
- 
-      
-  
- 
-  // Actually send request to server
-xhr.send(JSON.stringify({ "keyword":search_word }));
-      event.stopPropagation();
-}
   // all set up!  Send off the HTTP request
 //  xmlhttp.send(JSON.stringify(data));
 
@@ -437,4 +457,3 @@ xhr.send(JSON.stringify({ "keyword":search_word }));
   
 
 }
-  

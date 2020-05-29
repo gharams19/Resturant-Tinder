@@ -1,12 +1,9 @@
 const WebSocket = require('ws');
+
 const express = require("express");
 const app = express();
 const http = require("http");
-app.use(express.json());
-// Multer is a module to read and handle FormData objects, on the server side
-const multer = require('multer');
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
+
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
 app.use(express.static("public")); 
@@ -16,6 +13,10 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + "/public/index.html");
 });
 
+
+//const multer = require('multer');
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 const server = http.createServer(app);
 
 const wss = new WebSocket.Server({server});
@@ -23,58 +24,112 @@ const wss = new WebSocket.Server({server});
 
 let clientCount=0;
 let voteCount=0;
-//let restaurantList = ['AAA', 'BBB','CCC','DDD','EEE','FFF'];
+
+
+//let restaurantList = ['qyrgdhjkfijjcnol9pus8o', '6l47ljlg3eatvybv1w48td','exwqsg6xvws16wzoamyk0n','6l47ljlg3eatvybv1w48td','n2np22ho60ogvgrvr9byvr','knv8w02l5vmhbw0q9ym9x7'];
 let restaurantList = [];
 let currentRestaurant = 0;
 let voteYes=0;
-
-//broadcase first restaurant
-
-
+let max_round=5;
+let gameover=false;
+let restaurantInfo="";
+let broadcast_data="";
+let msgObj=[];
+var INSERT_UPDATE_TYPE='INSERT';
 
 wss.on('connection', (ws) => {
   clientCount +=1;
   currentRestaurant = 0;
+  voteYes=0;
+  voteCount=0;
   console.log("a new user connected --", clientCount, " users connected")
 
-
-  
   ws.on('message', (message) => {
-    //console.log(message)
+     console.log(message);
+  
     //ws.send("server echo:" + message);
-    let msgObj = JSON.parse(message);
+    msgObj = JSON.parse(message);
     if (msgObj.type == "command") {
        console.log("one user selected restaurant", restaurantList[currentRestaurant], msgObj.selection);
        voteYes += msgObj.selection;
        voteCount +=1;
+       console.log("voteYes=", voteYes);
+       console.log("voteCount=", voteCount);
        if ( voteCount == clientCount) {
           console.log("totoal vote is ", voteYes, " ", restaurantList[currentRestaurant] );
-          voteCount = 0;
-          voteYes =0;
-          currentRestaurant +=1;
-         //save voting result for the restaurant 
-         // saveVoteResult(currentRestaurant, voteCount);
-          let restaurantInfo = 'No more restaurant';
+          //save voting result for the restaurant 
+           //voteCount = 0;
+          // voteYes =0;
+         
+            //eliminate the restaurant no bodys likes
+            if (voteYes == clientCount) {
+               //stop game and broadcast winer
+                broadcast_data = JSON.stringify({'type':'gameover', 'info':restaurantList[currentRestaurant]});
+                gameover=true;
+              
+             
+            }
+            else {
+              saveVoteResult( restaurantList[currentRestaurant], voteYes);
+            }
+     
+          if (!gameover) {
+            voteCount = 0;
+            voteYes =0;
+            currentRestaurant +=1;
+        
+       
           if (currentRestaurant < restaurantList.length) {
              restaurantInfo = restaurantList[currentRestaurant];
           }
-     //     console.log(restaurantInfo);
-          broadcast(JSON.stringify({'type':'command', 'info':restaurantInfo}));
+          else if (max_round > 0){
+            console.log("start next round");
+             restaurantList = [];
+            INSERT_UPDATE_TYPE="UPDATE";
+          
+             restaurantInfo = 'start next round';
+             broadcast_data=JSON.stringify({'type':'message', 'info':restaurantInfo})
+             voteCount = 0;
+             voteYes =0;
+             currentRestaurant=0;
+             max_round -=1;
+             startNextRound();
+            
+          }
+            
+          broadcast_data=JSON.stringify({'type':'command', 'info':restaurantInfo})
+          }
+        // console.log(restaurantInfo);
+         
        }
-      
-      
-      
+       else {
+         //broadcase number of votes for the restaurants so far
+         
+         var percent = voteYes + '/';
+         var percent = percent + voteCount;
+        
+         broadcast_data=JSON.stringify({'type':'message', 'info':percent})
+          
+       
+       }
+       broadcast(broadcast_data);
     }
-    
-   // broadcast(message)
+      
+    else if (msgObj.type == "message") {
+        broadcast(message)
+    }
+    else {
+       broadcast(message);
+    }
   })
   
-  ws.on('close', ()=> {
+   ws.on('close', ()=> {
     clientCount -= 1;
     console.log("a user disconeected --", clientCount, " users connected")
   })
   ws.send('connected!')
 })
+
 
 function broadcast(data) {
   wss.clients.forEach((client) => {
@@ -83,8 +138,6 @@ function broadcast(data) {
     }
   });
 }
-
-
 
 //start our server
 server.listen(process.env.PORT, () => {
@@ -111,7 +164,7 @@ restaurantDB.get(cmd, function (err, val) {
         console.log("No database file - creating one");
        createDB();
     } else {
-        console.log("Database table found:restaurantsTable");
+     //   console.log("Database table found:restaurantsTable");
     }
 });
 
@@ -127,7 +180,7 @@ restaurantDB.get(cmd1, function (err, val) {
         console.log("No database file - creating one");
        createDB1();
     } else {
-        console.log("Database table found:votingTable");
+    //    console.log("Database table found:votingTable");
     }
 });
 function createDB() {
@@ -169,6 +222,31 @@ return (Math.random().toString(36).substr(2, ) +Math.random().toString(36).subst
   To use Yelp API to retrieve list of restaurants based on user inputs: keywords and location
 
 */
+
+function startNextRound() {
+ 
+  //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
+
+  let cmd = "SELECT queryStringId FROM votingTable WHERE vote_count > 0 ";
+  
+  restaurantDB.all(cmd, [], (err, rows) => {
+  if (err) {
+    console.log(err);
+  }
+ // return rows;
+  rows.forEach((row) => {
+    restaurantList.push(row.queryStringId);
+   console.log(row.queryStringId);
+  });
+      
+  broadcast(JSON.stringify({'type':'startover', 'info':restaurantList[0]}));
+        
+        
+});
+  
+}
+
+
 app.post('/retrieveRestaurants', function(req, res){
  
 
@@ -180,13 +258,42 @@ app.post('/retrieveRestaurants', function(req, res){
   const searchRequest = {
   //term:'Black bear diner',
   term: keywords,
-  limit: '16',
-   categories: cata,
+  //limit: '16',
+    limit: '5',
+  // categories: cata,
   location: location,
   sort_by: 'rating'
   //location: 'Davis,ca'
 };
 
+  restaurantList = [];
+  let cmd = "DELETE FROM restaurantsTable  ";
+  restaurantDB.get(cmd,function (err, rows) {
+  console.log(err, rows);
+  if (rows == undefined) {
+      console.log("No rows found");
+
+   } else {
+     console.log("rows are deleted in restaurantsTable");
+
+    
+   }
+  
+ })
+  
+  let cmd1 = "DELETE FROM votingTable  ";
+  restaurantDB.get(cmd1,function (err, rows) {
+  console.log(err, rows);
+  if (rows == undefined) {
+      console.log("No rows found");
+
+   } else {
+     console.log("rows are deleted in votingTable");
+
+    
+   }
+  
+ })
 
 client.search(searchRequest).then(response => {
   
@@ -221,12 +328,16 @@ client.search(searchRequest).then(response => {
 
 app.post('/autoComplete', function(req, res, next){
    
+ // console.log("auto compmlete");
+  
+  //let data = JSON.parse(req.body);
     let keyword = req.body.keyword;
-    console.log(keyword);
+  //let keyword = data.keyword;
+  //  console.log(keyword);
     client.autocomplete({
       text: keyword
     }).then(response => {
-      console.log(response.jsonBody.terms[0].text);
+    //  console.log(response.jsonBody.terms[0].text);
   //      console.log(response.jsonBody.terms[1].text);//TODO: check length first
        res.send(response.jsonBody.terms);
     }).catch(e => {
@@ -278,90 +389,13 @@ client.business('black-bear-diner-davis').then(response => {
 
 app.get('/kickoffgame', function(req, res, next){
    console.log("start game");
-    //restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
+ //   restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
   console.log(restaurantList[0]);
-broadcast(JSON.stringify({'type':'command', 'info':'gwkvtz084moqbnrn8jobgs'}));
-
-   
+  broadcast(JSON.stringify({'type':'command', 'info':restaurantList[0]}));
+  
 
 });
 
-
-
-
-
-/*
- To retrieve list of ID of restaurants
- and load to array so server can  pick one at time to send to client
-*/
-app.get("/getRestaurantIDs", function(request, response, next){
-    // let r = "em7giyht5zdo9dbs52at0c";
- // let r = request.query.id;
-   //  console.log(r);
-  
-
-  let cmd = "  SELECT distinct queryStringId FROM restaurantsTable ";
-  restaurantDB.get(cmd,function (err, rows) {
-  console.log(err, rows);
-  if (rows == undefined) {
-      console.log("No database file - creating one");
-
-   } else {
-     console.log("Database file found:distinct queryStringId");
-      console.log("rows",rows);
-     response.json(rows);
-    
-   }
-  
- })
-});
-
-
- 
-function saveVoteResult(restaurantID, voteCount) {
-  
-  let cmd = "INSERT INTO votingTable ( queryStringId,vote_count) VALUES (?,?) ";
-  restaurantDB.run(cmd,restaurantID,voteCount, function(err) {
-  if (err) {
-             console.log("DB insert error",err.message);
-  } else {
-                  //    send back query string to browser for display.html
-             console.log(restaurantID);
-          
-          }
-   });
-
-}
-
-
-
-
-
-
-app.post("/getARestaurant", function(request, response){
- 
-  
-   let r = request.body.queryID;
- // let r = request.query.id;
-   console.log(r);
-  
-
-  //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
-  let cmd = "SELECT * FROM restaurantsTable WHERE queryStringId = ? ";
-  restaurantDB.get(cmd,r,function (err, rows) {
-  console.log(err, rows);
-  if (rows == undefined) {
-      console.log("No database file - creating one");
-
-   } else {
-     console.log("Database file found:getARestaurant");
-
-     response.json(rows);
-     console.log("rows",rows);
-   }
-  
- })
-});
 
 function saveRestaurants(response) {
   let rownumid = "";
@@ -402,12 +436,71 @@ function saveRestaurants(response) {
              console.log("DB insert error",err.message);
   } else {
                   //    send back query string to browser for display.html
-          //   console.log(rownumid);
+            console.log(rownumid);
             // response.send(rownumid);
             restaurantList.push(rownumid);
            
             
           }
    });
+
+}
+
+app.post("/getARestaurant", function(request, response){
+ 
+  
+   let r = request.body.queryID;
+ // let r = request.query.id;
+   console.log("r is ",r);
+  
+
+  //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
+  let cmd = "SELECT * FROM restaurantsTable WHERE queryStringId = ? ";
+  restaurantDB.get(cmd,r,function (err, rows) {
+  console.log(err, rows);
+  if (rows == undefined) {
+      console.log("No rows found");
+
+   } else {
+     console.log("Database file found:getARestaurant");
+
+     response.json(rows);
+  //   console.log("rows",rows);
+   }
+  
+ })
+});
+
+ 
+function saveVoteResult(restaurantID, voteCount) {
+  console.log("saving to database",restaurantID,voteCount);
+  let cmd ="";
+  if (INSERT_UPDATE_TYPE=='INSERT') {
+     console.log("insert to votingTable");
+    cmd = "INSERT INTO votingTable ( queryStringId,vote_count) VALUES (?,?) ";
+      restaurantDB.run(cmd, restaurantID,voteCount, function(err) {
+  if (err) {
+             console.log("DB insert error",err.message);
+  } else {
+                  //    send back query string to browser for display.html
+            // console.log(restaurantID);
+          
+          }
+   });
+  }
+  else {
+     console.log("update to votingTable");
+    cmd = "UPDATE votingTable SET vote_count = ? WHERE queryStringId = ?";
+      restaurantDB.run(cmd, voteCount,restaurantID, function(err) {
+  if (err) {
+             console.log("DB insert error",err.message);
+  } else {
+                  //    send back query string to browser for display.html
+            // console.log(restaurantID);
+          
+          }
+   });
+  }
+
 
 }
