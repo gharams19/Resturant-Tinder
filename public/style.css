@@ -60,6 +60,8 @@ input {
   align-items: center;
   justify-content: space-between;
   
+  
+  
 }
 
 
@@ -201,4 +203,43 @@ input[type=text] {
 }
 .keyword_box{
   width:100%;
+}
+
+
+   <div class="postcard">
+        <div class="image upload">
+          <img id="cardImg" alt="user uploaded img"/>
+
+          <form method="post" enctype="multipart/form-data">
+            <button class="btn">Choose Image</button>
+            <input id="imgUpload" type="file" accept="image/*" name="photo"/> 
+          </form>    
+        </div>
+        
+        
+        <div contenteditable="true" placeholder="Write your message here!" id="message" class="flower"></div> 
+      </div>
+
+
+.postcard {
+  /*   background: #eceeeb; */
+  background: #e6e2cf;
+  margin: 2em 0;
+  display: flex;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.image {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#cardImg {
+  max-width: 100%;
+  max-height: 100%;
+  display: none;
 }
