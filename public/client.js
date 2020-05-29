@@ -23,6 +23,11 @@ let addMessage = function(message) {
   pTag.appendChild(document.createTextNode(message));
   document.getElementById("messages").appendChild(pTag);
 };
+let displayProgress = function(message) {
+  const pTag = document.getElementById("progress");
+  pTag.textContent=message;
+ 
+};
 
 
 connection.onopen = () => {
@@ -46,29 +51,11 @@ connection.onmessage = event => {
 
 */
 
-//let button1 = document.getElementById("btn1");
-//let button2 = document.getElementById("btn2");
 let progressBar = document.getElementById("progress");
 let aRestaurant = document.getElementById("restaurant_page");
-//button1.addEventListener("click", () => {
-//   let cmdObj= {
- //    "type": "command",
- //    "selection":1
- //  }
- //  connection.send(JSON.stringify(cmdObj));
-//});
-
-//button2.addEventListener("click", () => {
-//   let cmdObj= {
- //    "type": "command",
- //    "selection":0
- //  }
-  
-//   connection.send(JSON.stringify(cmdObj));
-//});
 
 connection.onmessage = event => {
-//  alert('got message');
+ 
   //console.log("from client", event.data);
   let msgObj = JSON.parse(event.data);
   if (msgObj.type == "message") {
@@ -104,6 +91,12 @@ connection.onmessage = event => {
     //  alert('got another restaurant ' + restaurant);
     //send AJAX request to server to get a restaurant
       getRestaurant(restaurant);
+    
+  }
+  else if (msgObj.type == 'progress') {
+ 
+ 
+     displayProgress(msgObj.info);
     
   }
   else {

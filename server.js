@@ -107,7 +107,7 @@ wss.on('connection', (ws) => {
          var percent = percent + clientCount;
         
          console.log("percent =",percent);
-         broadcast_data=JSON.stringify({'type':'message', 'info':percent})
+         broadcast_data=JSON.stringify({'type':'progress', 'from': 'host','info':percent})
           
        
        }
