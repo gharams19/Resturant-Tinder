@@ -8,7 +8,7 @@
 
 
 body {
-  font-family: "Ariel", sans-serif;
+  font-family: "Open Sans"; 
   width: 100%;
   display: flex;
   flex-flow: column;
@@ -20,8 +20,8 @@ main {
   flex: 1;
 }
 
+
 #fakeLink {
-  font-family: serif;
   font-size: large;
   color: #003388;
 }
