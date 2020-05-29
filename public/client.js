@@ -139,8 +139,8 @@ function getRestaurant(queryStringID){
             var no_btn = document.createElement('img'); 
             
             
-            yes_btn.src="https://cdn.glitch.com/e8ba2244-9f4e-439e-87cb-6327d1fa8c1d%2FheartButton.svg?v=1590714752414";
-            no_btn.src="https://cdn.glitch.com/e8ba2244-9f4e-439e-87cb-6327d1fa8c1d%2FrejectButton.svg?v=1590714739217";
+            yes_btn.src="https://cdn.glitch.com/6fccf2e6-5025-49e3-bef1-5d3addbc924c%2FheartButton.svg?v=1590786125475";
+            no_btn.src="https://cdn.glitch.com/6fccf2e6-5025-49e3-bef1-5d3addbc924c%2FrejectButton.svg?v=1590786117124";
             yes_btn.className="image-button";
             no_btn.className="image-button"
             yes_btn_div.appendChild(yes_btn);
