@@ -24,8 +24,6 @@ const wss = new WebSocket.Server({server});
 
 let clientCount=0;
 let voteCount=0;
-
-
 //let restaurantList = ['qyrgdhjkfijjcnol9pus8o', '6l47ljlg3eatvybv1w48td','exwqsg6xvws16wzoamyk0n','6l47ljlg3eatvybv1w48td','n2np22ho60ogvgrvr9byvr','knv8w02l5vmhbw0q9ym9x7'];
 let restaurantList = [];
 let currentRestaurant = 0;
@@ -106,8 +104,9 @@ wss.on('connection', (ws) => {
          //broadcase number of votes for the restaurants so far
          
          var percent = voteYes + '/';
-         var percent = percent + voteCount;
+         var percent = percent + clientCount;
         
+         console.log("percent =",percent);
          broadcast_data=JSON.stringify({'type':'message', 'info':percent})
           
        
