@@ -29,11 +29,11 @@ let restaurantList = [];
 let currentRestaurant = 0;
 let voteYes=0;
 let max_round=5;
-var gameover=false;
+var gameover="NO";
 var restaurantInfo="";
 var broadcast_data="";
 let msgObj=[];
-var INSERT_UPDATE_TYPE='INSERT';
+var INSERT_UPDATE_TYPE="INSERT";
 
 wss.on('connection', (ws) => {
   clientCount +=1;
@@ -64,13 +64,13 @@ wss.on('connection', (ws) => {
             if (voteYes == clientCount) {
                //stop game and broadcast winer
                 broadcast_data = JSON.stringify({'type':'gameover', 'info':restaurantList[currentRestaurant]});
-                gameover=true;
+                gameover="YES";
               
              
             }
            
      
-          if (!gameover) {
+          if (gameover=="NO") {
             console.log("game is not over.")
             saveVoteResult( restaurantList[currentRestaurant], voteYes);
             voteCount = 0;
@@ -494,7 +494,7 @@ app.post("/getARestaurant", function(request, response){
 function saveVoteResult(restaurantID, voteCount) {
   console.log("saving to database",restaurantID,voteCount);
   let cmd ="";
-  if (INSERT_UPDATE_TYPE=='INSERT') {
+  if (INSERT_UPDATE_TYPE=="INSERT") {
      console.log("insert to votingTable");
     cmd = "INSERT INTO votingTable ( queryStringId,vote_count) VALUES (?,?) ";
       restaurantDB.run(cmd, restaurantID,voteCount, function(err) {
