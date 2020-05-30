@@ -72,7 +72,7 @@ wss.on('connection', (ws) => {
               saveVoteResult( restaurantList[currentRestaurant], voteYes);
             }
      
-          if (!gameover) {
+          if (gameover == false) {
             voteCount = 0;
             voteYes =0;
             currentRestaurant +=1;
@@ -239,7 +239,13 @@ function startNextRound() {
    console.log(row.queryStringId);
   });
       
-  broadcast(JSON.stringify({'type':'startover', 'info':restaurantList[0]}));
+  if (restaurantList.length =! 0) {
+    broadcast(JSON.stringify({'type':'startover', 'info':restaurantList[0]}));
+  }
+  else {
+    
+    broadcast(JSON.stringify({'type':'abort', 'info':'game is over'}));
+  }
         
         
 });

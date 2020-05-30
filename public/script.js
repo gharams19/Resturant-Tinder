@@ -117,6 +117,16 @@ connection.onmessage = event => {
       getRestaurant(restaurant);
     
   }
+  else if (msgObj.type == 'abort') {
+    alert('next round');
+    aRestaurant.textContent=msgObj.info;
+ 
+     let restaurant = msgObj.info;
+    //  alert('got another restaurant ' + restaurant);
+    //send AJAX request to server to get a restaurant
+      getRestaurant(restaurant);
+    
+  }
   else if (msgObj.type == 'progress') {
  
  
