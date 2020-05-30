@@ -53,6 +53,7 @@ wss.on('connection', (ws) => {
        voteCount +=1;
        console.log("voteYes=", voteYes);
        console.log("voteCount=", voteCount);
+       console.log("clientCount=", clientCount);
        if ( voteCount == clientCount) {
           console.log("totoal vote is ", voteYes, " ", restaurantList[currentRestaurant] );
           //save voting result for the restaurant 
@@ -339,15 +340,15 @@ app.post('/autoComplete', function(req, res, next){
     //  console.log(response.jsonBody.terms[0].text);
   //      console.log(response.jsonBody.terms[1].text);//TODO: check length first
       
-        response.jsonBody.categories.forEach(function(row) {
+   //     response.jsonBody.categories.forEach(function(row) {
   //  var result = row.businesses;
-     const prettyJson = JSON.stringify(row, null, 4);
-    console.log(prettyJson);
+  //   const prettyJson = JSON.stringify(row, null, 4);
+   // console.log(prettyJson);
 //     saveRestaurants(prettyJson);
     
     
     
-});
+//});
       
        res.send(response.jsonBody.terms);
     }).catch(e => {
