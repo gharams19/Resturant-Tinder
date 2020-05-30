@@ -236,16 +236,10 @@ let msgObj = {
 
 
 document.querySelector('#go').addEventListener('click', () => {
-  alert('jekrjek');
+  alert('here');
   let location = document.getElementById("location").value;
   let search_word = document.getElementById("autocompletelist").options[0].value;
-  let start_btn= document.getElementById("start_button");
-   
  
-   var game_btn = document.createElement('BUTTON');
-    game_btn.className="game_button";
-  game_btn.textContent="Start Game!";
-  start_btn.appendChild(game_btn);
   
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
@@ -263,9 +257,12 @@ document.querySelector('#go').addEventListener('click', () => {
     let dataList = document.getElementById("image_panel");
    
     let start_btn= document.getElementById("start");
-    start_btn.textContent="Start Game!";
-    
-    
+       
+ 
+   var game_btn = document.createElement('BUTTON');
+    game_btn.className="game_button";
+  game_btn.textContent="Start Game!";
+  start_btn.appendChild(game_btn);
     //clean up
     dataList.textContent="";
     // Loop over the JSON array.
