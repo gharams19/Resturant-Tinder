@@ -124,6 +124,8 @@ keyword.addEventListener("input", autoComplete);
         var option = document.createElement('option');
         // Set the value using the item in the JSON array.
         option.value = item.text;  
+    //   alert(option.value);
+      console.log(option.value);
         dataList.appendChild(option);
       });
       } 
