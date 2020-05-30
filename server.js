@@ -71,6 +71,7 @@ wss.on('connection', (ws) => {
            
      
           if (gameover == false) {
+            console.log("game is not over.")
             saveVoteResult( restaurantList[currentRestaurant], voteYes);
             voteCount = 0;
             voteYes =0;
