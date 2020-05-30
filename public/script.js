@@ -108,7 +108,7 @@ connection.onmessage = event => {
     
   }
   else if (msgObj.type == 'startover') {
-    alert('next round');
+ //   alert('next round');
     aRestaurant.textContent=msgObj.info;
  
      let restaurant = msgObj.info;
@@ -118,13 +118,13 @@ connection.onmessage = event => {
     
   }
   else if (msgObj.type == 'abort') {
-    alert('next round');
+  //  alert('next round');
     aRestaurant.textContent=msgObj.info;
  
-     let restaurant = msgObj.info;
+     let message = msgObj.info;
     //  alert('got another restaurant ' + restaurant);
     //send AJAX request to server to get a restaurant
-      getRestaurant(restaurant);
+    displayProgress(message);
     
   }
   else if (msgObj.type == 'progress') {
