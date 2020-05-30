@@ -30,7 +30,7 @@
         in a new incognito window, or maybe on your phone or another computer.
       </p>
       <p>
-        Say something: <input type="text" id="newMsg" class="say_window">
+        Say something: <input type="text" id="newMsg">
       </p>
        
       
@@ -39,28 +39,17 @@
          
       
     <div class="search_container">
-    <p>Enter keywords:  
+    <label for="keyword">Enter keywords:</label>   
     <input list="autocompletelist" name="keyword" id="keyword" class="keyword_box">    
-      <datalist id="autocompletelist" name="autocompletelist">
-        
+    <datalist id="autocompletelist" name="autocompletelist">
       
-    </datalist></p>
-    <p>Enter location: <input type="text" id="location" name="location" class="keyword_box"></p>  
-    <div class="button_container">
-    <div><button id="go" name="go" class="button">Get restaurants!</button></div>
-      <div id="start_button"></div>
-      </div>
+    </datalist>   
+    <p>Enter location: <input type="text" id="location" name="location" class="keyword_box"></p>      
+    <button id="go" name="go" class="button">Get restaurants!</button>
     </div>
  
   
-   <div id="progress"> </div>
-         <div id="restaurant" class="restaurant_panel">
-      
-       <!--div><img  id="no-btn" ></div-->
-       <div id="restaurant_page" class="image" name="restaurant_page"/>
-      <!--div> <img id="yes-btn"  ></div-->
-        
-      </div> 
+     
     </main>
 
     <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
