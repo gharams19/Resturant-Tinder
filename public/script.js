@@ -222,10 +222,9 @@ let msgObj = {
   // setup callback function
    
   xmlhttp.onloadend = function(e) {
-  console.log(xmlhttp.responseText);
-    
-   let start_btn= document.getElementById("start");
-   start_btn.textContent="Start Game!";
+  console.log("finish loading restaurants.");
+   
+   
   
  }
   // all set up!  Send off the HTTP request
@@ -257,7 +256,9 @@ document.querySelector('#go').addEventListener('click', () => {
   //  alert(responseStr);
     let  restaurantList = JSON.parse(responseStr);  // turn it into an object      
     let dataList = document.getElementById("image_panel");
-  
+   
+    let start_btn= document.getElementById("start");
+    start_btn.textContent="Start Game!";
     
     
     //clean up
