@@ -68,15 +68,14 @@ wss.on('connection', (ws) => {
               
              
             }
-            else {
-              saveVoteResult( restaurantList[currentRestaurant], voteYes);
-            }
+           
      
           if (gameover == false) {
+            saveVoteResult( restaurantList[currentRestaurant], voteYes);
             voteCount = 0;
             voteYes =0;
             currentRestaurant +=1;
-        
+          
        
           if (currentRestaurant < restaurantList.length) {
              restaurantInfo = restaurantList[currentRestaurant];
