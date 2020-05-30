@@ -66,11 +66,12 @@ input {
 
 
 div.gallery {
-  margin: 5px;
   border: 1px solid #ccc;
   float: left;
   width: 300px;
   background:white;
+
+  
 }
 
 div.gallery:hover {
@@ -81,6 +82,9 @@ div.gallery img {
   width: 100%;
   height: auto;
 }
+
+
+
 
 div.desc {
   padding: 15px;
