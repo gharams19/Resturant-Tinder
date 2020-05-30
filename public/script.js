@@ -236,12 +236,17 @@ let msgObj = {
 
 
 document.querySelector('#go').addEventListener('click', () => {
- 
+  alert('jekrjek');
   let location = document.getElementById("location").value;
   let search_word = document.getElementById("autocompletelist").options[0].value;
-  let start_btn= document.getElementById("start");
-   start_btn.textContent="Loading Restaurants, please wait...";
-
+  let start_btn= document.getElementById("start_button");
+   
+ 
+   var game_btn = document.createElement('BUTTON');
+    game_btn.className="game_button";
+  game_btn.textContent="Start Game!";
+  start_btn.appendChild(game_btn);
+  
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
   xmlhttp.open("POST", '/retrieveRestaurants');
