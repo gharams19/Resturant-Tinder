@@ -29,9 +29,9 @@ let restaurantList = [];
 let currentRestaurant = 0;
 let voteYes=0;
 let max_round=5;
-let gameover=false;
-let restaurantInfo="";
-let broadcast_data="";
+var gameover=false;
+var restaurantInfo="";
+var broadcast_data="";
 let msgObj=[];
 var INSERT_UPDATE_TYPE='INSERT';
 
@@ -70,7 +70,7 @@ wss.on('connection', (ws) => {
             }
            
      
-          if (gameover == false) {
+          if (!gameover) {
             console.log("game is not over.")
             saveVoteResult( restaurantList[currentRestaurant], voteYes);
             voteCount = 0;
