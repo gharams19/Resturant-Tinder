@@ -405,6 +405,8 @@ client.business('black-bear-diner-davis').then(response => {
 
 
 app.get('/kickoffgame', function(req, res, next){
+  voteCount=0;
+  voteYes=0;
    console.log("start game");
  //   restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
   console.log(restaurantList[0]);
