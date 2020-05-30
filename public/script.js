@@ -40,6 +40,15 @@ connection.onerror = error => {
 
 let progressBar = document.getElementById("progress");
 let aRestaurant = document.getElementById("restaurant_page");
+let keyword_input = document.getElementById("keyword");
+let locatino_input = document.getElementById("location");
+let autocompletelist = document.getElementById("autocompletelist");
+
+keyword_input.value='';
+locatino_input.value='';
+//autocompletelist.value='';
+
+autocompletelist.options.length = 0;
 
 connection.onmessage = event => {
   let msgObj = JSON.parse(event.data);
