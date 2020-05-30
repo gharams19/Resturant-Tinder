@@ -41,11 +41,11 @@ connection.onerror = error => {
 let progressBar = document.getElementById("progress");
 let aRestaurant = document.getElementById("restaurant_page");
 let keyword_input = document.getElementById("keyword");
-let locatino_input = document.getElementById("location");
+let location_input = document.getElementById("location");
 let autocompletelist = document.getElementById("autocompletelist");
 
 keyword_input.value='';
-locatino_input.value='';
+location_input.value='';
 //autocompletelist.value='';
 
 autocompletelist.options.length = 0;
@@ -139,13 +139,7 @@ connection.onmessage = event => {
     addMessage(msgObj.type);
   }
 };
-/* 
-setInterval(() => {
-  let msg = "hearbeat";
-  addMessage("host:" + msg)
-  connection.send(msg);
-}, 4000);
-*/
+
 
 let keyword = document.getElementById("keyword");
 keyword.addEventListener("input", autoComplete);
@@ -236,7 +230,7 @@ let msgObj = {
 
 
 document.querySelector('#go').addEventListener('click', () => {
-  
+  alert('here');
   let location = document.getElementById("location").value;
   let search_word = document.getElementById("autocompletelist").options[0].value;
 

@@ -256,6 +256,7 @@ function startNextRound() {
 app.post('/retrieveRestaurants', function(req, res){
  
 
+  console.log("retrieve restaurants.");
   var location = req.body.param1;
   var keywords = req.body.param2;
   let cata ="restaurant";
