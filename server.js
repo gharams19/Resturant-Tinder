@@ -512,10 +512,10 @@ function saveVoteResult(restaurantID, voteCount) {
     cmd = "UPDATE votingTable SET vote_count = ? WHERE queryStringId = ?";
       restaurantDB.run(cmd, voteCount,restaurantID, function(err) {
   if (err) {
-             console.log("DB insert error",err.message);
+             console.log("DB update error",err.message);
   } else {
                   //    send back query string to browser for display.html
-            // console.log(restaurantID);
+             console.log("DB update successful");
           
           }
    });
