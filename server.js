@@ -335,9 +335,20 @@ app.post('/autoComplete', function(req, res, next){
   //  console.log(keyword);
     client.autocomplete({
       text: keyword
-    }).then(response => {
+      }).then(response => {
     //  console.log(response.jsonBody.terms[0].text);
   //      console.log(response.jsonBody.terms[1].text);//TODO: check length first
+      
+        response.jsonBody.categories.forEach(function(row) {
+  //  var result = row.businesses;
+     const prettyJson = JSON.stringify(row, null, 4);
+    console.log(prettyJson);
+//     saveRestaurants(prettyJson);
+    
+    
+    
+});
+      
        res.send(response.jsonBody.terms);
     }).catch(e => {
       console.log(e);
