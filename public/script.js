@@ -236,7 +236,7 @@ let msgObj = {
 
 
 document.querySelector('#go').addEventListener('click', () => {
-  alert('here');
+  
   let location = document.getElementById("location").value;
   let search_word = document.getElementById("autocompletelist").options[0].value;
 
