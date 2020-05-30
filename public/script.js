@@ -119,7 +119,7 @@ connection.onmessage = event => {
   }
   else if (msgObj.type == 'abort') {
   //  alert('next round');
-    aRestaurant.textContent=msgObj.info;
+    //aRestaurant.textContent=msgObj.info;
  
      let message = msgObj.info;
     //  alert('got another restaurant ' + restaurant);
