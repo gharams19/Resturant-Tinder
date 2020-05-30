@@ -99,6 +99,7 @@ connection.onmessage = event => {
    else if (msgObj.type == 'gameover') {
  //   button1.textContent = msgObj.info[0];
  //   button2.textContent = msgObj.info[1];
+     
     aRestaurant.textContent=msgObj.info;
  
      let restaurant = msgObj.info;
@@ -122,6 +123,7 @@ connection.onmessage = event => {
     //aRestaurant.textContent=msgObj.info;
  
      let message = msgObj.info;
+    alert('abort');
     //  alert('got another restaurant ' + restaurant);
     //send AJAX request to server to get a restaurant
     displayProgress(message);
