@@ -121,9 +121,9 @@ connection.onmessage = event => {
   else if (msgObj.type == 'abort') {
   //  alert('next round');
     //aRestaurant.textContent=msgObj.info;
- 
+     alert('abort');
      let message = msgObj.info;
-    alert('abort');
+
     //  alert('got another restaurant ' + restaurant);
     //send AJAX request to server to get a restaurant
     displayProgress(message);
@@ -224,7 +224,8 @@ let msgObj = {
   xmlhttp.onloadend = function(e) {
   console.log(xmlhttp.responseText);
     
-   
+   let start_btn= document.getElementById("start");
+   start_btn.textContent="Start Game!";
   
  }
   // all set up!  Send off the HTTP request
@@ -239,7 +240,8 @@ document.querySelector('#go').addEventListener('click', () => {
  
   let location = document.getElementById("location").value;
   let search_word = document.getElementById("autocompletelist").options[0].value;
-
+  let start_btn= document.getElementById("start");
+   start_btn.textContent="Loading Restaurants, please wait...";
 
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
