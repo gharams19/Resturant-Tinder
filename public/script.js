@@ -315,7 +315,6 @@ function reviews() {
     
     
   
-
 }
 
 function getRestaurant(queryStringID){
