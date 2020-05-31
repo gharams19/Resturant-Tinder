@@ -86,22 +86,22 @@ div.gallery img {
   flex-direction: row;
   align-items: left;
   justify-content: space-between;
+   
 }
 .desc {
-  flex:1;
   margin-top: 1em;
-  font-weight:1200;
+  font-weight:900;
   background:white;
   font-size:x-large;
   padding:10px;
-  
+  flex:1;
   
 }
 .price {
-  flex:1; 
-  font-weight:400;
 
- flex-direction:right;
+  font-weight:400;
+  flex:2;
+  margin-right:0;
   
 }
 .title {
@@ -119,7 +119,7 @@ div.gallery img {
   background:white;
 }
 .rating-star {
-  padding:20px;
+  padding:25px;
   width: 2em;
   height: 2em;
   margin: 0.25em;
