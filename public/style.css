@@ -62,7 +62,7 @@ div.gallery {
 
   background:white; 
 
-  height:65vh;
+  height:60vh;
   flex: 1;
   display: flex;
   flex-flow: column;
@@ -85,7 +85,7 @@ div.gallery img {
 .desc {
   margin-top: 1em;
   text-align: left;
-  font-weight:1000;
+  font-weight:1200;
   background:white;
   font-size:x-large;
   padding:10px;
@@ -114,18 +114,22 @@ div.gallery img {
   background:white;
 }
 .rating-star {
-  padding:20px;
+  padding:30px;
   width: 2em;
   height: 2em;
   margin: 0.25em;
   background:white;
 }
 .review{
-  padding:10px;
+  padding-left:10px;
+  padding-right:10px;
   border: 1px solid black;
+  border-radius:10px;
   font-size:x-large;
   font-weight:400;
-  width:100px;
+  width:120px;
+  margin-bottom: 1em;
+  margin-left: 15px;
 }
 
 .voteButton {
