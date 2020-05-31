@@ -116,6 +116,7 @@ connection.onmessage = event => {
     addMessage(msgObj.type);
   }
 };
+
 function getRestaurant(queryStringID){
 
      
