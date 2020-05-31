@@ -64,15 +64,13 @@ input {
 
 
 div.gallery {
-  border: 1px solid #ccc;
+  border: 1px;
   float: left;
   width: 300px;
   background:white; 
+  position:relative;
 }
 
-div.gallery:hover {
-  border: 1px solid #777;
-}
 
 div.gallery img {
   width: 100%;
@@ -123,7 +121,10 @@ div.gallery.title {
 .image-button{
   width: 3em;
   height: 3em;
- 
+  postion:absolute;
+  right:0;
+  left:0;
+    
 }
 .say_window{
   	width: 100%;

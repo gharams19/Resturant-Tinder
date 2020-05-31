@@ -119,7 +119,7 @@ connection.onmessage = event => {
     
   }
    else if (msgObj.type == 'abort') {
-  //  alert('next round');
+    alert('abort');
     aRestaurant.textContent=msgObj.info;
  
      let message = msgObj.info;
@@ -127,7 +127,9 @@ connection.onmessage = event => {
     //send AJAX request to server to get a restaurant
     displayProgress(message);
     let dataList = document.getElementById("restaurant");
-    dataList.innerHTML="";
+    dataList.textContent="";
+      let dataList1 = document.getElementById("restaurant_page");
+       dataList1.textContent="";
    
           
   }
