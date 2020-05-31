@@ -382,9 +382,17 @@ function getRestaurant(queryStringID){
     
    
       
+           var price_div = document.createElement("div");
+           price_div.className="price";
+           if (item.price=="null")
+             price_div.textContent="?" ;
+           else
+             price_div.textContent=item.price;
+      
            var desc_div = document.createElement("div");
            desc_div.className="desc";
-           desc_div.textContent=item.name + " " + item.price ;
+           desc_div.textContent=item.name 
+           desc_div.appendChild(price_div);
             
            var title_div = document.createElement("div");
            title_div.className="title";
@@ -395,6 +403,15 @@ function getRestaurant(queryStringID){
           
        
               
+          var review_div = document.createElement("reivew");
+           review_div.className="review";
+           if (item.review_count=="null")
+             review_div.textContent="?" ;
+           else
+             review_div.textContent=item.review_count;
+            rating5.textContent=item.review_count + " reviews";
+            
+            
            if(item.rating==5) {
               var rating1 = document.createElement('i');
               rating1.className="fas fa-star";
@@ -434,7 +451,7 @@ function getRestaurant(queryStringID){
               var rating5 = document.createElement('i');
               rating5.className="far fa-star"
           
-              rating5.textContent=item.review_count + " reviews";
+            //  rating5.textContent=item.review_count + " reviews";
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
               rating_div.appendChild(rating3);
@@ -458,7 +475,7 @@ function getRestaurant(queryStringID){
              
               var rating45 = document.createElement('i');
               rating45.className="fas fa-star-half-alt"
-              rating45.textContent=item.review_count + " reviews";
+            //  rating45.textContent=item.review_count + " reviews";
              
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
@@ -483,7 +500,7 @@ function getRestaurant(queryStringID){
              
               var rating5 = document.createElement('i');
               rating5.className="far fa-star"
-              rating5.textContent=item.review_count + " reviews";
+            //  rating5.textContent=item.review_count + " reviews";
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
               rating_div.appendChild(rating3);
@@ -509,7 +526,7 @@ function getRestaurant(queryStringID){
              
               var rating4 = document.createElement('i');
               rating4.className="far fa-star"
-              rating4.textContent=item.review_count + " reviews";
+            //  rating4.textContent=item.review_count + " reviews";
              
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
@@ -530,7 +547,7 @@ function getRestaurant(queryStringID){
               rating4.className="far fa-star"
               var rating5 = document.createElement('i');
               rating5.className="far fa-star"
-              rating5.textContent=item.review_count + " reviews";
+           //   rating5.textContent=item.review_count + " reviews";
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
               rating_div.appendChild(rating3);
@@ -552,7 +569,7 @@ function getRestaurant(queryStringID){
               rating4.className="far fa-star"
               var rating5 = document.createElement('i');
               rating5.className="far fa-star"
-              rating5.textContent=item.review_count + " reviews";
+              //rating5.textContent=item.review_count + " reviews";
              
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);           
@@ -576,7 +593,7 @@ function getRestaurant(queryStringID){
               rating4.className="far fa-star"
               var rating5 = document.createElement('i');
               rating5.className="far fa-star"
-              rating5.textContent=item.review_count + " reviews";
+            //  rating5.textContent=item.review_count + " reviews";
              
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
@@ -610,8 +627,9 @@ function getRestaurant(queryStringID){
            }
       
            gallery_div.appendChild(desc_div);
+           gallery_div.appendChild(rating_div);  
            gallery_div.appendChild( title_div);     
-           gallery_div.appendChild(rating_div);          
+                   
            restaurantPage.appendChild(gallery_div);
            dataList.appendChild(restaurantPage);
            dataList.appendChild(yes_btn_div);
