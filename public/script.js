@@ -118,17 +118,18 @@ connection.onmessage = event => {
       getRestaurant(restaurant);
     
   }
-  else if (msgObj.type == 'abort') {
- 
+   else if (msgObj.type == 'abort') {
+  //  alert('next round');
     aRestaurant.textContent=msgObj.info;
-    let restaurantPage = document.getElementById("restaurant_page");
-    restaurantPage.innerHTML="";   
+ 
      let message = msgObj.info;
-
     //  alert('got another restaurant ' + restaurant);
     //send AJAX request to server to get a restaurant
     displayProgress(message);
-    
+      let dataList = document.getElementById("restaurant");
+            dataList.textContent="";
+            dataList.style.background="white";
+          
   }
   else if (msgObj.type == 'progress') {
  

@@ -29,7 +29,7 @@ let restaurantList = [];
 let currentRestaurant = 0;
 let voteYes=0;
 let max_round=5;
-var gameover = "NO";
+let gameover ="";
 var restaurantInfo="";
 var broadcast_data="";
 let msgObj=[];
@@ -40,6 +40,7 @@ wss.on('connection', (ws) => {
   currentRestaurant = 0;
   voteYes=0;
   voteCount=0;
+  gameover="NO";
   console.log("a new user connected --", clientCount, " users connected")
 
   ws.on('message', (message) => {
