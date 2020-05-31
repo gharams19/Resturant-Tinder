@@ -381,6 +381,10 @@ function getRestaurant(queryStringID){
            gallery_div.appendChild(img);
     
    
+          
+          var desc_container_div = document.createElement("div");
+           desc_container_div.className="desc_container";
+          
       
            var price_div = document.createElement("div");
            price_div.className="price";
@@ -392,7 +396,10 @@ function getRestaurant(queryStringID){
            var desc_div = document.createElement("div");
            desc_div.className="desc";
            desc_div.textContent=item.name 
-           desc_div.appendChild(price_div);
+            
+            desc_container_div.appendChild(desc_div);
+          desc_container_div.appendChild(price_div);
+          
             
            var title_div = document.createElement("div");
            title_div.className="title";
