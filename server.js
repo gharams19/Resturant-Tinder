@@ -61,16 +61,16 @@ wss.on('connection', (ws) => {
           // voteYes =0;
          
             //eliminate the restaurant no bodys likes
-            if (voteYes == clientCount) {
+            if ( voteYes == clientCount ) {
                //stop game and broadcast winer
                 broadcast_data = JSON.stringify({'type':'gameover', 'info':restaurantList[currentRestaurant]});
-                gameover="YES";
+                gameover = "YES";
               
              
             }
            
            console.log("checking....", gameover);
-          if (gameover == "NO") {
+          if ( gameover == "NO") {
             console.log("game is not over.")
             saveVoteResult( restaurantList[currentRestaurant], voteYes);
             voteCount = 0;

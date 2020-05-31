@@ -198,7 +198,7 @@ keyword.addEventListener("input", autoComplete);
 }
 
 document.querySelector('#start').addEventListener('click', () => {
- 
+ alert('here');
  // let location = document.getElementById("location").value;
  // let search_word = document.getElementById("autocompletelist").options[0].value;
 let msgObj = {
