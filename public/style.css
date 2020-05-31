@@ -119,11 +119,12 @@ div.gallery.title {
 }
 
 .image-button{
+  postion:absolute;
   width: 3em;
   height: 3em;
-  postion:absolute;
-  right:0;
-  left:0;
+  
+  margin-left:5em;
+  margin-right:5em;
     
 }
 .say_window{
