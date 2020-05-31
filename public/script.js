@@ -633,7 +633,7 @@ function getRestaurant(queryStringID){
              rating_div.appendChild(rating5);
            }
       
-           gallery_div.appendChild(desc_div);
+           gallery_div.appendChild(desc_container_div);
            gallery_div.appendChild(rating_div);  
            gallery_div.appendChild( title_div);    
            gallery_div.appendChild( review_div);   
