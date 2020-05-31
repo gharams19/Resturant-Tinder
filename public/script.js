@@ -105,7 +105,7 @@ connection.onmessage = event => {
     //  alert('got another restaurant ' + restaurant);
     //send AJAX request to server to get a restaurant
      getWinningRestaurant(restaurant);
-    addMessage("We got a winer!");
+    addMessage("We got a winner!");
   }
   else if (msgObj.type == 'startover') {
  //   alert('next round');
