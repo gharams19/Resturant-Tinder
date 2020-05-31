@@ -90,7 +90,6 @@ div.gallery img {
 .desc {
   flex:1;
   margin-top: 1em;
-  text-align: left;
   font-weight:1200;
   background:white;
   font-size:x-large;
@@ -99,11 +98,10 @@ div.gallery img {
   
 }
 .price {
-  flex:2;
-  margin-right: 0;
+  flex:1; 
   font-weight:400;
-  text-align:right;
 
+ flex-direction:right;
   
 }
 .title {
