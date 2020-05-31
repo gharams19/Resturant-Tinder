@@ -75,16 +75,16 @@ connection.onmessage = event => {
    else if (msgObj.type == 'gameover') {
  //   button1.textContent = msgObj.info[0];
  //   button2.textContent = msgObj.info[1];
-    aRestaurant.textContent=msgObj.info;
+    aRestaurant.textContent=msgObj.addMessageinfo;
  
      let restaurant = msgObj.info;
     //  alert('got another restaurant ' + restaurant);
     //send AJAX request to server to get a restaurant
      getWinningRestaurant(restaurant);
-    
+    addMessage("We got a winer!");
   }
   else if (msgObj.type == 'startover') {
-    alert('next round');
+ //   alert('next round');
     aRestaurant.textContent=msgObj.info;
  
      let restaurant = msgObj.info;
@@ -96,7 +96,7 @@ connection.onmessage = event => {
   else if (msgObj.type == 'progress') {
  
  
-     displayProgress(msgObj.info);
+     
     
   }
     else if (msgObj.type == 'abort') {
@@ -478,7 +478,7 @@ function getWinningRestaurant(queryStringID){
            let dataList = document.getElementById("restaurant");
              let restaurantPage = document.getElementById("restaurant_page");
               let progress = document.getElementById("progress");
-              progress.textContent="We got a winner!";
+           //   progress.textContent="We got a winner!";
             
             //clean up
             dataList.textContent="";          
