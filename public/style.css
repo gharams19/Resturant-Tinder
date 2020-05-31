@@ -61,7 +61,7 @@ input {
 div.gallery {
 
   background:white; 
-
+  width:400px;
   
     flex: 1;
   display: flex;
@@ -80,10 +80,11 @@ div.gallery img {
 
 
 .desc {
-  margin-top: 5em;
+  margin-top: 1em;
   text-align: left;
-  font-weight:bold;
+  font-weight:1000;
   background:white;
+  font-size:x-large;
   padding:10px;
   
   

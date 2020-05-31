@@ -64,7 +64,7 @@ connection.onmessage = event => {
   else if (msgObj.type == 'command') {
  //   button1.textContent = msgObj.info[0];
  //   button2.textContent = msgObj.info[1];
-    aRestaurant.textContent=msgObj.info;
+    aRestaurant.textContent="Loading a restaurant,Please wait..."
  
      let restaurant = msgObj.info;
     //  alert('got another restaurant ' + restaurant);
