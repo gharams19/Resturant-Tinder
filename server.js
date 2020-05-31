@@ -29,7 +29,7 @@ let restaurantList = [];
 let currentRestaurant = 0;
 let voteYes=0;
 let max_round=5;
-var gameover="NO";
+var gameover = "NO";
 var restaurantInfo="";
 var broadcast_data="";
 let msgObj=[];
@@ -54,6 +54,7 @@ wss.on('connection', (ws) => {
        console.log("voteYes=", voteYes);
        console.log("voteCount=", voteCount);
        console.log("clientCount=", clientCount);
+       console.log("gameover=", gameover);
        if( voteCount == clientCount )   {
           console.log("totoal vote is ", voteYes, " ", restaurantList[currentRestaurant] );
           //save voting result for the restaurant 

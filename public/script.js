@@ -338,19 +338,18 @@ function getRestaurant(queryStringID){
             dataList.textContent="";          
             restaurantPage.textContent="";
          
-        //    var yes_btn_div = document.createElement("div");          
-          //  var no_btn_div = document.createElement("div");
-            //var yes_btn = document.createElement('img');    
-            //var no_btn = document.createElement('img'); 
-              let yes_btn = document.getElementById("yes-btn");
-            let no_btn = document.getElementById("no-btn");
+            var yes_btn_div = document.createElement("div");          
+            var no_btn_div = document.createElement("div");
+            var yes_btn = document.createElement('img');    
+            var no_btn = document.createElement('img'); 
+            
             
             yes_btn.src="https://cdn.glitch.com/6fccf2e6-5025-49e3-bef1-5d3addbc924c%2FheartButton.svg?v=1590786125475";
             no_btn.src="https://cdn.glitch.com/6fccf2e6-5025-49e3-bef1-5d3addbc924c%2FrejectButton.svg?v=1590786117124";
             yes_btn.className="image-button";
             no_btn.className="image-button"
-         //   yes_btn_div.appendChild(yes_btn);
-        //    no_btn_div.appendChild(no_btn);
+            yes_btn_div.appendChild(yes_btn);
+            no_btn_div.appendChild(no_btn);
    
             
             yes_btn.addEventListener("click", () => {
@@ -370,7 +369,7 @@ function getRestaurant(queryStringID){
              connection.send(JSON.stringify(cmdObj));
           });
 
-       //    dataList.appendChild(no_btn_div);
+           dataList.appendChild(no_btn_div);
             
            var gallery_div = document.createElement("div");
            gallery_div.className="gallery";
@@ -613,7 +612,7 @@ function getRestaurant(queryStringID){
            gallery_div.appendChild(rating_div);          
            restaurantPage.appendChild(gallery_div);
            dataList.appendChild(restaurantPage);
-     //      dataList.appendChild(yes_btn_div);
+           dataList.appendChild(yes_btn_div);
         
    //   });
 
