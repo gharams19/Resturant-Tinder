@@ -256,7 +256,7 @@ function startNextRound() {
 app.post('/retrieveRestaurants', function(req, res){
  
 
-  console.log("retrieve restaurants.");
+ // console.log("retrieve restaurants.");
   var location = req.body.param1;
   var keywords = req.body.param2;
   let cata ="restaurant";
@@ -307,7 +307,7 @@ client.search(searchRequest).then(response => {
   response.jsonBody.businesses.forEach(function(row) {
   //  var result = row.businesses;
      const prettyJson = JSON.stringify(row, null, 4);
-     console.log(prettyJson);
+    // console.log(prettyJson);
      saveRestaurants(prettyJson);
     
     

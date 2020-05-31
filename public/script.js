@@ -230,7 +230,7 @@ let msgObj = {
 
 
 document.querySelector('#go').addEventListener('click', () => {
-  alert('here');
+  
   let location = document.getElementById("location").value;
   let search_word = document.getElementById("autocompletelist").options[0].value;
 
@@ -250,8 +250,10 @@ document.querySelector('#go').addEventListener('click', () => {
     let  restaurantList = JSON.parse(responseStr);  // turn it into an object      
     let dataList = document.getElementById("image_panel");
   
-    
-    
+     let start_btn = document.getElementById("start");
+     start_btn.className="game_button";
+     start_btn.style="display:block";
+     
     //clean up
     dataList.textContent="";
 

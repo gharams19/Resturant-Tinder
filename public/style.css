@@ -205,6 +205,7 @@ div.gallery.title {
   flex:2;
   margin-left:0;
   flex-direction:right;
+  display:none;
 }
 .keyword_box{
   width:100%;
