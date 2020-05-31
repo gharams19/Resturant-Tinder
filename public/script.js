@@ -25,7 +25,7 @@ let addMessage = function(message) {
 };
 
 let displayProgress = function(message) {
-  const pTag = document.getElementById("progress");
+  const pTag = document.getElementById("restaurant_panel");
   pTag.textContent=message;
  
 };
