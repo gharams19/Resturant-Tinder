@@ -119,9 +119,10 @@ connection.onmessage = event => {
     
   }
   else if (msgObj.type == 'abort') {
-  //  alert('next round');
-    //aRestaurant.textContent=msgObj.info;
-     alert('abort');
+ 
+    aRestaurant.textContent=msgObj.info;
+    let restaurantPage = document.getElementById("restaurant_page");
+    restaurantPage.innerHTML="";   
      let message = msgObj.info;
 
     //  alert('got another restaurant ' + restaurant);

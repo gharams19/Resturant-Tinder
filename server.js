@@ -239,11 +239,11 @@ function startNextRound() {
    console.log(row.queryStringId);
   });
       
-  if (restaurantList.length =! 0) {
+  if ( restaurantList.length != 0) {
     broadcast(JSON.stringify({'type':'startover', 'info':restaurantList[0]}));
   }
   else {
-    console.log('aborting game.');
+    console.log("aborting game");
     broadcast(JSON.stringify({'type':'abort', 'info':'game is over'}));
   }
         
