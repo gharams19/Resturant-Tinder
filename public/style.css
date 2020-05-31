@@ -143,11 +143,12 @@ div.gallery img {
   width:120px;
   margin-bottom: 1em;
   margin-left: 15px;
+  flex:1;
 }
 
 .review_count{
   padding-left:10px;
-  font-size:large;
+  font-size:medium;
   font-weight:400;
   margin-bottom: 1em;
   margin-left: 15px;

@@ -409,15 +409,23 @@ function getRestaurant(queryStringID){
            rating_div.className="rating";
           
        
+           var review_container_div = document.createElement("div");
+           review_container_div.className="review_container";
               
-          var review_div = document.createElement("reivew");
-           review_div.className="review";
-           if (item.review_count=="null")
-             review_div.textContent="?" ;
-           else
-             review_div.textContent="Reviews" + item.review_count ;
+          var review_div = document.createElement("div");
+          review_div.className="review";
+          review_div.textContent="Review";
             
-    
+          var review_count_div = document.createElement("div");
+          review_count_div.className="review_count";
+       
+           if (item.review_count=="null")
+             review_count_div.textContent="?" ;
+           else
+             review_count_div.textContent=item.review_count ;
+            
+          review_container_div.appendChild(review_div);
+          review_container_div.appendChild(review_count_div);
             
            if(item.rating==5) {
               var rating1 = document.createElement('i');
@@ -636,7 +644,7 @@ function getRestaurant(queryStringID){
            gallery_div.appendChild(desc_container_div);
            gallery_div.appendChild(rating_div);  
            gallery_div.appendChild( title_div);    
-           gallery_div.appendChild( review_div);   
+           gallery_div.appendChild( review_count_div);   
             
                    
            restaurantPage.appendChild(gallery_div);
@@ -702,14 +710,23 @@ function getWinningRestaurant(queryStringID){
            var  rating_div = document.createElement("div");
            rating_div.className="rating";
           
-                 
-          var review_div = document.createElement("reivew");
-           review_div.className="review";
-           if (item.review_count=="null")
-             review_div.textContent="?" ;
-           else
-             review_div.textContent="Reviews" + item.review_count ;
+                
             
+          var review_container_div = document.createElement("div");
+           review_div.className="review_container";
+              
+          var review_div = document.createElement("div");
+          review_div.className="review";
+          var review_count_div = document.createElement("div");
+          review_count_div.className="review_count";
+       
+           if (item.review_count=="null")
+             review_count_div.textContent="?" ;
+           else
+             review_count_div.textContent=item.review_count ;
+            
+          review_count_div.appendChild(review_div);
+          review_count_div.appendChild(review_count_div);
               
            if(item.rating==5) {
               var rating1 = document.createElement('i');
@@ -928,7 +945,7 @@ function getWinningRestaurant(queryStringID){
            gallery_div.appendChild(desc_div);
            gallery_div.appendChild( title_div);     
            gallery_div.appendChild(rating_div);    
-            gallery_div.appendChild(review_div); 
+            gallery_div.appendChild(review_count_div); 
             
            restaurantPage.appendChild(gallery_div);
            dataList.appendChild(restaurantPage);
