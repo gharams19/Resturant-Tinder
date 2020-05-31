@@ -62,7 +62,7 @@ div.gallery {
 
   background:white; 
 
-  height:45vh;
+  height:50vh;
   flex: 1;
   display: flex;
   flex-flow: column;
@@ -173,8 +173,8 @@ div.gallery img {
   width: 5em;
   height: 5em;
   
-  margin-left:10em;
-  margin-right:10em;
+  margin-left:8em;
+  margin-right:8em;
     
 }
 .say_window{
