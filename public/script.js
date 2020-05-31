@@ -408,9 +408,9 @@ function getRestaurant(queryStringID){
            if (item.review_count=="null")
              review_div.textContent="?" ;
            else
-             review_div.textContent=item.review_count;
-            rating5.textContent=item.review_count + " reviews";
+             review_div.textContent="Reviews" + item.review_count ;
             
+    
             
            if(item.rating==5) {
               var rating1 = document.createElement('i');
@@ -628,7 +628,9 @@ function getRestaurant(queryStringID){
       
            gallery_div.appendChild(desc_div);
            gallery_div.appendChild(rating_div);  
-           gallery_div.appendChild( title_div);     
+           gallery_div.appendChild( title_div);    
+           gallery_div.appendChild( review_div);   
+            
                    
            restaurantPage.appendChild(gallery_div);
            dataList.appendChild(restaurantPage);
@@ -693,7 +695,14 @@ function getWinningRestaurant(queryStringID){
            var  rating_div = document.createElement("div");
            rating_div.className="rating";
           
-       
+                 
+          var review_div = document.createElement("reivew");
+           review_div.className="review";
+           if (item.review_count=="null")
+             review_div.textContent="?" ;
+           else
+             review_div.textContent="Reviews" + item.review_count ;
+            
               
            if(item.rating==5) {
               var rating1 = document.createElement('i');
@@ -911,7 +920,9 @@ function getWinningRestaurant(queryStringID){
       
            gallery_div.appendChild(desc_div);
            gallery_div.appendChild( title_div);     
-           gallery_div.appendChild(rating_div);          
+           gallery_div.appendChild(rating_div);    
+            gallery_div.appendChild(review_div); 
+            
            restaurantPage.appendChild(gallery_div);
            dataList.appendChild(restaurantPage);
     //      dataList.appendChild(no_btn_div);
