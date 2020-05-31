@@ -127,8 +127,8 @@ connection.onmessage = event => {
     //send AJAX request to server to get a restaurant
     displayProgress(message);
     let dataList = document.getElementById("restaurant");
-    dataList.textContent="";
-    dataList.style.background="white";
+    dataList.innerHTML="";
+   
           
   }
   else if (msgObj.type == 'progress') {
