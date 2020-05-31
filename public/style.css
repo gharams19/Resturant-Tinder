@@ -89,7 +89,7 @@ div.gallery img {
    
 }
 .desc {
-  margin-top: 1em;
+  margin-top: 0.5em;
   font-weight:900;
   background:white;
   font-size:x-large;
@@ -170,11 +170,11 @@ div.gallery img {
 
 .image-button{
   postion:absolute;
-  width: 3em;
-  height: 3em;
+  width: 5em;
+  height: 5em;
   
-  margin-left:5.5em;
-  margin-right:5.5em;
+  margin-left:10em;
+  margin-right:10em;
     
 }
 .say_window{
