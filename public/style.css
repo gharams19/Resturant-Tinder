@@ -140,7 +140,7 @@ div.gallery img {
   border-radius:10px;
   font-size:x-large;
   font-weight:400;
-  width: 5em;
+  width: 4em;
   margin-bottom: 1em;
   margin-left: 15px;
   
@@ -148,9 +148,9 @@ div.gallery img {
 
 .review_count{
   padding-left:10px;
-  font-size:medium;
+  font-size:small;
   font-weight:400;
-  margin-bottom: 0.5em;
+  margin-bottom: 5px;;
  
 }
 .voteButton {

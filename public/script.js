@@ -685,6 +685,7 @@ function getWinningRestaurant(queryStringID){
             restaurantPage.textContent="";
          
             
+              
            var gallery_div = document.createElement("div");
            gallery_div.className="gallery";
            var img = document.createElement("img");
@@ -692,16 +693,26 @@ function getWinningRestaurant(queryStringID){
      
            gallery_div.appendChild(img);
     
+   
+          
+          var desc_container_div = document.createElement("div");
+           desc_container_div.className="desc_container";
+          
+      
            var price_div = document.createElement("div");
            price_div.className="price";
-           price_div.textContent=item.price ;
-            
+           if (item.price=="null")
+             price_div.textContent="?" ;
+           else
+             price_div.textContent=item.price;
       
            var desc_div = document.createElement("div");
            desc_div.className="desc";
-           desc_div.textContent=item.name 
-           desc_div.appendChild(price_div);
+           desc_div.textContent=item.name ;
             
+            desc_container_div.appendChild(desc_div);
+            desc_container_div.appendChild(price_div);
+          
             
            var title_div = document.createElement("div");
            title_div.className="title";
@@ -710,24 +721,25 @@ function getWinningRestaurant(queryStringID){
            var  rating_div = document.createElement("div");
            rating_div.className="rating";
           
-                
-            
-          var review_container_div = document.createElement("div");
-           review_div.className="review_container";
+       
+           var review_container_div = document.createElement("div");
+           review_container_div.className="review_container";
               
           var review_div = document.createElement("div");
           review_div.className="review";
+          review_div.textContent="Review";
+            
           var review_count_div = document.createElement("div");
-          review_count_div.className="review_count";
+         review_count_div.className="review_count";
        
            if (item.review_count=="null")
              review_count_div.textContent="?" ;
            else
              review_count_div.textContent=item.review_count ;
             
-          review_count_div.appendChild(review_div);
-          review_count_div.appendChild(review_count_div);
-              
+          review_container_div.appendChild(review_div);
+          review_container_div.appendChild(review_count_div);
+            
            if(item.rating==5) {
               var rating1 = document.createElement('i');
               rating1.className="fas fa-star";
@@ -767,7 +779,7 @@ function getWinningRestaurant(queryStringID){
               var rating5 = document.createElement('i');
               rating5.className="far fa-star"
           
-              rating5.textContent=item.review_count + " reviews";
+            //  rating5.textContent=item.review_count + " reviews";
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
               rating_div.appendChild(rating3);
@@ -791,7 +803,7 @@ function getWinningRestaurant(queryStringID){
              
               var rating45 = document.createElement('i');
               rating45.className="fas fa-star-half-alt"
-              rating45.textContent=item.review_count + " reviews";
+            //  rating45.textContent=item.review_count + " reviews";
              
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
@@ -802,7 +814,7 @@ function getWinningRestaurant(queryStringID){
              
            } 
            else if(item.rating==3) {
-            var rating1 = document.createElement('i');
+              var rating1 = document.createElement('i');
               rating1.className="fas fa-star";
              
               var rating2 = document.createElement('i');
@@ -816,7 +828,7 @@ function getWinningRestaurant(queryStringID){
              
               var rating5 = document.createElement('i');
               rating5.className="far fa-star"
-              rating5.textContent=item.review_count + " reviews";
+            //  rating5.textContent=item.review_count + " reviews";
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
               rating_div.appendChild(rating3);
@@ -842,7 +854,7 @@ function getWinningRestaurant(queryStringID){
              
               var rating4 = document.createElement('i');
               rating4.className="far fa-star"
-              rating4.textContent=item.review_count + " reviews";
+            //  rating4.textContent=item.review_count + " reviews";
              
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
@@ -863,7 +875,7 @@ function getWinningRestaurant(queryStringID){
               rating4.className="far fa-star"
               var rating5 = document.createElement('i');
               rating5.className="far fa-star"
-              rating5.textContent=item.review_count + " reviews";
+           //   rating5.textContent=item.review_count + " reviews";
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
               rating_div.appendChild(rating3);
@@ -885,7 +897,7 @@ function getWinningRestaurant(queryStringID){
               rating4.className="far fa-star"
               var rating5 = document.createElement('i');
               rating5.className="far fa-star"
-              rating5.textContent=item.review_count + " reviews";
+              //rating5.textContent=item.review_count + " reviews";
              
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);           
@@ -909,7 +921,7 @@ function getWinningRestaurant(queryStringID){
               rating4.className="far fa-star"
               var rating5 = document.createElement('i');
               rating5.className="far fa-star"
-              rating5.textContent=item.review_count + " reviews";
+            //  rating5.textContent=item.review_count + " reviews";
              
               rating_div.appendChild(rating1);
               rating_div.appendChild(rating2);
@@ -934,7 +946,7 @@ function getWinningRestaurant(queryStringID){
              rating4.className="far fa-star"
              var rating5 = document.createElement('i');
              rating5.className="far fa-star"
-             rating5.textContent=item.review_count + " reviews";
+          //   rating5.textContent=item.review_count + " reviews";
              rating_div.appendChild(rating1);
              rating_div.appendChild(rating15);
              rating_div.appendChild(rating3);
@@ -942,20 +954,14 @@ function getWinningRestaurant(queryStringID){
              rating_div.appendChild(rating5);
            }
       
-           gallery_div.appendChild(desc_div);
-           gallery_div.appendChild( title_div);     
-           gallery_div.appendChild(rating_div);    
-            gallery_div.appendChild(review_count_div); 
+           gallery_div.appendChild(desc_container_div);
+           gallery_div.appendChild(rating_div);  
+           gallery_div.appendChild( title_div);    
+           gallery_div.appendChild( review_container_div);   
             
+                   
            restaurantPage.appendChild(gallery_div);
            dataList.appendChild(restaurantPage);
-    //      dataList.appendChild(no_btn_div);
-        
-   //   });
-
- 
-  
-
   }
   // all set up!  Send off the HTTP request
  //    var data = JSON.stringify({ "name": name.value, "email": email.value }); 
