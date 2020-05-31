@@ -417,7 +417,7 @@ function getRestaurant(queryStringID){
           review_div.textContent="Review";
             
           var review_count_div = document.createElement("div");
-          review_count_div.className="review_count";
+         review_count_div.className="review_count";
        
            if (item.review_count=="null")
              review_count_div.textContent="?" ;
@@ -633,7 +633,7 @@ function getRestaurant(queryStringID){
              rating4.className="far fa-star"
              var rating5 = document.createElement('i');
              rating5.className="far fa-star"
-             rating5.textContent=item.review_count + " reviews";
+          //   rating5.textContent=item.review_count + " reviews";
              rating_div.appendChild(rating1);
              rating_div.appendChild(rating15);
              rating_div.appendChild(rating3);
@@ -644,7 +644,7 @@ function getRestaurant(queryStringID){
            gallery_div.appendChild(desc_container_div);
            gallery_div.appendChild(rating_div);  
            gallery_div.appendChild( title_div);    
-           gallery_div.appendChild( review_count_div);   
+           gallery_div.appendChild( review_container_div);   
             
                    
            restaurantPage.appendChild(gallery_div);
