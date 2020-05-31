@@ -71,8 +71,8 @@ div.gallery {
 
 
 div.gallery img {
-  max-width: 100%;
-  max-height: 350px;
+  width: 100%;
+  height: auto;
 }
 
 div.gallery.desc {
