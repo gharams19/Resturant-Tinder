@@ -98,7 +98,7 @@ div.gallery img {
   
 }
 .price {
-  margin-top: 1em;
+  margin-top: 0.5em;
   font-weight:400;
   flex:0;
   font-size:x-large;
@@ -150,7 +150,7 @@ div.gallery img {
   padding-top:5px;
   padding-left:10px;
   font-size:small;
-  font-weight:400;
+  font-weight:600;
   margin-bottom: 5px;;
  
 }
