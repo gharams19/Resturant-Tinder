@@ -657,11 +657,16 @@ function getWinningRestaurant(queryStringID){
      
            gallery_div.appendChild(img);
     
-   
+           var price_div = document.createElement("div");
+           price_div.className="price";
+           price_div.textContent=item.price ;
+            
       
            var desc_div = document.createElement("div");
            desc_div.className="desc";
-           desc_div.textContent=item.name + " " + item.price ;
+           desc_div.textContent=item.name 
+           desc_div.appendChild(price_div);
+            
             
            var title_div = document.createElement("div");
            title_div.className="title";
