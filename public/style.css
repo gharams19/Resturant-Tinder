@@ -76,7 +76,7 @@ div.gallery img {
 }
 
 div.gallery.desc {
-  padding: 20px;
+  margin-top: 5em;
   text-align: left;
   font-weight:bold;
   background:white;

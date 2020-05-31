@@ -320,7 +320,7 @@ function reviews() {
 
 function getRestaurant(queryStringID){
 
-     
+  
           var xmlhttp = new XMLHttpRequest();   
           xmlhttp.open("POST", '/getARestaurant');
      
