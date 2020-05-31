@@ -458,7 +458,7 @@ function saveRestaurants(response) {
              console.log("DB insert error",err.message);
   } else {
                   //    send back query string to browser for display.html
-            console.log(rownumid);
+          //  console.log(rownumid);
             // response.send(rownumid);
             restaurantList.push(rownumid);
            
