@@ -380,7 +380,7 @@ client.reviews('black-bear-diner-davis').then(response => {
 
 });
 
- app.get('/businessdetails', function(request, response, next){
+app.get('/businessdetails', function(request, response, next){
 
 console.log("this is busness detail");
 client.business('black-bear-diner-davis').then(response => {
