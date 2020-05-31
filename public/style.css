@@ -58,7 +58,6 @@ input {
 
 
 
-
 div.gallery {
   
   flot:center;
@@ -66,14 +65,17 @@ div.gallery {
   height:500px;
   background:white; 
 
-  
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
 }
 
 
 div.gallery img {
-max-width:100%;
-height: auto !important;
-   display: inline-block;
+flex-shrink: 0;
+max-width: 100%;
+   
 }
 
 div.gallery.desc {
