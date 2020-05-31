@@ -243,7 +243,7 @@ function startNextRound() {
     broadcast(JSON.stringify({'type':'startover', 'info':restaurantList[0]}));
   }
   else {
-    
+    console.log('aborting game.');
     broadcast(JSON.stringify({'type':'abort', 'info':'game is over'}));
   }
         

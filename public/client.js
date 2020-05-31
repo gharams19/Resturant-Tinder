@@ -24,7 +24,7 @@ let addMessage = function(message) {
   document.getElementById("messages").appendChild(pTag);
 };
 let displayProgress = function(message) {
-  const pTag = document.getElementById("progress");
+const pTag = document.getElementById("progress");
   pTag.textContent=message;
  
 };
