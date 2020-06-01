@@ -645,10 +645,9 @@ function getWinningRestaurant(queryStringID) {
     var review_div = document.createElement("div");
     review_div.className = "review";
     review_div.textContent = "Review";
-    review_div.addEventListener("click", function() {
-      console.log("event listener for reviews");
-    });
-
+    
+    
+    
     var review_count_div = document.createElement("div");
     review_count_div.className = "review_count";
 
@@ -853,7 +852,8 @@ function getWinningRestaurant(queryStringID) {
     gallery_div.appendChild(rating_div);
     gallery_div.appendChild(title_div);
     gallery_div.appendChild(review_container_div);
-
+  
+    
     restaurantPage.appendChild(gallery_div);
     dataList.appendChild(restaurantPage);
   };
