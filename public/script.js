@@ -259,7 +259,7 @@ document.querySelector('#go').addEventListener('click', () => {
      
     //clean up
     dataList.textContent="";
-
+    dataList.innerHTML="";
   }
   // all set up!  Send off the HTTP request
   xmlhttp.send(JSON.stringify({ "param1":location , "param2":search_word }));
