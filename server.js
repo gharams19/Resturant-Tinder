@@ -367,10 +367,9 @@ app.post('/autoComplete', function(req, res, next){
 });
 
 
- app.get('/reviews', function(request, response, next){
-
+app.post('/reviews', function(request, response, next){
 console.log("this is review");
-client.reviews('black-bear-diner-davis').then(response => {
+client.reviews(request).then(response => {
   console.log(response.jsonBody.reviews[0].text);
    console.log(response.jsonBody.reviews[1].text);
 

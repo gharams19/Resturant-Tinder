@@ -369,11 +369,13 @@ function getRestaurant(queryStringID) {
     //Restaurant Review
     var review_container_div = document.createElement("div");
     review_container_div.className = "review_container";
-
+  
     var review_div = document.createElement("div");
     review_div.className = "review";
     review_div.textContent = "Review";
-    review_div.addEventListener;
+    review_div.addEventListener("click", () => {
+      console.log("event listener for review");
+    });
 
     var review_count_div = document.createElement("div");
     review_count_div.className = "review_count";
