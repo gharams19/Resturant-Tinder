@@ -371,7 +371,7 @@ function getRestaurant(queryStringID) {
     review_div.className = "review";
     review_div.textContent = "Review";
     review_div.addEventListener("click", () => {
-      reviews(item);
+      reviews(item.address);
     });
 
     var review_count_div = document.createElement("div");
