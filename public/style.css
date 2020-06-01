@@ -39,7 +39,7 @@ button:hover{
 }
 
 .image-button:hover{
-  
+  transform: scale(1.25);
 }
 
 .image {
@@ -149,7 +149,7 @@ div.gallery img {
   width: 4em;
   margin-bottom: 1em;
   margin-left: 15px;
-  
+  cursor:pointer;
 }
 
 .review_count{
