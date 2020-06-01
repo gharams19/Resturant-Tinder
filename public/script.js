@@ -242,14 +242,14 @@ document.querySelector("#go").addEventListener("click", () => {
 function reviews(target) {
   let url = "reviews";
   let xhr = new XMLHttpRequest;
-  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhr.open("POST",url);
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   // Next, add an event listener for when the HTTP response is loaded
   xhr.addEventListener("load", function() {
       if (xhr.status == 200) {
         let responseStr = xhr.responseText;  // get the JSON string 
         let gList = JSON.parse(responseStr);  // turn it into an object
-    //    display(gList);  // print it out as a string, nicely formatted
+        console.log(responseStr); // print it out as a string, nicely formatted
       } else {
         console.log(xhr.responseText);
       }
