@@ -312,8 +312,6 @@ client.search(searchRequest).then(response => {
     // console.log(prettyJson);
      saveRestaurants(prettyJson);
     
-    
-    
 });
 /*  const firstResult = response.jsonBody.businesses[0];
   const prettyJson = JSON.stringify(firstResult, null, 4);
@@ -368,7 +366,7 @@ app.post('/autoComplete', function(req, res, next){
 
 
 app.post('/reviews', function(request, response, next){
-console.log("this is review");
+console.log("this is review for", request.body.param);
 client.reviews(request.body.param).then(response => {
   console.log(response.jsonBody.reviews[0].text);
    console.log(response.jsonBody.reviews[1].text);
