@@ -426,7 +426,8 @@ function getRestaurant(queryStringID){
           review_container_div.appendChild(review_div);
           review_container_div.appendChild(review_count_div);
             
-           if(item.rating==5) {
+           
+            if(item.rating==5) {
               var rating1 = document.createElement('i');
               rating1.className="fas fa-star";
              

@@ -38,6 +38,10 @@ button:hover{
   background-color:#6e484f;
 }
 
+.image-button:hover{
+  
+}
+
 .image {
   flex: 1;
   display: flex;
