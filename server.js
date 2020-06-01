@@ -369,7 +369,7 @@ app.post('/autoComplete', function(req, res, next){
 
 app.post('/reviews', function(request, response, next){
 console.log("this is review");
-client.reviews(request).then(response => {
+client.reviews(request.body.param).then(response => {
   console.log(response.jsonBody.reviews[0].text);
    console.log(response.jsonBody.reviews[1].text);
 

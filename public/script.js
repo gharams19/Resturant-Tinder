@@ -239,13 +239,11 @@ document.querySelector("#go").addEventListener("click", () => {
   xmlhttp.send(JSON.stringify({ param1: location, param2: search_word }));
 });
 
-/*
-//reviews();
-function reviews() {
+function reviews(target) {
   let url = "reviews";
-  
   let xhr = new XMLHttpRequest;
-  xhr.open("GET",url);
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhr.open("POST",url);
   // Next, add an event listener for when the HTTP response is loaded
   xhr.addEventListener("load", function() {
       if (xhr.status == 200) {
@@ -257,10 +255,9 @@ function reviews() {
       }
   });
   // Actually send request to server
-  xhr.send();
+  xhr.send(JSON.stringify({param: target}));
 }
 
-*/
 
 // all set up!  Send off the HTTP request
 //  xmlhttp.send(JSON.stringify(data));
@@ -374,7 +371,7 @@ function getRestaurant(queryStringID) {
     review_div.className = "review";
     review_div.textContent = "Review";
     review_div.addEventListener("click", () => {
-      console.log("event listener for review");
+      reviews(item.name);
     });
 
     var review_count_div = document.createElement("div");
