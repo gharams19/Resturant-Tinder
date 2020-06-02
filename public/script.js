@@ -250,10 +250,8 @@ function reviews(name, loc) {
       let responseStr = xhr.responseText; // get the JSON string
       let gList = JSON.parse(responseStr); // turn it into an object
       console.log(gList); // print it out as a string, nicely formatted
-      gList.forEach(createReview);
-      
       let popup = document.querySelector("#popup-container");
-      popup.style.display = "flex";
+      
     } else {
       console.log(xhr.responseText);
     }

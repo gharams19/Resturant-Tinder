@@ -63,6 +63,12 @@ main {
   height:3em;
 }
 
+.review-text:hover{
+  cursor:pointer;
+  color:#0000FF;
+}
+
+
 .close{
   color: #aaaaaa;
   float: right;
@@ -351,6 +357,7 @@ div.gallery img {
   .image {
     width: 100%;
   }
+  
   
   
 }
