@@ -46,9 +46,21 @@ main {
 
 .review-container{
   display:flex;
+  flex-direction:row;
+  justify-content:space-between;
   border:1px solid;
-  padding:0.5em;
-  
+  padding:1em;
+}
+
+.review-img-div{
+  display:flex;
+  flex-direction:column;
+}
+
+.review-img{
+  border-radius: 4px;
+  width:3em;
+  height:3em;
 }
 
 .close{
@@ -332,5 +344,10 @@ div.gallery img {
   #newMsg {
     width: 440px;
   }
+  .resturant_panel{
+    width: 100%;
+    height: 100%;
+  }
+  
   
 }

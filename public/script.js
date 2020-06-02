@@ -271,10 +271,11 @@ function createReview(item){
 
       let review_img_div = document.createElement("div");
       review_img_div.className = "review-img-div";
-
+    
       let review_img = document.createElement("img");
       review_img.className = "review-img";
-
+      review_img.src = item.user.image_url;  
+  
       let review_name = document.createElement("div");
       review_name.className = "review-name";
       review_name.textContent = item.user.name;
@@ -288,7 +289,8 @@ function createReview(item){
       review_text.textContent = item.text;
 
       review_container.appendChild(review_img_div);
-      review_container.appendChild(review_name);
+      review_img_div.appendChild(review_img);
+      review_img_div.appendChild(review_name);
       review_container.appendChild(review_text);
       review_container.appendChild(review_date);
 }
