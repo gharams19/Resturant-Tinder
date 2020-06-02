@@ -259,18 +259,32 @@ function reviews(name, loc) {
   xhr.send(JSON.stringify({name:name, location:loc}));
   
   let popup = document.querySelector("#popup-container");
-  let review_img_div = document.createElement("div");
-  let review_img = document.createElement("img");
-  let review_name = document.createElement("div");
-  let review_date = document.createElement("div");
-  let review_text = document.createElement("div");
+  let review_page = document.querySelector("#review-page");
+  console.log(review_page);
   
-  review_text.textContent="REVIEW text";
+  let review_img_div = document.createElement("div");
+  review_img_div.className = "review-img-div";
+  
+  let review_img = document.createElement("img");
+  review_img.className = "review-img";
+  
+  let review_name = document.createElement("div");
+  review_name.className = "review-name";
   review_name.textContent="REVIEW NAME";
-  popup.appendChild(review_img_div);
-  popup.appendChild(review_name);
-  popup.appendChild(review_date);
-  popup.appendChild(review_text);
+  
+  let review_date = document.createElement("div");
+  review_date.className = "review-date";
+  
+  let review_text = document.createElement("div");
+  review_text.className = "review-text";
+  review_text.textContent="REVIEW text";
+  
+  
+  review_page.appendChild(review_img_div);
+  review_page.appendChild(review_name);
+  review_page.appendChild(review_date);
+  review_page.appendChild(review_text);
+  
   popup.style.display = "flex";
 }
 

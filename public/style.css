@@ -21,7 +21,7 @@ main {
 }
 
 #popup-container{
-  display:flex;
+  display:none;
   justify-content:center;
   align-items:center;
   position: fixed;
@@ -36,6 +36,7 @@ main {
 }
 
 #review-page{
+  display:flex;
   width:70%;
   height:70%;
   padding:2em;
