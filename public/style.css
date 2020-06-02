@@ -20,6 +20,9 @@ main {
   flex: 1;
 }
 
+#popup-review{
+  display:none;
+}
 
 #fakeLink {
   font-size: large;
