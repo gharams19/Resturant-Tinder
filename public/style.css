@@ -42,7 +42,7 @@ main {
 .review-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   border: 1px solid;
   padding: 1em;
 }
@@ -56,6 +56,10 @@ main {
   border-radius: 4px;
   width: 3em;
   height: 3em;
+}
+
+.review-text{
+  padding:0.5em;
 }
 
 .review-text:hover {
@@ -318,7 +322,7 @@ div.gallery img {
     flex-direction: column;
     width: 100%;
   }
-  .image {
+  #resturant_page.image{
     width: 100%;
   }
   .image_button {
