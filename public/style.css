@@ -311,3 +311,12 @@ div.gallery img {
   color: white;
 }
 
+#newMsg {
+  margin-bottom: 10px;
+}
+#newMsgTitle {
+  padding-bottom: 10px;
+  color: white;
+  font-weight: bold;
+
+}
