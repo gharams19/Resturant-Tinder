@@ -258,8 +258,20 @@ function reviews(name, loc) {
   // Actually send request to server
   xhr.send(JSON.stringify({name:name, location:loc}));
   
-  document.querySelector("#popup-container").style.display = "flex";
+  let popup = document.querySelector("#popup-container");
+  let review_img_div = document.createElement("div");
+  let review_img = document.createElement("img");
+  let review_name = document.createElement("div");
+  let review_date = document.createElement("div");
+  let review_text = document.createElement("div");
   
+  review_text.textContent="REVIEW text";
+  review_name.textContent="REVIEW NAME";
+  popup.appendChild(review_img_div);
+  popup.appendChild(review_name);
+  popup.appendChild(review_date);
+  popup.appendChild(review_text);
+  popup.style.display = "flex";
 }
 
 
