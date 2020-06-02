@@ -239,7 +239,7 @@ document.querySelector("#go").addEventListener("click", () => {
   xmlhttp.send(JSON.stringify({ param1: location, param2: search_word }));
 });
 
-function reviews(target) {
+function reviews(name, loc) {
   let url = "reviews";
   let xhr = new XMLHttpRequest;
   xhr.open("POST",url);
@@ -255,7 +255,7 @@ function reviews(target) {
       }
   });
   // Actually send request to server
-  xhr.send(JSON.stringify({param: target}));
+  xhr.send(JSON.stringify({name:name, location:loc}));
 }
 
 
@@ -371,7 +371,7 @@ function getRestaurant(queryStringID) {
     review_div.className = "review";
     review_div.textContent = "Review";
     review_div.addEventListener("click", () => {
-      reviews(item.address);
+      reviews(item.name, item.address);
     });
 
     var review_count_div = document.createElement("div");
