@@ -158,7 +158,7 @@ function autoComplete() {
     let wordList = JSON.parse(responseStr); // turn it into an object
 
     let dataList = document.getElementById("autocompletelist");
-    
+
     // Loop over the JSON array.
     wordList.forEach(function(item) {
       // Create a new <option> element.
@@ -249,7 +249,11 @@ function reviews(name, loc) {
     if (xhr.status == 200) {
       let responseStr = xhr.responseText; // get the JSON string
       let gList = JSON.parse(responseStr); // turn it into an object
-      console.log(responseStr); // print it out as a string, nicely formatted
+      console.log(gList); // print it out as a string, nicely formatted
+      gList.forEach(createReview);
+      
+      let popup = document.querySelector("#popup-container");
+      popup.style.display = "flex";
     } else {
       console.log(xhr.responseText);
     }
@@ -257,38 +261,37 @@ function reviews(name, loc) {
 
   // Actually send request to server
   xhr.send(JSON.stringify({ name: name, location: loc }));
-  
-    let popup = document.querySelector("#popup-container");
-    let review_page = document.querySelector("#review-page");
-
-    let review_container = document.createElement("div");
-    review_container.className = "review-container";
-    review_page.appendChild(review_container);
-
-    let review_img_div = document.createElement("div");
-    review_img_div.className = "review-img-div";
-
-    let review_img = document.createElement("img");
-    review_img.className = "review-img";
-
-    let review_name = document.createElement("div");
-    review_name.className = "review-name";
-    review_name.textContent = "REVIEW NAME";
-
-    let review_date = document.createElement("div");
-    review_date.className = "review-date";
-
-    let review_text = document.createElement("div");
-    review_text.className = "review-text";
-    review_text.textContent = "REVIEW text";
-
-    review_container.appendChild(review_img_div);
-    review_container.appendChild(review_name);
-    review_container.appendChild(review_date);
-    review_container.appendChild(review_text);
-
-    popup.style.display = "flex";
 }
+
+function createReview(item){
+  let review_page = document.querySelector("#review-page");
+  let review_container = document.createElement("div");
+      review_container.className = "review-container";
+      review_page.appendChild(review_container);
+
+      let review_img_div = document.createElement("div");
+      review_img_div.className = "review-img-div";
+
+      let review_img = document.createElement("img");
+      review_img.className = "review-img";
+
+      let review_name = document.createElement("div");
+      review_name.className = "review-name";
+      review_name.textContent = item.name;
+
+      let review_date = document.createElement("div");
+      review_date.className = "review-date";
+
+      let review_text = document.createElement("div");
+      review_text.className = "review-text";
+      review_text.textContent = "REVIEW text";
+
+      review_container.appendChild(review_img_div);
+      review_container.appendChild(review_name);
+      review_container.appendChild(review_date);
+      review_container.appendChild(review_text);
+}
+
 
 // all set up!  Send off the HTTP request
 //  xmlhttp.send(JSON.stringify(data));
