@@ -13,7 +13,7 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
-  background-color: 
+  background-color: #ff6b6b
 }
 main {
   width: 150vh;
@@ -262,7 +262,8 @@ div.gallery img {
 
 
 .button { 
-  border: none;  
+  border: 1px solid white;  
+  border-radius: 5px 5px 5px 5px;
   padding: 10px 10px;
   text-align: center;
   text-decoration: none;  
@@ -271,6 +272,8 @@ div.gallery img {
   cursor: pointer;
   flex:1;
   margin-left:0;
+  color: white;
+  background-color: #ff6b6b
 }
 
 .button_container{
@@ -280,7 +283,7 @@ div.gallery img {
   justify-content: space-between;
 }
 .game_button{
-  border: none;  
+  border: 1px solid white;  
   padding: 10px 10px;
   text-align: center;
   text-decoration: none;  
@@ -291,8 +294,13 @@ div.gallery img {
   margin-left:0;
   flex-direction:right;
   display:none;
+  color: white;
+  background-color: #ff6b6b;
+  border-radius: 5px 5px 5px 5px;
+
 }
 .keyword_box{
   width:100%;
 }
+#keywordTitle,
 

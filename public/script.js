@@ -258,8 +258,6 @@ function reviews(name, loc) {
   // Actually send request to server
   xhr.send(JSON.stringify({ name: name, location: loc }));
   
-  //callback
-  xhr.onloadend = function(e) {
     let popup = document.querySelector("#popup-container");
     let review_page = document.querySelector("#review-page");
 
@@ -290,7 +288,6 @@ function reviews(name, loc) {
     review_container.appendChild(review_text);
 
     popup.style.display = "flex";
-  };
 }
 
 // all set up!  Send off the HTTP request
