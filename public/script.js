@@ -289,8 +289,8 @@ function createReview(item){
 
       review_container.appendChild(review_img_div);
       review_container.appendChild(review_name);
-      review_container.appendChild(review_date);
       review_container.appendChild(review_text);
+      review_container.appendChild(review_date);
 }
 
 
