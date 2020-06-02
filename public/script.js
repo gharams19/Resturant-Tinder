@@ -158,7 +158,7 @@ function autoComplete() {
     let wordList = JSON.parse(responseStr); // turn it into an object
 
     let dataList = document.getElementById("autocompletelist");
-
+    
     // Loop over the JSON array.
     wordList.forEach(function(item) {
       // Create a new <option> element.
