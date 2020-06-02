@@ -362,9 +362,8 @@ app.post("/reviews", function(request, response, next) {
       term: request.body.name,
       location:request.body.location 
     }).then(response => {
-      console.log(response.jsonBody.businesses[0].alias);
       var alias = JSON.stringify(response.jsonBody.businesses[0].alias);
-      getReview(alias);
+      getReview(alias.substr(1,alias.length-2));
     })
     .catch(e => {
       console.log(e);
@@ -376,7 +375,7 @@ app.post("/reviews", function(request, response, next) {
 function getReview(alias){
   console.log("this is review for", alias);
   client.reviews(alias).then(response => {
-      console.log(response.jsonBody.reviews[0]);
+      console.log(response.jsonBody.reviews[0].text);
   }).catch(e => {
   console.log(e);
   });
