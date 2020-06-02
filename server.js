@@ -358,17 +358,29 @@ app.post("/autoComplete", function(req, res, next) {
 });
 
 app.post("/reviews", function(request, response, next) {
-  console.log("this is review for", request.body.name);
   client.search({
       term: request.body.name,
       location:request.body.location 
     }).then(response => {
       console.log(response.jsonBody.businesses[0].alias);
+      var alias = JSON.stringify(response.jsonBody.businesses[0].alias);
+      getReview(alias);
     })
     .catch(e => {
       console.log(e);
     });
+  
+  
 });
+
+function getReview(alias){
+  console.log("this is review for", alias);
+  client.reviews(alias).then(response => {
+      console.log(response.jsonBody.reviews[0]);
+  }).catch(e => {
+  console.log(e);
+  });
+}
 
 app.get("/businessdetails", function(request, response, next) {
   console.log("this is busness detail");
