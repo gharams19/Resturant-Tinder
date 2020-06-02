@@ -251,7 +251,8 @@ function reviews(name, loc) {
       let gList = JSON.parse(responseStr); // turn it into an object
       console.log(gList); // print it out as a string, nicely formatted
       let popup = document.querySelector("#popup-container");
-      
+      gList.forEach(createReview);
+      popup.style.display = "flex";
     } else {
       console.log(xhr.responseText);
     }
@@ -899,4 +900,7 @@ function getWinningRestaurant(queryStringID) {
 
 document.querySelector(".close").addEventListener("click", () => {
   document.querySelector("#popup-container").style.display = "none";
+  document.querySelectorAll(".review-container").forEach(function(a){
+a.remove()
+}));
 });
