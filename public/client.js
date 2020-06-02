@@ -737,3 +737,12 @@ function getWinningRestaurant(queryStringID) {
 
   xmlhttp.send(JSON.stringify({ queryID: queryStringID }));
 }
+
+
+document.querySelector(".close").addEventListener("click", () => {
+  document.querySelector("#popup-container").style.display = "none";
+  document.querySelectorAll(".review-container").forEach(function(a) {
+    a.remove();
+  });
+});
+
