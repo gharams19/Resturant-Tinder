@@ -241,56 +241,57 @@ document.querySelector("#go").addEventListener("click", () => {
 
 function reviews(name, loc) {
   let url = "reviews";
-  let xhr = new XMLHttpRequest;
-  xhr.open("POST",url);
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url);
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   // Next, add an event listener for when the HTTP response is loaded
   xhr.addEventListener("load", function() {
-      if (xhr.status == 200) {
-        let responseStr = xhr.responseText;  // get the JSON string 
-        let gList = JSON.parse(responseStr);  // turn it into an object
-        console.log(responseStr); // print it out as a string, nicely formatted
-      } else {
-        console.log(xhr.responseText);
-      }
+    if (xhr.status == 200) {
+      let responseStr = xhr.responseText; // get the JSON string
+      let gList = JSON.parse(responseStr); // turn it into an object
+      console.log(responseStr); // print it out as a string, nicely formatted
+    } else {
+      console.log(xhr.responseText);
+    }
   });
-  
-  // Actually send request to server
-  xhr.send(JSON.stringify({name:name, location:loc}));
-  
-  let popup = document.querySelector("#popup-container");
-  let review_page = document.querySelector("#review-page");
-  
-  let review_container = document.createElement("div");
-  review_container.className = "review-container";
-  review_page.appendChild(review_container);
-  
-  let review_img_div = document.createElement("div");
-  review_img_div.className = "review-img-div";
-  
-  let review_img = document.createElement("img");
-  review_img.className = "review-img";
-  
-  let review_name = document.createElement("div");
-  review_name.className = "review-name";
-  review_name.textContent="REVIEW NAME";
-  
-  let review_date = document.createElement("div");
-  review_date.className = "review-date";
-  
-  let review_text = document.createElement("div");
-  review_text.className = "review-text";
-  review_text.textContent="REVIEW text";
-  
-  
-  review_container.appendChild(review_img_div);
-  review_container.appendChild(review_name);
-  review_container.appendChild(review_date);
-  review_container.appendChild(review_text);
-  
-  popup.style.display = "flex";
-}
 
+  // Actually send request to server
+  xhr.send(JSON.stringify({ name: name, location: loc }));
+  
+  //callback
+  xhr.onloadend = function(e) {
+    let popup = document.querySelector("#popup-container");
+    let review_page = document.querySelector("#review-page");
+
+    let review_container = document.createElement("div");
+    review_container.className = "review-container";
+    review_page.appendChild(review_container);
+
+    let review_img_div = document.createElement("div");
+    review_img_div.className = "review-img-div";
+
+    let review_img = document.createElement("img");
+    review_img.className = "review-img";
+
+    let review_name = document.createElement("div");
+    review_name.className = "review-name";
+    review_name.textContent = "REVIEW NAME";
+
+    let review_date = document.createElement("div");
+    review_date.className = "review-date";
+
+    let review_text = document.createElement("div");
+    review_text.className = "review-text";
+    review_text.textContent = "REVIEW text";
+
+    review_container.appendChild(review_img_div);
+    review_container.appendChild(review_name);
+    review_container.appendChild(review_date);
+    review_container.appendChild(review_text);
+
+    popup.style.display = "flex";
+  };
+}
 
 // all set up!  Send off the HTTP request
 //  xmlhttp.send(JSON.stringify(data));
@@ -399,7 +400,7 @@ function getRestaurant(queryStringID) {
     //Restaurant Review
     var review_container_div = document.createElement("div");
     review_container_div.className = "review_container";
-  
+
     var review_div = document.createElement("div");
     review_div.className = "review";
     review_div.textContent = "Review";
@@ -677,9 +678,7 @@ function getWinningRestaurant(queryStringID) {
     var review_div = document.createElement("div");
     review_div.className = "review";
     review_div.textContent = "Review";
-    
-    
-    
+
     var review_count_div = document.createElement("div");
     review_count_div.className = "review_count";
 
@@ -884,8 +883,7 @@ function getWinningRestaurant(queryStringID) {
     gallery_div.appendChild(rating_div);
     gallery_div.appendChild(title_div);
     gallery_div.appendChild(review_container_div);
-  
-    
+
     restaurantPage.appendChild(gallery_div);
     dataList.appendChild(restaurantPage);
   };

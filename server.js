@@ -357,33 +357,33 @@ app.post("/autoComplete", function(req, res, next) {
     });
 });
 
-app.post("/reviews", function(request, response, next) {
-  client.search({
-      term: request.body.name,
-      location:request.body.location 
-    }).then(response => {
+app.post("/reviews", function(req, res, next) {
+  client
+    .search({
+      term: req.body.name,
+      location: req.body.location
+    })
+    .then(response => {
       var alias = JSON.stringify(response.jsonBody.businesses[0].alias);
-      let reviewArr = getReview(alias.substr(1,alias.length-2));
-      console.log(reviewArr);
+      console.log("this is review for", alias);
+      
+    client
+        .reviews(alias.substr(1, alias.length - 2))
+        .then(response => {
+          //console.log(response.jsonBody.reviews[0].user.name);
+          //console.log(response.jsonBody.reviews[0].text);
+          //console.log(response.jsonBody.reviews);
+          res.send(response.jsonBody.reviews);
+        })
+        .catch(e => {
+          console.log(e);
+        });
     })
     .catch(e => {
       console.log(e);
     });
-  
-  
 });
 
-function getReview(alias){
-  console.log("this is review for", alias);
-  client.reviews(alias).then(response => {
-      //console.log(response.jsonBody.reviews[0].user.name);
-      //console.log(response.jsonBody.reviews[0].text);
-      console.log(response.jsonBody.reviews);
-      return response.jsonBody.reviews;
-  }).catch(e => {
-  console.log(e);
-  });
-}
 
 app.get("/businessdetails", function(request, response, next) {
   console.log("this is busness detail");
