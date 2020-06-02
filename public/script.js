@@ -260,7 +260,10 @@ function reviews(name, loc) {
   
   let popup = document.querySelector("#popup-container");
   let review_page = document.querySelector("#review-page");
-  console.log(review_page);
+  
+  let review_container = document.createElement("div");
+  review_container.className = "review-container";
+  review_page.appendChild(review_container);
   
   let review_img_div = document.createElement("div");
   review_img_div.className = "review-img-div";
@@ -280,10 +283,10 @@ function reviews(name, loc) {
   review_text.textContent="REVIEW text";
   
   
-  review_page.appendChild(review_img_div);
-  review_page.appendChild(review_name);
-  review_page.appendChild(review_date);
-  review_page.appendChild(review_text);
+  review_container.appendChild(review_img_div);
+  review_container.appendChild(review_name);
+  review_container.appendChild(review_date);
+  review_container.appendChild(review_text);
   
   popup.style.display = "flex";
 }
