@@ -277,14 +277,15 @@ function createReview(item){
 
       let review_name = document.createElement("div");
       review_name.className = "review-name";
-      review_name.textContent = item.name;
+      review_name.textContent = item.user.name;
 
       let review_date = document.createElement("div");
       review_date.className = "review-date";
+      review_date.textContent = item.time_created;
 
       let review_text = document.createElement("div");
       review_text.className = "review-text";
-      review_text.textContent = "REVIEW text";
+      review_text.textContent = item.text;
 
       review_container.appendChild(review_img_div);
       review_container.appendChild(review_name);
