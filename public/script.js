@@ -257,6 +257,9 @@ function reviews(name, loc) {
   
   // Actually send request to server
   xhr.send(JSON.stringify({name:name, location:loc}));
+  
+  document.querySelector("#popup-container").style.display = "flex";
+  
 }
 
 
@@ -373,7 +376,6 @@ function getRestaurant(queryStringID) {
     review_div.textContent = "Review";
     review_div.addEventListener("click", () => {
       reviews(item.name, item.address);
-      document.querySelector("#popup-container").style.display = "flex";
     });
 
     var review_count_div = document.createElement("div");
@@ -864,3 +866,6 @@ function getWinningRestaurant(queryStringID) {
   xmlhttp.send(JSON.stringify({ queryID: queryStringID }));
 }
 
+document.querySelector(".close").addEventListener("click", () => {
+  document.querySelector("#popup-container").style.display = "none";
+});

@@ -21,7 +21,7 @@ main {
 }
 
 #popup-container{
-  display:none;
+  display:flex;
   justify-content:center;
   align-items:center;
   position: fixed;
@@ -38,8 +38,23 @@ main {
 #review-page{
   width:70%;
   height:70%;
+  padding:2em;
   background-color:	#FFFFFF;
   z-index:3;
+}
+
+.close{
+  color: #aaaaaa;
+  float: right;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #fakeLink {
