@@ -326,4 +326,8 @@ div.gallery img {
   main {
     width: 100%;
   }
+  #newMsg {
+    width: 440px;
+  }
+  
 }
