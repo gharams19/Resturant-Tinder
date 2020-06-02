@@ -287,7 +287,10 @@ function createReview(item){
       let review_text = document.createElement("div");
       review_text.className = "review-text";
       review_text.textContent = item.text;
-
+      review_text.addEventListener("click", ()=>{
+        window.open(item.url);
+      });  
+  
       review_container.appendChild(review_img_div);
       review_img_div.appendChild(review_img);
       review_img_div.appendChild(review_name);
