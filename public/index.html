@@ -33,7 +33,8 @@
           <span class="close">&times;</span>
         </div>
       </div>
-      <p>
+      <p id = "join">
+        
         <span style = "color: white">To join this chat, go to
          
         <!--span id="fakeLink">https://glitch-websocket-chat.glitch.me/client.html</span-->,
@@ -43,12 +44,11 @@
         </span>
       </p>
      
-       
-      <div id = "newMsgTitle">Say something:</div> <input type="text" id="newMsg" class="say_window">
-    <div id="messages" class="messages_window"> <p>
+    <div id="messages" class="messages_window"><p>
        
       </p></div>
-      
+       <input type="text" id="newMsg" class="say_window" placeholder ="Say Something">
+
          
       
     <div class="search_container">
@@ -58,7 +58,7 @@
         
       
     </datalist></p>
-    <p><div id = "locationTitle">Enter location:</div> <input type="text" id="location" name="location" class="keyword_box"></p>
+    <p><div id = "locationTitle">Enter location:</div> <input type="text" id="location" name="location" class="keyword_box" placeholder= ""></p>
     <div class="button_container">
     <div><button id="go" name="go" class="button">Get restaurants!</button></div>
       <div id="start_button"><button id="start" name="start" class="game_button"/>Start Game!</div>
