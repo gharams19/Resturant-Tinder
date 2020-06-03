@@ -336,7 +336,13 @@ div.gallery img {
   #resturant_page.image{
     width: 100%;
   }
-  .image_button {
+  .voteButton {
+    display: flex;
+    flex-direction: row;
     
+  }
+  .image-button{
+    width: 40px;
+    height: 40px;
   }
 }
