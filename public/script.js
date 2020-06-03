@@ -23,11 +23,25 @@ let addMessage = function(message) {
   pTag.appendChild(document.createTextNode(message));
   document.getElementById("messages").appendChild(pTag);
 };
-
+/*
 let displayProgress = function(message) {
   const pTag = document.getElementById("restaurant_panel");
   pTag.textContent = message;
 };
+*/
+let displayProgress = function(message) {
+  const restaurant_panel = document.getElementById("restaurant");
+  const pTag = document.createElement("div");
+  pTag.className="progress";
+  pTag.textContent=message;
+  restaurant_panel.appendChild(pTag);
+
+
+};
+var getvalue=document.getElementById("keyword");
+getvalue.addEventListener('input', function() {
+ document.getElementId("keyword");
+});
 
 connection.onopen = () => {
   connection.send(JSON.stringify({ type: "helloHost" }));
@@ -209,9 +223,9 @@ document.querySelector("#start").addEventListener("click", () => {
 
 document.querySelector("#go").addEventListener("click", () => {
   let location = document.getElementById("location").value;
-  let search_word = document.getElementById("autocompletelist").options[0]
-    .value;
-
+  var keyword = document.getElementById("keyword");
+  //var sel = autolist.selectedIndex;
+  let  search_word = keyword.value;
   // new HttpRequest instance
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "/retrieveRestaurants");
