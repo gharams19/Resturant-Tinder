@@ -695,7 +695,8 @@ function getWinningRestaurant(queryStringID) {
 
     var review_div = document.createElement("div");
     review_div.className = "review";
-    review_div.textContent = "Review";
+    review_div.textContent = "Reviews";
+    review.textContent = "Reviews";
     review_div.addEventListener("click", () => {
       reviews(item.name, item.address);
     });
