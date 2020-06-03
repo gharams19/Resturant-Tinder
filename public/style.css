@@ -192,6 +192,10 @@ div.gallery img {
   width: 4em;
   margin-bottom: 1em;
   margin-left: 15px;
+}
+
+.review:hover{
+  background-color:#ff6b6b;
   cursor: pointer;
 }
 
