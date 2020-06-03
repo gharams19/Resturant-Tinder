@@ -1029,3 +1029,4 @@ function getWinningRestaurant(queryStringID){
   
   xmlhttp.send(JSON.stringify({ "queryID": queryStringID }));
 }
+
