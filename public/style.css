@@ -360,11 +360,11 @@ header {
     width: 100%;
   }
   
-  .image-button, .image-button1 {
+  .image-button{
     width: 55px;
 }
   .image-button1 {
-    
+    width: 55px;
   }
   #review-page{
     width: 100%;
