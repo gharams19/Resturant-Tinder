@@ -384,5 +384,8 @@ header {
   footer {
     margin-top: 10px;
   }
+  div.gallery {
+    margin-bottom: 100px;
+  }
   
 }
