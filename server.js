@@ -19,7 +19,6 @@ app.use(bodyParser.json());
 const server = http.createServer(app);
 
 const wss = new WebSocket.Server({ server });
-
 let clientCount = 0;
 let voteCount = 0;
 //let restaurantList = ['qyrgdhjkfijjcnol9pus8o', '6l47ljlg3eatvybv1w48td','exwqsg6xvws16wzoamyk0n','6l47ljlg3eatvybv1w48td','n2np22ho60ogvgrvr9byvr','knv8w02l5vmhbw0q9ym9x7'];
@@ -27,18 +26,23 @@ let restaurantList = [];
 let currentRestaurant = 0;
 let voteYes = 0;
 let max_round = 5;
-let gameover = "";
+let gameover = 0;
 var restaurantInfo = "";
 var broadcast_data = "";
 let msgObj = [];
-var INSERT_UPDATE_TYPE = "INSERT";
+let INSERT_UPDATE_TYPE = 1;
+
+
+
 
 wss.on("connection", ws => {
   clientCount += 1;
   currentRestaurant = 0;
   voteYes = 0;
   voteCount = 0;
-  gameover = "NO";
+  gameover = 0;
+  INSERT_UPDATE_TYPE = 1;
+  restaurantList = [];
   console.log("a new user connected --", clientCount, " users connected");
 
   ws.on("message", message => {
@@ -76,11 +80,11 @@ wss.on("connection", ws => {
             type: "gameover",
             info: restaurantList[currentRestaurant]
           });
-          gameover = "YES";
+          gameover = 1;
         }
 
         console.log("checking....", gameover);
-        if (gameover == "NO") {
+        if (gameover == 0 ) {
           console.log("game is not over.");
           saveVoteResult(restaurantList[currentRestaurant], voteYes);
           voteCount = 0;
@@ -89,12 +93,18 @@ wss.on("connection", ws => {
 
           if (currentRestaurant < restaurantList.length) {
             restaurantInfo = restaurantList[currentRestaurant];
-          } else if (max_round > 0) {
-            console.log("start next round");
+            broadcast_data = JSON.stringify({
+            type: "command",
+            info: restaurantInfo
+          });
+            broadcast(broadcast_data);
+          } 
+          else if (max_round > 0) {
+            console.log("start next round...");
             restaurantList = [];
-            INSERT_UPDATE_TYPE = "UPDATE";
+            INSERT_UPDATE_TYPE = 0;
 
-            restaurantInfo = "start next round";
+            restaurantInfo = "Start next round...";
             broadcast_data = JSON.stringify({
               type: "message",
               info: restaurantInfo
@@ -104,12 +114,19 @@ wss.on("connection", ws => {
             currentRestaurant = 0;
             max_round -= 1;
             startNextRound();
+           
+        
+           // setTimeout(function(){ console.log("set timeout"); }, 2000);
+          }
+          else {
+            //no more rounds
+            //just produce winner based on who won the most votes
+            getWinner() ;
+            
+            
           }
 
-          broadcast_data = JSON.stringify({
-            type: "command",
-            info: restaurantInfo
-          });
+          
         }
         // console.log(restaurantInfo);
       } else {
@@ -124,8 +141,9 @@ wss.on("connection", ws => {
           from: "host",
           info: percent
         });
+         broadcast(broadcast_data);
       }
-      broadcast(broadcast_data);
+     
     } else if (msgObj.type == "message") {
       broadcast(message);
     } else {
@@ -240,7 +258,7 @@ function randomString() {
 
 function startNextRound() {
   //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
-
+restaurantList=[];
   let cmd = "SELECT queryStringId FROM votingTable WHERE vote_count > 0 ";
 
   restaurantDB.all(cmd, [], (err, rows) => {
@@ -254,6 +272,7 @@ function startNextRound() {
     });
 
     if (restaurantList.length != 0) {
+      console.log("start over with first restaurant.")
       broadcast(JSON.stringify({ type: "startover", info: restaurantList[0] }));
     } else {
       console.log("aborting game");
@@ -261,7 +280,30 @@ function startNextRound() {
     }
   });
 }
+function getWinner() {
+  //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
+restaurantList=[];
+  let cmd = "SELECT queryStringId, MAX(vote_count) as vote  FROM votingTable; ";
 
+  restaurantDB.all(cmd, [], (err, rows) => {
+    if (err) {
+      console.log(err);
+    }
+    // return rows;
+    rows.forEach(row => {
+      restaurantList.push(row.queryStringId);
+      //   console.log(row.queryStringId);
+    });
+
+    if (restaurantList.length != 0) {
+      console.log("found new winner from database")
+      broadcast(JSON.stringify({ type: "gameover", info: restaurantList[0] }));
+    } else {
+      console.log("aborting game");
+      broadcast(JSON.stringify({ type: "abort", info: "game is over" }));
+    }
+  });
+}
 app.get("/retrieveAutoComplete", function(req, res) {
   console.log("retrieve restaurants.");
 
@@ -309,8 +351,8 @@ app.post("/retrieveRestaurants", function(req, res) {
   const searchRequest = {
     //term:'Black bear diner',
     term: keywords,
-    limit: "16",
-    //   limit: '5',
+   // limit: "16",
+       limit: '4',
     // categories: cata,
     location: location
     //  sort_by: 'rating'
@@ -536,7 +578,7 @@ app.post("/getARestaurant", function(request, response) {
 function saveVoteResult(restaurantID, voteCount) {
   console.log("saving to database", restaurantID, voteCount);
   let cmd = "";
-  if (INSERT_UPDATE_TYPE == "INSERT") {
+  if (INSERT_UPDATE_TYPE == 1 ) {
     console.log("insert to votingTable");
     cmd = "INSERT INTO votingTable ( queryStringId,vote_count) VALUES (?,?) ";
     restaurantDB.run(cmd, restaurantID, voteCount, function(err) {
