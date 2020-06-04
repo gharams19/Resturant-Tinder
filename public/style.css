@@ -313,7 +313,7 @@ div.gallery img {
 #newMsg {
   margin-bottom: 10px;
   margin-left: 10px;
-  width: 1210px;
+  width: 98.1%;
   border-radius: 5px 5px 5px 5px;
 }
 
@@ -329,6 +329,15 @@ div.gallery img {
 }
 #go:hover, #start:hover {
   background-color:#ff7f7f;
+}
+header {
+  padding-top: 10px;
+}
+#client-name {
+  color: white; 
+  margin-left: 10px; 
+  font-family: "Open Sans"; 
+  font-size: 20px;
 }
 @media only screen and (max-width: 600px) {
   main {
