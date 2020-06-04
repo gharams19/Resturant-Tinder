@@ -332,6 +332,7 @@ function reviews(name, loc) {
   let xhr = new XMLHttpRequest;
   xhr.open("POST",url);
   // Next, add an event listener for when the HTTP response is loaded
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhr.addEventListener("load", function() {
       if (xhr.status == 200) {
         let responseStr = xhr.responseText;  // get the JSON string 
@@ -342,7 +343,7 @@ function reviews(name, loc) {
       }
   });
   // Actually send request to server
-  xhr.send(JSON.stringify({"name":name, "location":loc}));
+  xhr.send(JSON.stringify({name:name, location:loc}));
 }
 
 
