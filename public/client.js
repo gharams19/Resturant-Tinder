@@ -101,8 +101,6 @@ connection.onmessage = event => {
   }
 };
 
-
-
 function reviews(name, loc) {
   let url = "reviews";
   let xhr = new XMLHttpRequest();
@@ -160,7 +158,6 @@ function createReview(item) {
   review_container.appendChild(review_text);
   review_container.appendChild(review_date);
 }
-
 
 function getRestaurant(queryStringID) {
   var xmlhttp = new XMLHttpRequest();
@@ -523,6 +520,10 @@ function getWinningRestaurant(queryStringID) {
     var review_div = document.createElement("div");
     review_div.className = "review";
     review_div.textContent = "Reviews";
+    review_div.addEventListener("click", () => {
+      reviews(item.name, item.address);
+      document.querySelector("#popup-container").style.display = "flex";
+    });
 
     var review_count_div = document.createElement("div");
     review_count_div.className = "review_count";
@@ -738,11 +739,9 @@ function getWinningRestaurant(queryStringID) {
   xmlhttp.send(JSON.stringify({ queryID: queryStringID }));
 }
 
-
 document.querySelector(".close").addEventListener("click", () => {
   document.querySelector("#popup-container").style.display = "none";
   document.querySelectorAll(".review-container").forEach(function(a) {
     a.remove();
   });
 });
-

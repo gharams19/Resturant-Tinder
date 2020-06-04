@@ -352,17 +352,13 @@ header {
     width: 440px;
   }
   .restaurant_panel {
-    flex-direction: column;
     width: 100%;
   }
   #resturant_page.image{
     width: 100%;
   }
-  .voteButton {
-    
-  }
+  
   .image-button{
-    width: 40px;
-    height: 40px;
+    display: none;
   }
 }
