@@ -43,6 +43,12 @@ wss.on("connection", ws => {
   gameover = 0;
   INSERT_UPDATE_TYPE = 1;
   restaurantList = [];
+  
+      ws.setInterval(function timeout() {
+        ws.ping();
+        console.log("Pinging every 1sec (setInterval test)");
+      }, 1000);
+    
   console.log("a new user connected --", clientCount, " users connected");
 
   ws.on("message", message => {
