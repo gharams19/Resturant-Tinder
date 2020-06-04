@@ -36,7 +36,7 @@ let displayProgress = function(message) {
 
 var getvalue=document.getElementById("keyword");
 getvalue.addEventListener('input', function() {
- document.getElementId("keyword");
+ document.getElementById("keyword");
 });
 connection.onopen = () => {
   connection.send(JSON.stringify({"type":"helloHost"}));
