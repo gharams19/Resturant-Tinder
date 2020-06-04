@@ -405,11 +405,12 @@ app.post("/reviews", function(req, res, next) {
       location: req.body.location
     })
     .then(response => {
-      console.log(response.jsonBody.businesses[0].alias);
-      var jsonObj = JSON.parse(response.jsonBody.business[0]);
-    /*
+      //console.log(response.jsonBody.businesses[0].alias);
+      //console.log(response.jsonBody.businesses[0].alias);
+      
+    
       client
-        .reviews(response.jsonBody.business[0].alias)
+        .reviews(response.jsonBody.businesses[0].alias)
         .then(response => {
           console.log(response.jsonBody.reviews[0].text);
           console.log(response.jsonBody.reviews[1].text);
@@ -417,7 +418,7 @@ app.post("/reviews", function(req, res, next) {
         .catch(e => {
           console.log(e);
         });
-      */
+      
     })
     .catch(e => {
       console.log(e);
