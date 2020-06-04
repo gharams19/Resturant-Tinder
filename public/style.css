@@ -141,6 +141,7 @@ div.gallery img {
   flex-direction: row;
   align-items: left;
   justify-content: space-between;
+  background-color: white;
 }
 .desc {
   margin-top: 0.5em;
