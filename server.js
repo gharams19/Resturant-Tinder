@@ -417,13 +417,14 @@ app.post('/autoComplete', function(req, res, next){
 
 
 app.post('/reviews', function(req, res, next){
-
 console.log("this is review");
+console.log(req.body.name, req.body.location);
 client.search({
-  term: req.name,
-  location: req.location,
+  term: req.body.name,
+  location: req.body.location,
 }).then(response => {
-  console.log(response.jsonBody.businesses[0].name);
+  console.log(response.jsonBody.businesses[0].alias);
+  var alias = JSON.parse(response.jsonBody.business[0].alias);
 }).catch(e => {
   console.log(e);
 });

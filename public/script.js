@@ -329,7 +329,6 @@ document.querySelector('#go').addEventListener('click', () => {
 
 function reviews(name, loc) {
   let url = "reviews";
-  
   let xhr = new XMLHttpRequest;
   xhr.open("POST",url);
   // Next, add an event listener for when the HTTP response is loaded
@@ -343,7 +342,7 @@ function reviews(name, loc) {
       }
   });
   // Actually send request to server
-  xhr.send(JSON.stringify({name:name, location:loc}));
+  xhr.send(JSON.stringify({"name":name, "location":loc}));
 }
 
 
