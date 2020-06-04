@@ -522,7 +522,7 @@ function getWinningRestaurant(queryStringID) {
 
     var review_div = document.createElement("div");
     review_div.className = "review";
-    review_div.textContent = "Review";
+    review_div.textContent = "Reviews";
 
     var review_count_div = document.createElement("div");
     review_count_div.className = "review_count";

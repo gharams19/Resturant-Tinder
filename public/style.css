@@ -183,6 +183,7 @@ div.gallery img {
   display: flex;
   flex-direction: row;
   align-items: left;
+  background-color: white;
 }
 .review {
   padding-left: 10px;
