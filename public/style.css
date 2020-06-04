@@ -230,6 +230,7 @@ div.gallery img {
 }
 .say_window {
   width: 100%;
+
 }
 .messages_window {
   border: 2px solid #ccc;
@@ -253,6 +254,7 @@ div.gallery img {
   display: flex;
   flex-direction: column;
   align-items: left;
+
 }
 
 .button {
@@ -300,6 +302,7 @@ div.gallery img {
 .keyword_box {
   width: 100%;
   border-radius: 5px 5px 5px 5px;
+  font-family: "Open Sans";
 }
 
 #messages {
