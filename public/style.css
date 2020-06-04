@@ -353,19 +353,19 @@ header {
   }
   .restaurant_panel {
     width: 100%;
+    flex-direction: column;
+
   }
   #resturant_page.image{
     width: 100%;
   }
   
-  .image-button{
-    display: none;
-  }
-  #popup-container {
-    overflow-y: scroll;
-  }
+  .image-button {
+    width: 55px;
+}
   #review-page{
     width: 100%;
+    overflow-y: scroll;
   }
   .close {
     position: absolute;
