@@ -373,7 +373,12 @@ function createReview(item, index){
     
     let review_rating = document.createElement("div");
     review_rating.className = "review-rating";
-    review_rating.textContent = "Rating: " + item.rating;
+    review_rating.textContent = "Rating: ";
+    for(var i=0; i<item.rating; ++i){
+      let icon = document.createElement("i");
+      icon.className = "fas fa-thumbs-up";
+      review_rating.append(icon);
+    }
     review_text_div.appendChild(review_rating);
     
     let review_text = document.createElement("div");
