@@ -361,4 +361,14 @@ header {
   .image-button{
     display: none;
   }
+  #popup-container {
+    overflow-y: scroll;
+  }
+  #review-page{
+    width: 100%;
+  }
+  .close {
+    position: absolute;
+    margin-left: 390px;
+  }
 }
