@@ -367,9 +367,18 @@ function createReview(item, index){
     review_name.textContent = item.user.name;
     review_img_div.appendChild(review_name);
     
+    let review_text_div = document.createElement("div");
+    review_text_div.className = "review-text-div";
+    review_container.appendChild(review_text_div);
+    
+    let review_rating = document.createElement("div");
+    review_rating.className = "review-rating";
+    review_rating.textContent = "Rating: " + item.rating;
+    review_text_div.appendChild(review_rating);
+    
     let review_text = document.createElement("div");
     review_text.className = "review-text";
-    review_container.appendChild(review_text);
+    review_text_div.appendChild(review_text);
     review_text.textContent = item.text;
     review_text.addEventListener("click", ()=>{
       window.open(item.url);
