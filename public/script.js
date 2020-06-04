@@ -337,7 +337,9 @@ function reviews(name, loc) {
       if (xhr.status == 200) {
         let responseStr = xhr.responseText;  // get the JSON string 
         let gList = JSON.parse(responseStr);  // turn it into an object
-       console.log(gList);  // print it out as a string, nicely formatted
+        console.log(gList);  // print it out as a string, nicely formatted
+        gList.forEach(createReview);
+        
       } else {
         console.log(xhr.responseText);
       }
@@ -346,6 +348,22 @@ function reviews(name, loc) {
   xhr.send(JSON.stringify({name:name, location:loc}));
 }
 
+function createReview(item, index){
+    let review_page = document.querySelector("#review-page");
+    let review_container = document.createElement("div");
+    review_page.appendChild(review_container);  
+  
+    let review_img_div = document.createElement("div");
+    review_container.appendChild(review_img_div);
+  
+    let review_img = document.createElement("img");
+    review_img_div.appendChild(review_img);
+  
+    let review_name = document.createElement("div");
+    review_container.appendChild(review_)
+    let review_text = document.createElement("div");
+    
+}
 
   // all set up!  Send off the HTTP request
 //  xmlhttp.send(JSON.stringify(data));
@@ -475,6 +493,7 @@ function getRestaurant(queryStringID){
           review_div.textContent="Reviews";
           review_div.addEventListener("click", ()=>{
               reviews(item.name, item.address);
+              document.querySelector("#popup-container").style.display = "flex";
           });
             
           var review_count_div = document.createElement("div");
@@ -1030,3 +1049,6 @@ function getWinningRestaurant(queryStringID){
   xmlhttp.send(JSON.stringify({ "queryID": queryStringID }));
 }
 
+document.querySelector(".close").addEventListener("click", ()=>{
+    document.querySelector("#popup-container").style.display = "none";
+});

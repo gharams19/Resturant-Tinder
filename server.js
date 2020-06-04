@@ -407,13 +407,12 @@ app.post("/reviews", function(req, res, next) {
     .then(response => {
       //console.log(response.jsonBody.businesses[0].alias);
       //console.log(response.jsonBody.businesses[0].alias);
-      
-    
       client
         .reviews(response.jsonBody.businesses[0].alias)
         .then(response => {
-          console.log(response.jsonBody.reviews[0].text);
-          console.log(response.jsonBody.reviews[1].text);
+          //console.log(response.jsonBody.reviews[0].text);
+          //console.log(response.jsonBody.reviews[1].text);
+          res.send(response.jsonBody.reviews);
         })
         .catch(e => {
           console.log(e);
