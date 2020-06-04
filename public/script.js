@@ -455,7 +455,7 @@ function getRestaurant(queryStringID){
             
             yes_btn.src="https://cdn.glitch.com/6fccf2e6-5025-49e3-bef1-5d3addbc924c%2FheartButton.svg?v=1590786125475";
             no_btn.src="https://cdn.glitch.com/6fccf2e6-5025-49e3-bef1-5d3addbc924c%2FrejectButton.svg?v=1590786117124";
-            yes_btn.className="image-button";
+            yes_btn.className="image-button1";
             no_btn.className="image-button"
             yes_btn_div.appendChild(yes_btn);
             no_btn_div.appendChild(no_btn);

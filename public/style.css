@@ -97,7 +97,7 @@ button:hover {
   background-color: #6e484f;
 }
 
-.image-button:hover {
+.image-button:hover, .image-button1:hover {
   transform: scale(1.25);
   cursor:pointer;
 }
@@ -222,7 +222,7 @@ div.gallery img {
   cursor: pointer;
 }
 
-.image-button {
+.image-button, .image-button1 {
   postion: absolute;
   width: 5em;
   height: 5em;
@@ -360,9 +360,12 @@ header {
     width: 100%;
   }
   
-  .image-button {
+  .image-button, .image-button1 {
     width: 55px;
 }
+  .image-button1 {
+    
+  }
   #review-page{
     width: 100%;
     overflow-y: scroll;
