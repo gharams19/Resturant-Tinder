@@ -360,8 +360,10 @@ function createReview(item, index){
     review_img_div.appendChild(review_img);
   
     let review_name = document.createElement("div");
-    review_container.appendChild(review_)
+    review_img_div.appendChild(review_name);
+  
     let review_text = document.createElement("div");
+    review_container.appendChild(review_text);
     
 }
 
