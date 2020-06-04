@@ -4,6 +4,8 @@
 const url = "wss://solar-rectangular-fan.glitch.me";
 const connection = new WebSocket(url);
 
+
+
 let e = document.getElementById("newMsg");
 e.addEventListener("change", sendNewMsg);
 

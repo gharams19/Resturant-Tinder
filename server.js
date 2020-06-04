@@ -44,10 +44,7 @@ wss.on("connection", ws => {
   INSERT_UPDATE_TYPE = 1;
   restaurantList = [];
   
-      ws.setInterval(function timeout() {
-        ws.ping();
-        console.log("Pinging every 1sec (setInterval test)");
-      }, 1000);
+   
     
   console.log("a new user connected --", clientCount, " users connected");
 
@@ -357,8 +354,8 @@ app.post("/retrieveRestaurants", function(req, res) {
   const searchRequest = {
     //term:'Black bear diner',
     term: keywords,
-   // limit: "16",
-       limit: '4',
+    limit: "16",
+   //    limit: '4',
     // categories: cata,
     location: location
     //  sort_by: 'rating'
