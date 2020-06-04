@@ -351,20 +351,30 @@ function reviews(name, loc) {
 function createReview(item, index){
     let review_page = document.querySelector("#review-page");
     let review_container = document.createElement("div");
+    review_container.className = "review-container";
     review_page.appendChild(review_container);  
-  
+    
     let review_img_div = document.createElement("div");
+    review_img_div.className = "review-img-div";
     review_container.appendChild(review_img_div);
-  
+    
     let review_img = document.createElement("img");
+    review_img.className = "review-img";
     review_img_div.appendChild(review_img);
-  
+    review_img.src = item.user.image_url;
+    
     let review_name = document.createElement("div");
+    review_name.textContent = item.user.name;
     review_img_div.appendChild(review_name);
-  
+    
     let review_text = document.createElement("div");
     review_container.appendChild(review_text);
-    
+    review_text.textContent = item.text;
+  
+    let review_date = document.createElement("div");
+    review_date.textContent = item.time_created;
+    review_container.appendChild(review_date);
+      
 }
 
   // all set up!  Send off the HTTP request
@@ -1053,4 +1063,7 @@ function getWinningRestaurant(queryStringID){
 
 document.querySelector(".close").addEventListener("click", ()=>{
     document.querySelector("#popup-container").style.display = "none";
+    document.querySelectorAll(".review-container").forEach(function(a) {
+    a.remove()
+})
 });
