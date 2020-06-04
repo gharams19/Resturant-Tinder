@@ -327,19 +327,17 @@ document.querySelector('#go').addEventListener('click', () => {
 });
 
 
-/*
-//reviews();
 function reviews() {
   let url = "reviews";
   
   let xhr = new XMLHttpRequest;
-  xhr.open("GET",url);
+  xhr.open("POST",url);
   // Next, add an event listener for when the HTTP response is loaded
   xhr.addEventListener("load", function() {
       if (xhr.status == 200) {
         let responseStr = xhr.responseText;  // get the JSON string 
         let gList = JSON.parse(responseStr);  // turn it into an object
-    //    display(gList);  // print it out as a string, nicely formatted
+       console.log(gList);  // print it out as a string, nicely formatted
       } else {
         console.log(xhr.responseText);
       }
@@ -348,7 +346,6 @@ function reviews() {
   xhr.send();
 }
 
-*/
 
   // all set up!  Send off the HTTP request
 //  xmlhttp.send(JSON.stringify(data));
@@ -475,7 +472,7 @@ function getRestaurant(queryStringID){
               
           var review_div = document.createElement("div");
           review_div.className="review";
-          review_div.textContent="Review";
+          review_div.textContent="Reviews";
             
           var review_count_div = document.createElement("div");
          review_count_div.className="review_count";
@@ -788,7 +785,7 @@ function getWinningRestaurant(queryStringID){
               
           var review_div = document.createElement("div");
           review_div.className="review";
-          review_div.textContent="Review";
+          review_div.textContent="Reviews";
             
           var review_count_div = document.createElement("div");
          review_count_div.className="review_count";
