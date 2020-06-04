@@ -368,8 +368,13 @@ function createReview(item, index){
     review_img_div.appendChild(review_name);
     
     let review_text = document.createElement("div");
+    review_text.className = "review-text";
     review_container.appendChild(review_text);
     review_text.textContent = item.text;
+    review_text.addEventListener("click", ()=>{
+      window.open(item.url);
+    });  
+  
   
     let review_date = document.createElement("div");
     review_date.textContent = item.time_created;
@@ -820,6 +825,10 @@ function getWinningRestaurant(queryStringID){
           var review_div = document.createElement("div");
           review_div.className="review";
           review_div.textContent="Reviews";
+          review_div.addEventListener("click", ()=>{
+              reviews(item.name, item.address);
+              document.querySelector("#popup-container").style.display = "flex";
+          });
             
           var review_count_div = document.createElement("div");
          review_count_div.className="review_count";
