@@ -84,6 +84,7 @@ wss.on("connection", ws => {
             info: restaurantList[currentRestaurant]
           });
           gameover = 1;
+          broadcast(broadcast_data);
         }
 
         console.log("checking....", gameover);
