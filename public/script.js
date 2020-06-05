@@ -25,6 +25,7 @@ let addMessage = function(message) {
 };
 
 let displayProgress = function(message) {
+  console.log("progress", message);
   const restaurant_panel = document.getElementById("restaurant");
   const pTag = document.createElement("div");
   pTag.className="progress";
