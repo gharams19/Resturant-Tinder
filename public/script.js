@@ -764,6 +764,7 @@ function getRestaurant(queryStringID){
            restaurantPage.appendChild(gallery_div);
            dataList.appendChild(restaurantPage);
            dataList.appendChild(yes_btn_div);
+
         
    //   });
 
