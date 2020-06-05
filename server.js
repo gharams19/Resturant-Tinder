@@ -297,7 +297,8 @@ restaurantList=[];
     }
     // return rows;
     rows.forEach(row => {
-      restaurantList.push(row.queryStringId);
+      if (row.queryStringId != null)
+        restaurantList.push(row.queryStringId);
       //   console.log(row.queryStringId);
     });
 

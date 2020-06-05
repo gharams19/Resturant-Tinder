@@ -364,7 +364,7 @@ header {
   .image-button {
     width: 55px;
     position: absolute;
-    margin-top: 569px;
+    margin-top: 504px;
     margin-right: -1px;
     margin-left: -70px;
 }
@@ -372,7 +372,7 @@ header {
     width: 55px;
     margin-right: -100px;
     margin-left: 0px;
-    margin-top: -100px;
+    margin-top: 50px;
   }
   #review-page{
     width: 100%;
@@ -383,10 +383,10 @@ header {
     margin-left: 390px;
   }
   footer {
-    margin-top: 10px;
+    margin-top: 640px;
   }
-/*   div.gallery {
-    margin-bottom: 150px;
-  } */
+  div.gallery {
+    height: 455px;
+  }
   
 }
