@@ -429,7 +429,7 @@ function createReview(item, index){
 
 function getRestaurant(queryStringID){
 
-   
+          res
           var xmlhttp = new XMLHttpRequest();   
           xmlhttp.open("POST", '/getARestaurant');
      
@@ -470,7 +470,9 @@ function getRestaurant(queryStringID){
              "type": "command",
              "selection":1
            }
+           chosenRes+=1;
            connection.send(JSON.stringify(cmdObj));
+              
           });
 
           no_btn.addEventListener("click", () => {
