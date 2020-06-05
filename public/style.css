@@ -361,19 +361,11 @@ header {
     width: 100%;
   }
   
-/*   .image-button {
+  .image-button {
     width: 55px;
-    position: absolute;
-    margin-top: 504px;
-    margin-right: -1px;
-    margin-left: -70px;
+    
 }
-  .image-button1 {
-    width: 55px;
-    margin-right: -100px;
-    margin-left: 0px;
-    margin-top: 50px;
-  } */
+
   #review-page{
     width: 100%;
     overflow-y: scroll;
@@ -383,11 +375,11 @@ header {
     margin-left: 390px;
   }
   footer {
-    margin-top: 640px;
+    margin-top: 740px;
   }
-/*   div.gallery {
-    height: 455px;
-  } */
+  div.gallery {
+    height: auto;
+  }
   #space {
     margin-buttom:50px;
   }
