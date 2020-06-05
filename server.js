@@ -576,11 +576,9 @@ app.post("/getARestaurant", function(request, response) {
     } else {
       console.log("Database file found:getARestaurant");
       
+      
       response.json(rows);
       
-      console.log("yes",voteYes);
-      console.log("count",voteCount);
-      //   console.log("rows",r;ows);
     }
   });
 });
