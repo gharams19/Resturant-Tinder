@@ -37,10 +37,9 @@ main {
   width: 70%;
   height: 70%;
   padding: 2em;
-  background-color: #FFFFFF;
+  background-color: white;
   z-index: 3;
   border-radius: 15px;
-
 }
 
 .review-container {
@@ -49,6 +48,7 @@ main {
   justify-content: space-evenly;
   border: 1px solid;
   padding: 1em;
+
 }
 
 .review-img-div {
@@ -188,6 +188,7 @@ div.gallery img {
   flex-direction: row;
   align-items: left;
   background-color: white;
+  
 }
 .review {
   padding-left: 10px;
@@ -274,6 +275,7 @@ div.gallery img {
   display: flex;
   flex-direction: column;
   align-items: left;
+  margin-bottom: 50px;
 
 }
 
