@@ -9,7 +9,10 @@ body {
   flex-flow: column;
   min-height: 100vh;
   background-color: #ff6b6b;
+      scrollbar-face-color: #367CD2;
+
 }
+
 main {
   width: 150vh;
   margin: auto;
@@ -311,7 +314,7 @@ div.gallery img {
   margin-top: 20px;
   margin-bottom: 10px;
   color: white;
-  overflow-y: scroll;
+/*   overflow-y: scroll; */
   height: 170px;
 }
 
@@ -353,6 +356,7 @@ header {
 #slash {
   display: none;
 }
+
 @media only screen and (max-width: 600px) {
   main {
     width: 100%;
