@@ -9,7 +9,6 @@ body {
   flex-flow: column;
   min-height: 100vh;
   background-color: #ff6b6b;
-      scrollbar-face-color: #367CD2;
 
 }
 
@@ -40,6 +39,8 @@ main {
   padding: 2em;
   background-color: #FFFFFF;
   z-index: 3;
+  border-radius: 15px;
+
 }
 
 .review-container {
@@ -249,6 +250,20 @@ div.gallery img {
   padding: 10px;
 }
 
+.messages_window::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+.messages_window::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+.messages_window::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #ff8585;
+}
 .search_container {
   margin-top: 0.5em;
   border: 2px solid #ccc;
@@ -314,7 +329,6 @@ div.gallery img {
   margin-top: 20px;
   margin-bottom: 10px;
   color: white;
-/*   overflow-y: scroll; */
   height: 170px;
 }
 
@@ -347,15 +361,7 @@ header {
   font-family: "Open Sans"; 
   font-size: 20px;
 }
-#percentage {
-  display:flex;
-  color:white;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-#slash {
-  display: none;
-}
+
 
 @media only screen and (max-width: 600px) {
   main {
