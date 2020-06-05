@@ -289,7 +289,7 @@ restaurantList=[];
 function getWinner() {
   //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
 restaurantList=[];
-  let cmd = "SELECT queryStringId, MAX(vote_count) as vote  FROM votingTable where MAX(vote_count) > 0";
+  let cmd = "SELECT queryStringId, MAX(vote_count) as vote  FROM votingTable where vote_count > 0";
 
   restaurantDB.all(cmd, [], (err, rows) => {
     if (err) {
