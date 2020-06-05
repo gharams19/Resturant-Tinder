@@ -467,7 +467,6 @@ function getRestaurant(queryStringID){
              "type": "command",
              "selection":1
            }
-           chosenRes+=1;
 
            connection.send(JSON.stringify(cmdObj));
               
