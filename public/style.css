@@ -349,7 +349,7 @@ header {
     width: 100%;
   }
   #newMsg {
-    width: 440px;
+    width: 95%;
   }
   .restaurant_panel {
     width: 100%;
@@ -364,7 +364,11 @@ header {
   .image-button {
     width: 55px;
     
+    
 }
+  .image-button1 {
+    width: 55px;
+  }
 
   #review-page{
     width: 100%;
@@ -375,12 +379,10 @@ header {
     margin-left: 390px;
   }
   footer {
-    margin-top: 740px;
+    margin-top: 800px;
   }
   div.gallery {
     height: auto;
   }
-  #space {
-    margin-buttom:50px;
-  }
+  
 }
