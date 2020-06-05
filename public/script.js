@@ -109,6 +109,7 @@ connection.onmessage = event => {
      else if (msgObj.type == 'gameover') {
  //   button1.textContent = msgObj.info[0];
  //   button2.textContent = msgObj.info[1];
+       alert('got winner');
     aRestaurant.textContent=msgObj.addMessageinfo;
  
      let restaurant = msgObj.info;
@@ -131,15 +132,15 @@ connection.onmessage = event => {
    // alert('abort');
     
  
-     let message = msgObj.info;
+   //  let message = msgObj.info;
     //  alert('got another restaurant ' + restaurant);
     //send AJAX request to server to get a restaurant
    // displayProgress(message);
     let dataList = document.getElementById("restaurant");
     dataList.textContent="";
    
-   dataList.textContent=msgObj.info;
- // dataList.className="center";
+  // dataList.textContent=msgObj.info;
+  addMessage("None of the restaurants have been choosen. The game is over!  ");
           
   }
   else if (msgObj.type == 'progress') {

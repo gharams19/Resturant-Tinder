@@ -86,16 +86,11 @@ connection.onmessage = event => {
     getRestaurant(restaurant);
   } else if (msgObj.type == "progress") {
   } else if (msgObj.type == "abort") {
-    //  alert('next round');
-    aRestaurant.textContent = msgObj.info;
-
-    let message = msgObj.info;
-    //  alert('got another restaurant ' + restaurant);
-    //send AJAX request to server to get a restaurant
-    displayProgress(message);
     let dataList = document.getElementById("restaurant");
-    dataList.textContent = "";
-    dataList.style.background = "white";
+     dataList.textContent="";
+   
+  // dataList.textContent=msgObj.info;
+     addMessage("None of the restaurants have been choosen. The game is over!  ");
   } else {
     addMessage(msgObj.type);
   }

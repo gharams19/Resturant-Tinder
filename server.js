@@ -355,7 +355,7 @@ app.post("/retrieveRestaurants", function(req, res) {
   const searchRequest = {
     //term:'Black bear diner',
     term: keywords,
-    limit: "16",
+    limit: "10",
    //    limit: '4',
     // categories: cata,
     location: location
