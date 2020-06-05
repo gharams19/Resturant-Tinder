@@ -126,6 +126,7 @@ wss.on("connection", ws => {
           else {
             //no more rounds
             //just produce winner based on who won the most votes
+            console.log ("no more rounds left .... sigh.");
             getWinner() ;
             
             
@@ -288,7 +289,7 @@ restaurantList=[];
 function getWinner() {
   //let cmd = "  SELECT queryStringId FROM restaurantsTable where queryStringId NOT IN (SELECT queryStringId FROM votingTable ) LIMIT 1;";
 restaurantList=[];
-  let cmd = "SELECT queryStringId, MAX(vote_count) as vote  FROM votingTable; ";
+  let cmd = "SELECT queryStringId, MAX(vote_count) as vote  FROM votingTable where MAX(vote_count) > 0";
 
   restaurantDB.all(cmd, [], (err, rows) => {
     if (err) {
