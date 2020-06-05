@@ -727,6 +727,7 @@ function getWinningRestaurant(queryStringID) {
 
     restaurantPage.appendChild(gallery_div);
     dataList.appendChild(restaurantPage);
+
   };
   // all set up!  Send off the HTTP request
   //    var data = JSON.stringify({ "name": name.value, "email": email.value });
