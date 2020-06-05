@@ -575,9 +575,12 @@ app.post("/getARestaurant", function(request, response) {
       console.log("No rows found");
     } else {
       console.log("Database file found:getARestaurant");
-
+      
       response.json(rows);
-      //   console.log("rows",rows);
+      
+      console.log("yes",voteYes);
+      console.log("count",voteCount);
+      //   console.log("rows",r;ows);
     }
   });
 });
