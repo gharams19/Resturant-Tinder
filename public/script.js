@@ -430,7 +430,7 @@ function createReview(item, index){
 function getRestaurant(queryStringID){
 
           resturants+=1;
-          console.log("resturants", resturants);
+          document.getElementById("resPercentage").textContent = resturants.toString();
           var xmlhttp = new XMLHttpRequest();   
           xmlhttp.open("POST", '/getARestaurant');
      
@@ -472,7 +472,7 @@ function getRestaurant(queryStringID){
              "selection":1
            }
            chosenRes+=1;
-           console.log("chosen", chosenRes);
+           document.getElementById("chosenPercentage").textContent = chosenRes.toString();
 
            connection.send(JSON.stringify(cmdObj));
               
@@ -775,12 +775,12 @@ function getRestaurant(queryStringID){
    //   });
 
  
-  
+
 
   }
   // all set up!  Send off the HTTP request
  //    var data = JSON.stringify({ "name": name.value, "email": email.value }); 
-  
+
   xmlhttp.send(JSON.stringify({ "queryID": queryStringID }));
 
 }
