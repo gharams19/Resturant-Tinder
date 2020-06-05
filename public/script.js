@@ -429,7 +429,8 @@ function createReview(item, index){
 
 function getRestaurant(queryStringID){
 
-          res
+          resturants+=1;
+          console.log("resturants", resturants);
           var xmlhttp = new XMLHttpRequest();   
           xmlhttp.open("POST", '/getARestaurant');
      
@@ -471,6 +472,8 @@ function getRestaurant(queryStringID){
              "selection":1
            }
            chosenRes+=1;
+           console.log("chosen", chosenRes);
+
            connection.send(JSON.stringify(cmdObj));
               
           });
@@ -757,7 +760,7 @@ function getRestaurant(queryStringID){
              rating_div.appendChild(rating4);
              rating_div.appendChild(rating5);
            }
-      
+
            gallery_div.appendChild(desc_container_div);
            gallery_div.appendChild(rating_div);  
            gallery_div.appendChild( title_div);    
@@ -767,8 +770,8 @@ function getRestaurant(queryStringID){
            restaurantPage.appendChild(gallery_div);
            dataList.appendChild(restaurantPage);
            dataList.appendChild(yes_btn_div);
+            
 
-        
    //   });
 
  
@@ -779,6 +782,7 @@ function getRestaurant(queryStringID){
  //    var data = JSON.stringify({ "name": name.value, "email": email.value }); 
   
   xmlhttp.send(JSON.stringify({ "queryID": queryStringID }));
+
 }
 function getWinningRestaurant(queryStringID){
 
