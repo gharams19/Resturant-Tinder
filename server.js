@@ -84,6 +84,7 @@ wss.on("connection", ws => {
             info: restaurantList[currentRestaurant]
           });
           gameover = 1;
+          console.log("in got winner block");
           broadcast(broadcast_data);
         }
 
