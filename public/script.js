@@ -477,6 +477,7 @@ function getRestaurant(queryStringID){
            connection.send(JSON.stringify(cmdObj));
               
           });
+           document.getElementById("chosenPercentage").textContent = chosenRes.toString();
 
           no_btn.addEventListener("click", () => {
              let cmdObj= {
@@ -774,13 +775,13 @@ function getRestaurant(queryStringID){
 
    //   });
 
- 
+   
 
 
   }
   // all set up!  Send off the HTTP request
  //    var data = JSON.stringify({ "name": name.value, "email": email.value }); 
-
+  document.getElementById("slash").style.display = "inline";
   xmlhttp.send(JSON.stringify({ "queryID": queryStringID }));
 
 }
