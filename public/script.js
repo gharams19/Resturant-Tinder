@@ -109,7 +109,7 @@ connection.onmessage = event => {
      else if (msgObj.type == 'gameover') {
  //   button1.textContent = msgObj.info[0];
  //   button2.textContent = msgObj.info[1];
-       alert('got winner');
+      // alert('got winner');
     aRestaurant.textContent=msgObj.addMessageinfo;
  
      let restaurant = msgObj.info;
