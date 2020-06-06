@@ -357,7 +357,7 @@ div.gallery img {
 header {
   color: white;
   background-color: #ff8585;
-  width: 100%;
+  padding-bottom: 30px;
 
 }
 #client-name {
@@ -367,13 +367,16 @@ header {
   font-size: 20px;
 }
 #ResSymbol{
-  width: 50px;
+  width: 100px;
   margin-left: 800px;
+  position: absolute;
+  padding-top: 40px;
 }
 #title {
-  font-size: 40px;
-  margin-left: 140px;
+  font-size: 50px;
+  margin-left: 20px;
   margin-top: 50px;
+  positon: absolute;
 }
 
 
