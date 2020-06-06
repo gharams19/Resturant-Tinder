@@ -62,6 +62,8 @@ wss.on("connection", ws => {
       );
       voteYes += msgObj.selection;
       voteCount += 1;
+      totalRes+=1
+
       console.log("voteYes=", voteYes);
       console.log("voteCount=", voteCount);
       console.log("clientCount=", clientCount);
@@ -139,8 +141,9 @@ wss.on("connection", ws => {
         // console.log(restaurantInfo);
       } else {
         //broadcase number of votes for the restaurants so far
+       
         var percent = voteYes + "/";
-        var percent = percent + totalRes;
+        var percent = percent + clientCount;
 
         console.log("percent =", percent);
         broadcast_data = JSON.stringify({
@@ -563,7 +566,6 @@ function saveRestaurants(response) {
 }
 
 app.post("/getARestaurant", function(request, response) {
-    totalRes+=0.5
 
   console.log("calling database get a restaurant");
   let r = request.body.queryID;
