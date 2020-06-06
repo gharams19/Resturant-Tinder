@@ -71,7 +71,7 @@ connection.onmessage = event => {
   
   else if (msgObj.type == 'command-loading') {  
    aRestaurant.innerHTML='';
-   aRestaurant.textContent="Loading a restaurant,Please wait...";
+   aRestaurant.textContent="Loading a restaurant, Please wait...";
  
   
   }
@@ -79,7 +79,7 @@ connection.onmessage = event => {
    
    // alert("command now");
     aRestaurant.innerHTML='';
-    aRestaurant.textContent="Loading a restaurant,Please wait...";
+    aRestaurant.textContent="Loading a restaurant, Please wait...";
  
     let restaurant = msgObj.info;
     getRestaurant(restaurant);
@@ -213,9 +213,7 @@ document.querySelector('#start').addEventListener('click', () => {
 let msgObj = {
     "type": "message",
     "from": "host",
-    "msg": "Let's start!"
-//  "msg": "Loading restaurants, Please wait..."
-  
+    "msg": "Let's start!"  
   }
   connection.send(JSON.stringify(msgObj))
   
@@ -223,8 +221,7 @@ let msgObj = {
   let msgObj1 = {
     "type": "command-loading",
     "from": "host",
-//    "msg": "Let's start!"
-   "msg": "Loading restaurants, Please wait..."
+    "msg": "Loading restaurants, Please wait..."
   
   }
   connection.send(JSON.stringify(msgObj1))
@@ -242,9 +239,7 @@ let msgObj = {
  }
   // all set up!  Send off the HTTP request
  xmlhttp.send();
- //  alert('redirecting...');
  
-// window.location.href = "https://brainy-ionian-find.glitch.me/client.html";
 });
 
 

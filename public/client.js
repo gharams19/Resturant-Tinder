@@ -74,13 +74,13 @@ connection.onmessage = event => {
     addMessage(msgObj.from + ": " + msgObj.msg);
   } else if (msgObj.type == "command") {
     
-    aRestaurant.textContent = "Loading a restaurant,Please wait...";
+    aRestaurant.textContent = "Loading a restaurant, Please wait...";
     let restaurant = msgObj.info;
     getRestaurant(restaurant);
   }
   else if (msgObj.type == 'command-loading') {
    aRestaurant.innerHTML="";
-   aRestaurant.textContent="Loading a restaurant,Please wait...";
+   aRestaurant.textContent="Loading a restaurant, Please wait...";
  
   }
   else if (msgObj.type == "gameover") {
