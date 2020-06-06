@@ -69,7 +69,8 @@ connection.onmessage = event => {
     addMessage(msgObj.from+": "+msgObj.msg);
   } 
   
-  else if (msgObj.type == 'command-loading') {   
+  else if (msgObj.type == 'command-loading') {  
+  aRestaurant.innerHTML="";
    aRestaurant.textContent="Loading a restaurant,Please wait...";
  
   

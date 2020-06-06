@@ -349,6 +349,7 @@ app.get("/retrieveAutoComplete", function(req, res) {
 });
 
 app.post("/retrieveRestaurants", function(req, res) {
+  totalRes+=1;
   console.log("retrieve restaurants.");
   var location = req.body.param1;
   var keywords = req.body.param2;
