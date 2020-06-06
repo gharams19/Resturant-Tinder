@@ -343,7 +343,6 @@ div.gallery img {
 
 #join {
   margin-left: 10px;
-  margin-top:10px;
 }
 .review {
     padding-right: 85px;
@@ -358,6 +357,7 @@ header {
   color: white;
   background-color: #ff8585;
   padding-bottom: 30px;
+  margin-bottom: 20px;
 
 }
 #client-name {
