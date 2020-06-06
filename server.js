@@ -506,6 +506,7 @@ app.get("/kickoffgame", function(req, res, next) {
   gameover=0;
   currentRestaurant=0;  
   max_round=3;
+  INSERT_UPDATE_TYPE=1;
 
   console.log("start game ", "voteYes=", voteYes, "voteCount=", voteCount);
   //   restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
