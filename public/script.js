@@ -99,8 +99,8 @@ connection.onmessage = event => {
     
   }
    else if (msgObj.type == 'abort') {
-  //  let dataList = document.getElementById("restaurant");
-  //  dataList.textContent="";
+    //let dataList = document.getElementById("restaurant_page");
+   // dataList.textContent='';
     addMessage("None of the restaurants have been choosen. The game is over!  ");
           
   }

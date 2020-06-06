@@ -499,6 +499,8 @@ app.get("/businessdetails", function(request, response, next) {
 app.get("/kickoffgame", function(req, res, next) {
   voteCount = 0;
   voteYes = 0;
+  
+
   console.log("start game");
   //   restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
    console.log("kick off ",restaurantList[0]);
