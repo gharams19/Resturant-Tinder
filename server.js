@@ -31,7 +31,6 @@ var restaurantInfo = "";
 var broadcast_data = "";
 let msgObj = [];
 let INSERT_UPDATE_TYPE = 1;
-let totalRes = 0;
 
 
 
@@ -41,7 +40,6 @@ wss.on("connection", ws => {
   voteYes = 0;
   voteCount = 0;
   gameover = 0;
-  totalRes = 0;
   INSERT_UPDATE_TYPE = 1;
   restaurantList = [];
   
@@ -62,12 +60,10 @@ wss.on("connection", ws => {
       );
       voteYes += msgObj.selection;
       voteCount += 1;
-      totalRes+=1
 
       console.log("voteYes=", voteYes);
       console.log("voteCount=", voteCount);
       console.log("clientCount=", clientCount);
-      console.log("totalRes=", totalRes);
       console.log("gameover=", gameover);
       if (voteCount == clientCount) {
         console.log(
