@@ -355,7 +355,15 @@ div.gallery img {
   background-color:#ff7f7f;
 }
 header {
-  padding-top: 10px;
+  padding-top: 30px;
+  color: white;
+/*   margin-left: 115px; */
+  font-weight: bold;
+  font-size: 40px;
+  background-color: #ff8585;
+  padding-left: 110px;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
 }
 #client-name {
   color: white; 
