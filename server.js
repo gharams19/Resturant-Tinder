@@ -503,7 +503,9 @@ app.get("/businessdetails", function(request, response, next) {
 app.get("/kickoffgame", function(req, res, next) {
   voteCount = 0;
   voteYes = 0;
-  
+  gameover=0;
+  currentRestaurant=0;  
+  max_round=3;
 
   console.log("start game ", "voteYes=", voteYes, "voteCount=", voteCount);
   //   restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
