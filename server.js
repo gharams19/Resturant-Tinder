@@ -41,6 +41,7 @@ wss.on("connection", ws => {
   voteYes = 0;
   voteCount = 0;
   gameover = 0;
+  totalRes = 0;
   INSERT_UPDATE_TYPE = 1;
   restaurantList = [];
   
@@ -138,7 +139,6 @@ wss.on("connection", ws => {
         // console.log(restaurantInfo);
       } else {
         //broadcase number of votes for the restaurants so far
-
         var percent = voteYes + "/";
         var percent = percent + totalRes;
 
@@ -563,7 +563,7 @@ function saveRestaurants(response) {
 }
 
 app.post("/getARestaurant", function(request, response) {
-    totalRes+=1
+    totalRes+=0.5
 
   console.log("calling database get a restaurant");
   let r = request.body.queryID;
