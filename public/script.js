@@ -53,6 +53,8 @@ let keyword_input = document.getElementById("keyword");
 let location_input = document.getElementById("location");
 let autocompletelist = document.getElementById("autocompletelist");
 let autoCompleteList = [];
+let start_button = document.getElementById("start_button");
+
 
 keyword_input.value='';
 location_input.value='';
@@ -91,6 +93,7 @@ connection.onmessage = event => {
      let restaurant = msgObj.info;
      getWinningRestaurant(restaurant);
      addMessage("We got a winner!");
+     start_button.style="display:none";
   }
   else if (msgObj.type == 'startover') {
 
@@ -102,6 +105,7 @@ connection.onmessage = event => {
   }
    else if (msgObj.type == 'abort') {
  
+    start_button.style="display:none";
     getEmptyestaurant();
     addMessage("None of the restaurants have been choosen. The game is over!  ");
           
@@ -251,6 +255,7 @@ document.querySelector('#go').addEventListener('click', () => {
   //var sel = autolist.selectedIndex;
   let  search_word = keyword.value;
 
+  start_button.style="display:block";
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
   xmlhttp.open("POST", '/retrieveRestaurants');
