@@ -264,7 +264,7 @@ document.querySelector('#start').addEventListener('click', () => {
 let msgObj = {
     "type": "message",
     "from": "host",
-    "msg": "lets start"
+    "msg": "let's start"
   }
   connection.send(JSON.stringify(msgObj))
 // connection.send(JSON.stringify(msgObj));
