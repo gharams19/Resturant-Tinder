@@ -73,7 +73,7 @@ wss.on("connection", ws => {
           restaurantList[currentRestaurant]
         );
         //save voting result for the restaurant
-        //voteCount = 0;
+        voteCount = 0;
         // voteYes =0;
 
         //eliminate the restaurant no bodys likes
@@ -92,7 +92,7 @@ wss.on("connection", ws => {
         if (gameover == 0 ) {
           console.log("game is not over.");
           saveVoteResult(restaurantList[currentRestaurant], voteYes);
-          voteCount = 0;
+        //  voteCount = 0;
           voteYes = 0;
           currentRestaurant += 1;
 
@@ -128,6 +128,7 @@ wss.on("connection", ws => {
             //just produce winner based on who won the most votes
             console.log ("no more rounds left .... sigh.");
             getWinner() ;
+            
             
             
           }
@@ -282,9 +283,9 @@ restaurantList=[];
       broadcast(JSON.stringify({ type: "startover", info: restaurantList[0] }));
     } else {
       console.log("aborting game");
-      voteYes=0;
-      voteCount=0;
-      gameover=0;
+     // voteYes=0;
+     // voteCount=0;
+     // gameover=0;
       broadcast(JSON.stringify({ type: "abort", info: "game is over" }));
     }
   });
