@@ -64,6 +64,7 @@ wss.on("connection", ws => {
       console.log("voteYes=", voteYes);
       console.log("voteCount=", voteCount);
       console.log("clientCount=", clientCount);
+      console.log("totalRes=", totalRes);
       console.log("gameover=", gameover);
       if (voteCount == clientCount) {
         console.log(
@@ -139,7 +140,7 @@ wss.on("connection", ws => {
         //broadcase number of votes for the restaurants so far
 
         var percent = voteYes + "/";
-        var percent = percent + clientCount;
+        var percent = percent + totalRes;
 
         console.log("percent =", percent);
         broadcast_data = JSON.stringify({
@@ -349,7 +350,6 @@ app.get("/retrieveAutoComplete", function(req, res) {
 });
 
 app.post("/retrieveRestaurants", function(req, res) {
-  totalRes+=1;
   console.log("retrieve restaurants.");
   var location = req.body.param1;
   var keywords = req.body.param2;
@@ -563,6 +563,8 @@ function saveRestaurants(response) {
 }
 
 app.post("/getARestaurant", function(request, response) {
+    totalRes+=1
+
   console.log("calling database get a restaurant");
   let r = request.body.queryID;
   // let r = request.query.id;

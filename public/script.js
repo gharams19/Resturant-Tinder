@@ -105,6 +105,7 @@ connection.onmessage = event => {
           
   }
   else if (msgObj.type == 'progress') {
+    console.log("progress",msgObj.info);
  
      //alert('progress'+msgObj.info);
      displayProgress(msgObj.info);
