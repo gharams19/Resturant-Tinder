@@ -406,8 +406,11 @@ function getRestaurant(queryStringID){
          
              
             //clean up
-            dataList.textContent="";          
-            restaurantPage.textContent="";
+           // dataList.textContent="";          
+           // restaurantPage.textContent="";
+            
+            dataList.innerHTML='';          
+           // restaurantPage.textContent="";
          
             var yes_btn_div = document.createElement("div");          
             var no_btn_div = document.createElement("div");
