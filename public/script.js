@@ -70,7 +70,7 @@ connection.onmessage = event => {
   } 
   
   else if (msgObj.type == 'command-loading') {  
-  aRestaurant.innerHTML="";
+   aRestaurant.innerHTML='';
    aRestaurant.textContent="Loading a restaurant,Please wait...";
  
   
@@ -99,8 +99,8 @@ connection.onmessage = event => {
     
   }
    else if (msgObj.type == 'abort') {
-    //let dataList = document.getElementById("restaurant_page");
-   // dataList.textContent='';
+    let dataList = document.getElementById("restaurant");
+    dataList.textContent='';
     addMessage("None of the restaurants have been choosen. The game is over!  ");
           
   }
