@@ -103,7 +103,7 @@ connection.onmessage = event => {
    else if (msgObj.type == 'abort') {
    //let dataList = document.getElementById("restaurant");
   //  dataList.textContent='';
-     getEmptyRestaurant();
+     getEmptyestaurant();
     addMessage("None of the restaurants have been choosen. The game is over!  ");
           
   }
@@ -1061,9 +1061,7 @@ function getEmptyestaurant(){
           let dataList = document.getElementById("restaurant");
           let restaurantPage = document.getElementById("restaurant_page");
           let progress = document.getElementById("progress");
-           //   progress.textContent="We got a winner!";
-            
-            //clean up
+             //clean up
             dataList.textContent="";          
             restaurantPage.textContent="";
          
@@ -1072,13 +1070,11 @@ function getEmptyestaurant(){
            var gallery_div = document.createElement("div");
            gallery_div.className="gallery";
            var img = document.createElement("img");
-        //   img.src = item.image_url;
-     
            gallery_div.appendChild(img);
     
    
           
-          var desc_container_div = document.createElement("div");
+           var desc_container_div = document.createElement("div");
            desc_container_div.className="desc_container";
           
       
