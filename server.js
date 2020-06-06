@@ -501,7 +501,7 @@ app.get("/kickoffgame", function(req, res, next) {
   voteYes = 0;
   console.log("start game");
   //   restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
-  // console.log(restaurantList[0]);
+   console.log("kick off ",restaurantList[0]);
   broadcast(JSON.stringify({ type: "command", info: restaurantList[0] }));
 });
 
