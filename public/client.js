@@ -25,11 +25,23 @@ let addMessage = function(message) {
   pTag.appendChild(document.createTextNode(message));
   document.getElementById("messages").appendChild(pTag);
 };
+/*
 let displayProgress = function(message) {
   const pTag = document.getElementById("progress");
   pTag.textContent = message;
 };
+*/
 
+let displayProgress = function(message) {
+  console.log("progress", message);
+  const restaurant_panel = document.getElementById("restaurant");
+  const pTag = document.createElement("div");
+  pTag.className="progress";
+  pTag.textContent=message;
+  restaurant_panel.appendChild(pTag);
+
+
+};
 connection.onopen = () => {
   connection.send(JSON.stringify({ type: "helloClient" }));
 };
