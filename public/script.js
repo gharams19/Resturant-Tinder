@@ -101,9 +101,8 @@ connection.onmessage = event => {
     
   }
    else if (msgObj.type == 'abort') {
-   //let dataList = document.getElementById("restaurant");
-  //  dataList.textContent='';
-     getEmptyestaurant();
+ 
+    getEmptyestaurant();
     addMessage("None of the restaurants have been choosen. The game is over!  ");
           
   }
@@ -1049,9 +1048,6 @@ function getWinningRestaurant(queryStringID){
            restaurantPage.appendChild(gallery_div);
            dataList.appendChild(restaurantPage);
   }
-  // all set up!  Send off the HTTP request
- //    var data = JSON.stringify({ "name": name.value, "email": email.value }); 
-  
   xmlhttp.send(JSON.stringify({ "queryID": queryStringID }));
 }
 
@@ -1061,54 +1057,21 @@ function getEmptyestaurant(){
           let dataList = document.getElementById("restaurant");
           let restaurantPage = document.getElementById("restaurant_page");
           let progress = document.getElementById("progress");
-             //clean up
-            dataList.textContent="";          
-            restaurantPage.textContent="";
-         
-            
-              
-           var gallery_div = document.createElement("div");
-           gallery_div.className="gallery";
-           var img = document.createElement("img");
-           gallery_div.appendChild(img);
-    
-   
           
-           var desc_container_div = document.createElement("div");
-           desc_container_div.className="desc_container";
-          
-      
-           var price_div = document.createElement("div");
-           price_div.className="price";
-      
-           var desc_div = document.createElement("div");
-           desc_div.className="desc";
-            
-            desc_container_div.appendChild(desc_div);
-            desc_container_div.appendChild(price_div);
-          
-            
-           var title_div = document.createElement("div");
-           title_div.className="title";
-    
-       
-           var  rating_div = document.createElement("div");
-           rating_div.className="rating";
-          
-       
-           var review_container_div = document.createElement("div");
-           review_container_div.className="review_container";
-              
-         
-      
-           gallery_div.appendChild(desc_container_div);
-           gallery_div.appendChild(rating_div);  
-           gallery_div.appendChild( title_div);    
-           gallery_div.appendChild( review_container_div);   
-            
+          dataList.textContent="";          
+          restaurantPage.textContent="";
+           
                    
-           restaurantPage.appendChild(gallery_div);
-           dataList.appendChild(restaurantPage);
+          var gallery_div = document.createElement("div");
+          gallery_div.className="gallery";
+          var img = document.createElement("img");
+          gallery_div.appendChild(img);
+    
+      
+          gallery_div.style.backgroundColor="#ff6b6b";
+                   
+          restaurantPage.appendChild(gallery_div);
+          dataList.appendChild(restaurantPage);
           
 }
 
