@@ -77,7 +77,9 @@ connection.onmessage = event => {
   }
   else if (msgObj.type == 'command') {
    
-   aRestaurant.textContent="Loading a restaurant,Please wait...";
+   // alert("command now");
+    aRestaurant.innerHTML='';
+    aRestaurant.textContent="Loading a restaurant,Please wait...";
  
     let restaurant = msgObj.info;
     getRestaurant(restaurant);

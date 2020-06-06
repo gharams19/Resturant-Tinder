@@ -316,7 +316,7 @@ restaurantList=[];
   });
 }
 app.get("/retrieveAutoComplete", function(req, res) {
-  console.log("retrieve restaurants.");
+ // console.log("retrieve restaurants.");
 
   const searchRequest = {
     categories: "Restaurants",
@@ -581,9 +581,7 @@ app.post("/getARestaurant", function(request, response) {
     if (rows == undefined) {
       console.log("No rows found:getARestaurant");
     } else {
-      console.log("Database file found:getARestaurant");
-      
-      
+      console.log("Database file found:getARestaurant");      
       response.json(rows);
       
     }
