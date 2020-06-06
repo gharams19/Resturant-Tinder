@@ -31,7 +31,7 @@ var restaurantInfo = "";
 var broadcast_data = "";
 let msgObj = [];
 let INSERT_UPDATE_TYPE = 1;
-
+let totalRes = 0;
 
 
 
