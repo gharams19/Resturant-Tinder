@@ -153,7 +153,7 @@ function autoComplete_all() {
  
     });
      
-   // document.getElementById("keyword").text="";
+ 
   }
       
   
@@ -169,7 +169,7 @@ function autoComplete_all() {
     "keyword": search_word,
     categories:"restaurants, All"
   }
-  //alert(data.keyword);
+ 
   console.log(data.keyword);
   let xhr = new XMLHttpRequest;
  
@@ -179,15 +179,15 @@ function autoComplete_all() {
   // setup callback function
   xhr.onloadend = function(e) {
     //console.log(e);
-    console.log(xhr.responseText);     
+  console.log(xhr.responseText);     
     
    // show_popup( xhr.responseText);
-    let responseStr = xhr.responseText;  // get the JSON string 
+  let responseStr = xhr.responseText;  // get the JSON string 
   //  alert(responseStr);
-    let wordList = JSON.parse(responseStr);  // turn it into an object
+  let wordList = JSON.parse(responseStr);  // turn it into an object
       
     
-    let dataList = document.getElementById("autocompletelist");
+  let dataList = document.getElementById("autocompletelist");
 
       wordList.forEach(function(item) {
         // Create a new <option> element.
@@ -202,12 +202,11 @@ function autoComplete_all() {
     
     document.getElementById("keyword").text="";
   }
-      
-  
+ 
 
     
     xhr.send(JSON.stringify({ "keyword":search_word }));
-     // event.stopPropagation();
+   
 }
 
 document.querySelector('#start').addEventListener('click', () => {
@@ -233,9 +232,7 @@ let msgObj = {
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
   xmlhttp.open("GET", '/kickoffgame');
-  // important to set this for body-parser
-//  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  // setup callback function
+
    
   xmlhttp.onloadend = function(e) {
   console.log("finish loading restaurants.");
@@ -258,10 +255,6 @@ document.querySelector('#go').addEventListener('click', () => {
   var keyword = document.getElementById("keyword");
   //var sel = autolist.selectedIndex;
   let  search_word = keyword.value;
- // let search_word = autolist.value;
-  
-
- // alert(search_word);
 
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
@@ -274,7 +267,7 @@ document.querySelector('#go').addEventListener('click', () => {
   console.log(xmlhttp.responseText);
     
    let responseStr = xmlhttp.responseText;  // get the JSON string 
-  //  alert(responseStr);
+ 
     let  restaurantList = JSON.parse(responseStr);  // turn it into an object      
     let dataList = document.getElementById("image_panel");
   

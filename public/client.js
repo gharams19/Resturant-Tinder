@@ -73,13 +73,9 @@ connection.onmessage = event => {
   if (msgObj.type == "message") {
     addMessage(msgObj.from + ": " + msgObj.msg);
   } else if (msgObj.type == "command") {
-    //   button1.textContent = msgObj.info[0];
-    //   button2.textContent = msgObj.info[1];
+    
     aRestaurant.textContent = "Loading a restaurant,Please wait...";
-
     let restaurant = msgObj.info;
-    //  alert('got another restaurant ' + restaurant);
-    //send AJAX request to server to get a restaurant
     getRestaurant(restaurant);
   }
   else if (msgObj.type == 'command-loading') {
