@@ -375,7 +375,7 @@ app.post("/retrieveRestaurants", function(req, res) {
   restaurantDB.get(cmd, function(err, rows) {
     console.log(err, rows);
     if (rows == undefined) {
-      console.log("No rows found");
+     // console.log("No rows found");
     } else {
       console.log("rows are deleted in restaurantsTable");
     }
@@ -383,9 +383,9 @@ app.post("/retrieveRestaurants", function(req, res) {
 
   let cmd1 = "DELETE FROM votingTable  ";
   restaurantDB.get(cmd1, function(err, rows) {
-    console.log(err, rows);
+   // console.log(err, rows);
     if (rows == undefined) {
-      console.log("No rows found");
+     // console.log("No rows found");
     } else {
       console.log("rows are deleted in votingTable");
     }
@@ -579,7 +579,7 @@ app.post("/getARestaurant", function(request, response) {
   restaurantDB.get(cmd, r, function(err, rows) {
     console.log(err, rows);
     if (rows == undefined) {
-      console.log("No rows found");
+      console.log("No rows found:getARestaurant");
     } else {
       console.log("Database file found:getARestaurant");
       
