@@ -99,6 +99,7 @@ connection.onmessage = event => {
     //send AJAX request to server to get a restaurant
     getRestaurant(restaurant);
   } else if (msgObj.type == "progress") {
+    displayProgress(msgObj.info);
   } else if (msgObj.type == "abort") {
     let dataList = document.getElementById("restaurant");
      dataList.textContent="";
