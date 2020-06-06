@@ -103,8 +103,8 @@ connection.onmessage = event => {
   } else if (msgObj.type == "progress") {
     displayProgress(msgObj.info);
   } else if (msgObj.type == "abort") {
-    let dataList = document.getElementById("restaurant");
-     dataList.textContent="";
+   // let dataList = document.getElementById("restaurant");
+  //   dataList.textContent="";
      addMessage("None of the restaurants have been choosen. The game is over!  ");
   } else {
     addMessage(msgObj.type);
