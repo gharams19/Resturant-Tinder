@@ -80,7 +80,9 @@ connection.onmessage = event => {
     //  alert('got another restaurant ' + restaurant);
     //send AJAX request to server to get a restaurant
     getRestaurant(restaurant);
-  } else if (msgObj.type == "gameover") {
+  }
+  
+  else if (msgObj.type == "gameover") {
     //   button1.textContent = msgObj.info[0];
     //   button2.textContent = msgObj.info[1];
     aRestaurant.textContent = msgObj.addMessageinfo;

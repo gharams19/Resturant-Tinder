@@ -264,10 +264,10 @@ document.querySelector('#start').addEventListener('click', () => {
 let msgObj = {
     "type": "message",
     "from": "host",
-    "msg": "let's start"
+    "msg": "Let's start!"
   }
   connection.send(JSON.stringify(msgObj))
-// connection.send(JSON.stringify(msgObj));
+
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
   xmlhttp.open("GET", '/kickoffgame');
