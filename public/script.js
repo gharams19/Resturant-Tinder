@@ -410,7 +410,7 @@ function getRestaurant(queryStringID){
            // restaurantPage.textContent="";
             
             dataList.innerHTML='';          
-           // restaurantPage.textContent="";
+            restaurantPage.textContent='';
          
             var yes_btn_div = document.createElement("div");          
             var no_btn_div = document.createElement("div");
