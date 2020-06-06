@@ -66,6 +66,7 @@ connection.onmessage = event => {
 let progressBar = document.getElementById("progress");
 let aRestaurant = document.getElementById("restaurant_page");
 
+
 connection.onmessage = event => {
   //console.log("from client", event.data);
   let msgObj = JSON.parse(event.data);
@@ -82,23 +83,15 @@ connection.onmessage = event => {
     getRestaurant(restaurant);
   }
   else if (msgObj.type == 'command-loading') {
-   
+   aRestaurant.innerHTML="";
    aRestaurant.textContent="Loading a restaurant,Please wait...";
  
-   // let restaurant = msgObj.info;
-    //  alert('got another restaurant ' + restaurant);
-    //send AJAX request to server to get a restaurant
-   //  getRestaurant(restaurant);
-    
   }
   else if (msgObj.type == "gameover") {
-    //   button1.textContent = msgObj.info[0];
-    //   button2.textContent = msgObj.info[1];
+  
     aRestaurant.textContent = msgObj.addMessageinfo;
 
     let restaurant = msgObj.info;
-    //  alert('got another restaurant ' + restaurant);
-    //send AJAX request to server to get a restaurant
     getWinningRestaurant(restaurant);
     addMessage("We got a winner!");
   } else if (msgObj.type == "startover") {
@@ -106,16 +99,12 @@ connection.onmessage = event => {
     aRestaurant.textContent = msgObj.info;
 
     let restaurant = msgObj.info;
-    //  alert('got another restaurant ' + restaurant);
-    //send AJAX request to server to get a restaurant
     getRestaurant(restaurant);
   } else if (msgObj.type == "progress") {
     displayProgress(msgObj.info);
   } else if (msgObj.type == "abort") {
     let dataList = document.getElementById("restaurant");
      dataList.textContent="";
-   
-  // dataList.textContent=msgObj.info;
      addMessage("None of the restaurants have been choosen. The game is over!  ");
   } else {
     addMessage(msgObj.type);

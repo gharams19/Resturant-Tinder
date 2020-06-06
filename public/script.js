@@ -60,34 +60,7 @@ location_input.value='';
 
 autocompletelist.options.length = 0;
 
-/*
-connection.onmessage = event => {
-  let msgObj = JSON.parse(event.data);
-  if (msgObj.type == "message") {
-    addMessage(msgObj.from+": "+msgObj.msg);
-  }
-  else if (msgObj.type == 'command') {
- //   button1.textContent = msgObj.info[0];
- //   button2.textContent = msgObj.info[1];
-    aRestaurant.textContent=msgObj.info;
- 
-     let restaurant = msgObj.info;
-    //  alert('got another restaurant ' + restaurant);
-    //send AJAX request to server to get a restaurant
-     getRestaurant(restaurant);
-    
-  }
-  else if (msgObj.type == 'progress') {
- 
- 
-     displayProgress(msgObj.info);
-    
-  }
-  else {
-    addMessage(msgObj.type);
-  }
-};
-*/
+
 connection.onmessage = event => {
  
   //console.log("from client", event.data);
@@ -96,61 +69,38 @@ connection.onmessage = event => {
     addMessage(msgObj.from+": "+msgObj.msg);
   } 
   
-    else if (msgObj.type == 'command-loading') {
-   
+  else if (msgObj.type == 'command-loading') {   
    aRestaurant.textContent="Loading a restaurant,Please wait...";
  
-   // let restaurant = msgObj.info;
-    //  alert('got another restaurant ' + restaurant);
-    //send AJAX request to server to get a restaurant
-   //  getRestaurant(restaurant);
-    
+  
   }
   else if (msgObj.type == 'command') {
    
    aRestaurant.textContent="Loading a restaurant,Please wait...";
  
     let restaurant = msgObj.info;
-    //  alert('got another restaurant ' + restaurant);
-    //send AJAX request to server to get a restaurant
-     getRestaurant(restaurant);
+    getRestaurant(restaurant);
     
   }
      else if (msgObj.type == 'gameover') {
- //   button1.textContent = msgObj.info[0];
- //   button2.textContent = msgObj.info[1];
-      // alert('got winner');
-    aRestaurant.textContent=msgObj.addMessageinfo;
+     aRestaurant.textContent=msgObj.addMessageinfo;
  
      let restaurant = msgObj.info;
-    //  alert('got another restaurant ' + restaurant);
-    //send AJAX request to server to get a restaurant
      getWinningRestaurant(restaurant);
-    addMessage("We got a winner!");
+     addMessage("We got a winner!");
   }
   else if (msgObj.type == 'startover') {
- //   alert('next round');
+
     aRestaurant.textContent=msgObj.info;
  
      let restaurant = msgObj.info;
-    //  alert('got another restaurant ' + restaurant);
-    //send AJAX request to server to get a restaurant
       getRestaurant(restaurant);
     
   }
    else if (msgObj.type == 'abort') {
-   // alert('abort');
-    
- 
-   //  let message = msgObj.info;
-    //  alert('got another restaurant ' + restaurant);
-    //send AJAX request to server to get a restaurant
-   // displayProgress(message);
     let dataList = document.getElementById("restaurant");
     dataList.textContent="";
-   
-  // dataList.textContent=msgObj.info;
-  addMessage("None of the restaurants have been choosen. The game is over!  ");
+    addMessage("None of the restaurants have been choosen. The game is over!  ");
           
   }
   else if (msgObj.type == 'progress') {
@@ -164,20 +114,8 @@ connection.onmessage = event => {
   }
 };
 
-
-//let keyword = document.getElementById("keyword");
-//keyword.addEventListener("input", autoComplete);
-
 autoComplete_all();
-
-//let keyword1 = document.getElementById("keyword");
-//keyword1.addEventListener("click", clearbox);
-
-//function clearbox() {
-//  keyword1.value="";
-//}
-//autoComplete_all();
-  function autoComplete_all() {
+function autoComplete_all() {
 
   //alert('autocompleteall');
   let url = "/retrieveAutoComplete";
@@ -269,9 +207,6 @@ autoComplete_all();
 }
 
 document.querySelector('#start').addEventListener('click', () => {
-// alert('here');
- // let location = document.getElementById("location").value;
- // let search_word = document.getElementById("autocompletelist").options[0].value;
 let msgObj = {
     "type": "message",
     "from": "host",
@@ -286,7 +221,7 @@ let msgObj = {
     "type": "command-loading",
     "from": "host",
 //    "msg": "Let's start!"
-  "msg": "Loading restaurants, Please wait..."
+   "msg": "Loading restaurants, Please wait..."
   
   }
   connection.send(JSON.stringify(msgObj1))
