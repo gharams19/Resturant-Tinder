@@ -355,21 +355,25 @@ div.gallery img {
   background-color:#ff7f7f;
 }
 header {
-  padding-top: 30px;
   color: white;
-/*   margin-left: 115px; */
-  font-weight: bold;
-  font-size: 40px;
   background-color: #ff8585;
-  padding-left: 110px;
-  padding-bottom: 30px;
-  margin-bottom: 20px;
+  width: 100%;
+
 }
 #client-name {
   color: white; 
   margin-left: 10px; 
   font-family: "Open Sans"; 
   font-size: 20px;
+}
+#ResSymbol{
+  width: 50px;
+  margin-left: 800px;
+}
+#title {
+  font-size: 40px;
+  margin-left: 140px;
+  margin-top: 50px;
 }
 
 
