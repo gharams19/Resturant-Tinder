@@ -95,8 +95,19 @@ connection.onmessage = event => {
   if (msgObj.type == "message") {
     addMessage(msgObj.from+": "+msgObj.msg);
   } 
+  
+    else if (msgObj.type == 'command-loading') {
+   
+   aRestaurant.textContent="Loading a restaurant,Please wait...";
+ 
+   // let restaurant = msgObj.info;
+    //  alert('got another restaurant ' + restaurant);
+    //send AJAX request to server to get a restaurant
+   //  getRestaurant(restaurant);
+    
+  }
   else if (msgObj.type == 'command') {
-   //alert('loading...');
+   
    aRestaurant.textContent="Loading a restaurant,Please wait...";
  
     let restaurant = msgObj.info;
@@ -265,8 +276,20 @@ let msgObj = {
     "type": "message",
     "from": "host",
     "msg": "Let's start!"
+//  "msg": "Loading restaurants, Please wait..."
+  
   }
   connection.send(JSON.stringify(msgObj))
+  
+  
+  let msgObj1 = {
+    "type": "command-loading",
+    "from": "host",
+//    "msg": "Let's start!"
+  "msg": "Loading restaurants, Please wait..."
+  
+  }
+  connection.send(JSON.stringify(msgObj1))
 
   // new HttpRequest instance 
   var xmlhttp = new XMLHttpRequest();   
