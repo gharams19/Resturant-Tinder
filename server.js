@@ -282,6 +282,9 @@ restaurantList=[];
       broadcast(JSON.stringify({ type: "startover", info: restaurantList[0] }));
     } else {
       console.log("aborting game");
+      voteYes=0;
+      voteCount=0;
+      gameover=0;
       broadcast(JSON.stringify({ type: "abort", info: "game is over" }));
     }
   });
@@ -501,7 +504,7 @@ app.get("/kickoffgame", function(req, res, next) {
   voteYes = 0;
   
 
-  console.log("start game");
+  console.log("start game ", "voteYes=", voteYes, "voteCount=", voteCount);
   //   restaurantList[0]= 'gwkvtz084moqbnrn8jobgs';
    console.log("kick off ",restaurantList[0]);
   broadcast(JSON.stringify({ type: "command", info: restaurantList[0] }));
